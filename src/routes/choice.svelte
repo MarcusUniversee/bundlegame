@@ -1,11 +1,8 @@
 <script>
     import {
-		elapsed,
 		game,
-		earned,
-		history,
 		logHistory
-	} from '$lib/stores.js';
+	  } from '$lib/stores.js';
 
     function goToLeisure() {
         $game.inLeisure = true;

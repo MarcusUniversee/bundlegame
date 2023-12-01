@@ -12,10 +12,6 @@
 	let penalty = 0;
 
 	/* WORD LIST */
-	// function pickRandomWord(wordBank, seed) {
-	// 	const randomIndex = seededRandom(seed, 0, wordBank.length - 1);
-	// 	return wordBank[randomIndex];
-	// }
 	function pickWord(wordBank) {
 		const randI = Math.floor(Math.random(wordBank.length) * wordBank.length);
 		return wordBank[randI];
@@ -23,7 +19,7 @@
 	const wordBank = $game.isUberEats
 		? ['apple', 'coconut', 'banana', 'pineapple']
 		: ['red', 'green', 'yellow'];
-	// let currentWord = wordBank[stepsLeft % wordBank.length];
+	
 	let currentWord = pickWord(wordBank);
 	let mistakes = 0;
 
@@ -71,6 +67,7 @@
 		
 	}
 
+	// Detect keys pressed (record copy paste)
 	function handleKeyUp(event) {
 		if (event.key === 'Enter') {
 			checkGuess();
@@ -79,8 +76,6 @@
 			logHistory("copy paste", currentWord, 'Paste action detected');
 		}
 	}
-
-	// const lastEntry = $history[$history.length - 1];
 
 	function finish() {
 		// const penalty = 0;
@@ -106,21 +101,10 @@
 		gameState.time = timePassed;
 		gameState.hardLimit = hardLimit;
 
-		// history.update((list) => {
-		// // 	list.push({
-		// //     status: 'finished',
-		// //     mistakes: mistakes,
-		// // 	earning: $game.earnings - penalty,
-		// //     time: timePassed,
-		// // });
-		// 	list[$history.length - 1] = lastEntry;
-		// 	return list;
-		// });
-		// const penalty = timePassed > timeLimit ? Math.min(timePassed - timeLimit, $game.earnings) : 0;
-		// endGame($game.earnings - penalty);
 		endGame(earned, gameState);
 	}
 
+	// reactive element
 	$: {
 		status = displayStatus;
 
@@ -141,7 +125,7 @@
 			Timer: {timeLimit - timePassed}
 			<!-- (Debug time taken: {timePassed}) -->
 		</h3>
-		<p>Left: {stepsLeft}</p>
+		<p>Task Left: {stepsLeft}</p>
 
 		<img id="input-img" src="./images/{currentWord}.jpg" alt="img" />
 		<input bind:value={userInput} type="text" placeholder="Input" on:keydown={handleKeyUp} />

@@ -2,7 +2,6 @@
 	import Card from './card.svelte';
 	import { onMount } from 'svelte';
 	import { logHistory, jobs, generateData, game } from '$lib/stores.js';
-	import { data } from '$lib/data.js';
   
 	function switchToLeisure() {
 		$game.inLeisure = true;
@@ -11,6 +10,7 @@
 	
 	generateData();
 
+	// update job data, log history
 	onMount(() => {
 		const jobStrings = $jobs.map(
 			(job) =>
@@ -21,7 +21,6 @@
 			[job.index, job.waitTime, job.timeLimit]
 		)
 		logHistory("enter home screen", joblists, `Entered home screen, displayed jobs: ${JSON.stringify(jobStrings)}`);
-		// generateData();
 	});
 </script>
 
@@ -29,7 +28,7 @@
 	<button on:click={switchToLeisure}>Switch to Leisure</button>
 </div>
 <div class="choices">
-	<!-- <button on:click={switchToLeisure}>Switch to Leisure</button> -->
+	<!-- each job is a Card element in card.svelte -->
 	<Card jobData={$jobs[3]} color="#ecb98d" />
 	<Card jobData={$jobs[2]} color="#eea7cf" />
 	<Card jobData={$jobs[1]} color="#96f0c8" />
