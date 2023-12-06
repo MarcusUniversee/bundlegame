@@ -126,7 +126,7 @@
 			<!-- (Debug time taken: {timePassed}) -->
 		</h3>
 		<p>Task Left: {stepsLeft}</p>
-
+		<!-- show image corresponding to the current word -->
 		<img id="input-img" src="./images/{currentWord}.jpg" alt="img" />
 		<input bind:value={userInput} type="text" placeholder="Input" on:keydown={handleKeyUp} />
 
