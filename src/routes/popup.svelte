@@ -52,7 +52,7 @@
     };
 
     onMount(() => {
-        timer = setTimeout(noResponse, 5000); // set a timer to trigger cancelStay after 5 seconds
+        timer = setTimeout(noResponse, 5000); // set a timer to trigger noResponse after 5 seconds
     });
     
 </script>
