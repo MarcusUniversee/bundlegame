@@ -1,6 +1,10 @@
 // place files you want to import through the `$lib` alias in this folder.
 import { writable, readable, derived, get} from 'svelte/store';
 import { data } from '$lib/data.js';
+import { queueNJobs, queueNRandomJobs, queueNextJob, queueRandomJob } from '$lib/jobs.js'
+
+export const SAVED = 'saved';
+export const RANDOM = 'random';
 
 /* Time Stamps & History */
 export const FullTimeLimit = 1200;
@@ -10,10 +14,97 @@ export const LeisureTime = writable(0.0);
 export const leisureStart = writable(0.0);
 export const leisurePay = 0.01;
 export const GameOver = writable(false);
+export const currentGameIndex = 0;
+export const seenWords = writable(new Set())
+export const mode = writable(SAVED);
+
+// the number of jobs completed
+export const eatsJobsCompleted = writable(0);
+export const driverJobsCompleted = writable(0);
+
+const difficulty_multiplier = 5;
+
+// Normalization factors (we can't make double)
+const minDifficulty = 0;
+const maxDifficulty = 100;
+
+// Create derived stores for normalized difficulties
+export const normalized_ubereats_difficulty = derived([eatsJobsCompleted], ($eatsJobsCompleted) => {
+    const ubereats_difficulty = difficulty_multiplier * $eatsJobsCompleted;
+    return (ubereats_difficulty - minDifficulty) / (maxDifficulty - minDifficulty);
+});
+
+export const normalized_driver_difficulty = derived([driverJobsCompleted], ($driverJobsCompleted) => {
+    const driver_difficulty = difficulty_multiplier * $driverJobsCompleted;
+    return (driver_difficulty - minDifficulty) / (maxDifficulty - minDifficulty);
+});
 
 export function resetTimer() {
 	start = new Date();
 }
+
+const defaultJobs = [
+	{
+		id: 0,
+		waitTime: null,
+		timeLimit: null,
+		type: 'UberEats',
+		city: 'SF',
+		index: null,
+		data: null,
+		avgWait: 15,
+		avgEarnings: 40,
+		avgItems: 13,
+		ready: false, 
+        expired: false,
+		hasUnfamiliarItems: false,
+	},
+	{
+		id: 2,
+		waitTime: null,
+		timeLimit: null,
+		type: 'UberEats',
+		city: 'Berkeley',
+		index: null,
+		data: null,
+		avgWait: 20,
+		avgEarnings: 40,
+		avgItems: 13,
+		ready: false, 
+        expired: false,
+		hasUnfamiliarItems: true,
+	},
+	{
+		id: 3,
+		waitTime: null,
+		timeLimit: null,
+		type: 'Uber',
+		city: 'Berkeley',
+		index: null,
+		data: null,
+		avgWait: 10,
+		avgEarnings: 20,
+		avgItems: 10,
+		ready: false, 
+		expired: false,
+		hasUnfamiliarItems: false,
+	},
+	{
+		id: 1,
+		waitTime: null,
+		timeLimit: null,
+		type: 'Uber',
+		city: 'SF',
+		index: null,
+		data: null,
+		avgWait: 5,
+		avgEarnings: 20,
+		avgItems: 10,
+		ready: false, 
+		expired: false,
+		hasUnfamiliarItems: false,
+	},
+]
 
 const time = readable(new Date(), function start(set) {
 	const interval = setInterval(() => {
@@ -117,88 +208,53 @@ export function logHistory(eventKey, specific = null, message) {
 // 	});
 // }
 
-/* Home Screen Jobs */
-export const jobs = writable([
-	{
-		id: 0,
-		waitTime: null,
-		timeLimit: null,
-		type: 'UberEats',
-		city: 'SF',
-		index: null,
-		data: null,
-		avgWait: 15,
-		avgEarnings: 40,
-		avgItems: 13,
-		ready: false, 
-        expired: false
-	},
-	{
-		id: 1,
-		waitTime: null,
-		timeLimit: null,
-		type: 'Uber',
-		city: 'SF',
-		index: null,
-		data: null,
-		avgWait: 5,
-		avgEarnings: 20,
-		avgItems: 10,
-		ready: false, 
-        expired: false
-	},
-	{
-		id: 2,
-		waitTime: null,
-		timeLimit: null,
-		type: 'UberEats',
-		city: 'Berkeley',
-		index: null,
-		data: null,
-		avgWait: 20,
-		avgEarnings: 40,
-		avgItems: 13,
-		ready: false, 
-        expired: false
-	},
-	{
-		id: 3,
-		waitTime: null,
-		timeLimit: null,
-		type: 'Uber',
-		city: 'Berkeley',
-		index: null,
-		data: null,
-		avgWait: 10,
-		avgEarnings: 20,
-		avgItems: 10,
-		ready: false, 
-        expired: false
-	}
-]);
+
+export const startedWith = readable(Math.random() < 0.5 ? 'Eats' : 'Driver');
+
+// Changed to empty list and generated in generateData
+export const jobs = writable([]);
 
 // Generate job data from database
 export function generateData() {
 	jobs.update(currentJobs => {
 	  for (let i = 0; i < 4; i++) {
 		if (currentJobs[i].waitTime === null && currentJobs[i].timeLimit === null) {
-		  const index = Math.floor(Math.random() * data[i].length);
-		  const random_dataPt = data[i][index];
-		  currentJobs[i].data = random_dataPt;
-		  currentJobs[i].waitTime = random_dataPt[0];
-		  currentJobs[i].timeLimit = random_dataPt[1];
-		  currentJobs[i].index = [i, index];
-		  console.log('update:' + currentJobs[i].type + currentJobs[i].city);
-		  console.log('updated job:' + currentJobs[i].waitTime + ' ' + currentJobs[i].timeLimit);
+			const index = Math.floor(Math.random() * data[i].length);
+			const random_dataPt = data[i][index];
+			currentJobs[i].data = random_dataPt;
+			currentJobs[i].waitTime = random_dataPt[0];
+			currentJobs[i].timeLimit = random_dataPt[1];
+			currentJobs[i].index = [i, index];
+			console.log('update:' + currentJobs[i].type + currentJobs[i].city);
+			console.log('updated job:' + currentJobs[i].waitTime + ' ' + currentJobs[i].timeLimit);
+		  }
 		}
-	  }
-	  return currentJobs;
+	return currentJobs;
 	});
 }
-  
+
+export function generateDataV2() {
+	if (get(mode) === SAVED) {
+		const generatedJobs = queueNJobs(4);
+		jobs.update(currentJobs => [...currentJobs, ...generatedJobs]);		
+	}
+	if (get(mode) === RANDOM) {
+		const generatedJobs = queueNRandomJobs(4);
+		jobs.update(currentJobs => [...currentJobs, ...generatedJobs]);
+	}
+}
+
+export function generateSingleDataV2() {
+	if (get(mode) == SAVED) {
+		return queueNextJob();
+	}
+	if (get(mode) == RANDOM) {
+		return queueRandomJob();
+	}
+}
+
 export function generateSingleData(id) {
 	jobs.update(currentJobs => {
-		const index = Math.floor(Math.random() * data[id].length);
 		const random_dataPt = data[id][index];
 		currentJobs[id].data = random_dataPt;
 		currentJobs[id].waitTime = random_dataPt[0];
@@ -224,7 +280,19 @@ export const game = writable({
 	inLeisure: false,
 });
 
-export function startGame(isUberEats, earnings, numSteps, timeLimit, hardLimit) {
+export function setMode(choice) {
+	mode.set(choice);
+}
+
+/* Add word to seen words */
+export function addToSeenWords(word) {
+	seenWords.update(set => {
+		set.add(word);
+		return new Set(set); // Return a new Set to trigger reactivity
+	});
+}
+
+export function startGame(isUberEats, earnings, numSteps, timeLimit, hardLimit, hasUnfamiliarItems, eatsJobsCompleted, driverJobsCompleted) {
 	console.log('Starting');
 
 	game.set({
@@ -234,22 +302,57 @@ export function startGame(isUberEats, earnings, numSteps, timeLimit, hardLimit) 
 		earnings: earnings,
 		numSteps: numSteps,
 		timeLimit: timeLimit,
-		hardLimit: hardLimit
+		hardLimit: hardLimit,
+		hasUnfamiliarItems: hasUnfamiliarItems,
+		eatsJobsCompleted: eatsJobsCompleted,
+		driverJobsCompleted: driverJobsCompleted,
 	});
 	console.log(isUberEats.includes('UberEats'));
 }
 
-export function endGame(gained, gameState) {
+export function startGameV2(title, earnings, numSteps, timeLimit, hardLimit, hasUnfamiliarItems, eatsJobsCompleted, driverJobsCompleted, currGameWords) {
+	console.log('Starting');
+
+	/* Sets the game status to the provided fields */
+	// console.log(currGameWords);
+	game.set({
+		inGame: true,
+		title: title,
+		isUberEats: title.includes('UberEats'),
+		earnings: earnings,
+		numSteps: numSteps,
+		timeLimit: timeLimit,
+		hardLimit: hardLimit,
+		hasUnfamiliarItems: hasUnfamiliarItems,
+		eatsJobsCompleted: eatsJobsCompleted,
+		driverJobsCompleted: driverJobsCompleted,
+		currGameWords: currGameWords,
+	});
+	// console.log(isUberEats.includes('UberEats'));
+}
+
+export function endGame(gained, gameState, isUberEats) {
 	console.log('Ending');
+	let difficulty_multiplier = isUberEats ? get(normalized_ubereats_difficulty): get(normalized_ubereats_difficulty);
 
 	// earned.update((n) => n + gained);
+	/* You get (round*difficulty_multiplier)% more on subsequent rounds. Leisure has no multiplier*/
 	earned.update((n) => {
-		const updatedValue = parseFloat((n + gained).toFixed(2));
-		return updatedValue;
+		// TODO: Difficulty Multiplier
+		// const updatedValue = parseFloat((n + gained + gained*difficulty_multiplier).toFixed(2));
+		return gained + n;
 	});
+
+	/* Increases the number of jobs for type */
+	if (isUberEats) {
+		eatsJobsCompleted.update((jobs) => jobs + 1);
+	} else if (gameState.isUberEats) {
+		driverJobsCompleted.update((jobs) => jobs + 1);
+	}
 
 	gameState.inGame = false;
 	gameState.inSummary = true;
+	console.log(gameState);
 	game.set(gameState);
 }
 

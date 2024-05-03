@@ -1,7 +1,7 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
 	import { get } from 'svelte/store';
-	import { startGame, logHistory, currLocation, elapsed, generateSingleData, FullTimeLimit, jobs } from '$lib/stores.js';
+	import { startGame, logHistory, currLocation, elapsed, generateSingleData, FullTimeLimit, jobs, eatsJobsCompleted, driverJobsCompleted } from '$lib/stores.js';
 	
 	// time duration of each task
 	const SECONDS_PER_JOB_UBER = 2;
@@ -13,6 +13,7 @@
 
 	const title = `${jobData.type} - ${jobData.city}`;
 	let countdown = jobData.waitTime;
+	let hasUnfamiliarItems = jobData.hasUnfamiliarItems;
 	let numSteps = jobData.timeLimit;
 	let avgWait = jobData.avgWait;
 	let avgEarnings = jobData.avgEarnings;
@@ -97,10 +98,10 @@
 				setTimeout(() => {
 					currLocation.set(jobData.city);
 				}, 5000);
-				startGame(title, earnings, numSteps, timeLimit, hardLimit);
+				startGame(title, earnings, numSteps, timeLimit, hardLimit, hasUnfamiliarItems, eatsJobsCompleted, driverJobsCompleted);
 				resetJob(id)
 			}
-			startGame(title, earnings, numSteps, timeLimit, hardLimit);
+			startGame(title, earnings, numSteps, timeLimit, hardLimit, hasUnfamiliarItems, eatsJobsCompleted, driverJobsCompleted);
 			resetJob(id)
 			
 		}
@@ -131,6 +132,9 @@
 				<p>There are {numSteps} items</p>
 			{:else}
 				<p>There are {numSteps} blocks</p>
+			{/if}
+			{#if hasUnfamiliarItems}
+				<p>Has Unfamiliar Items</p>
 			{/if}
 			Ready!
 			<!-- Expire in {expirationTime}s -->

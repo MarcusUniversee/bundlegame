@@ -1,5 +1,5 @@
 <script>
-	import { game, endGame, logHistory, normalized_ubereats_difficulty, normalized_driver_difficulty } from '$lib/stores.js';
+	import { game, endGame, logHistory, seenWords, addToSeenWords } from '$lib/stores.js';
 	import { onMount } from 'svelte';
 
 	/* GAME STATE */
@@ -9,31 +9,12 @@
 	let job = $game.title;
 	let hardLimit = $game.hardLimit;
 	let hasUnfamiliarItems = $game.hasUnfamiliarItems;
+	let wordBank = $game.currGameWords;
+	let currentWord = wordBank[wordBank.length - stepsLeft];
+	console.log(wordBank, currentWord, stepsLeft);
 	let earned = 0;
 	let penalty = 0;
-
-	/* WORD LIST */
-	function pickWord(wordBank) {
-		const randI = Math.floor(Math.random(wordBank.length) * wordBank.length);
-		return wordBank[randI];
-	}
-
-	const wordBank = $game.isUberEats
-		? ['apple', 'coconut', 'banana', 'pineapple']
-		: ['red', 'green', 'yellow'];
-	const seenWords = new Set(wordBank);
-
-	const newWordBank = $game.isUberEats 
-					? ['dill', 'lychee', 'cabbage', 'paracress', 'muscadine']
-					: ['stop', 'yield', 'crossing'];
 	
-	let currentWord;
-	if (hasUnfamiliarItems && Math.random() < ($game.isUberEats ? normalized_ubereats_difficulty : normalized_driver_difficulty)) {
-		currentWord = pickWord(newWordBank);
-	} else {
-		currentWord = pickWord(wordBank);
-	}
-
 	let mistakes = 0;
 
 	/* User Input (reactive ui elem) */
@@ -60,20 +41,17 @@
 	function checkGuess() {
 		if (stepsLeft <= 0) return;
 		const userAnswer = userInput.toLowerCase();
+
 		if (userAnswer === currentWord) {
 			logHistory("guess result", [stepsLeft, true, currentWord], `(${stepsLeft}) Correct Guess: ${currentWord}`);
 			displayStatus = 'Correct!';
 			userInput = '';
 			stepsLeft--;
-			if (!seenWords.has(currentWord)) {
-				seenWords.add(currentWord); // adds word to seen words
+			console.log($seenWords);
+			if (!$seenWords.has(currentWord)) {
+				addToSeenWords(currentWord);
 			}
-			if (stepsLeft > 0) {
-				// currentWord = wordBank[stepsLeft % wordBank.length];
-				currentWord = hasUnfamiliarItems && Math.random() < 0.5 
-				? pickWord(newWordBank) 
-				: pickWord(wordBank);
-			}
+			currentWord = wordBank[wordBank.length - stepsLeft];
 		} else {
 			logHistory("guess result", [stepsLeft, false, currentWord, userAnswer], `(${stepsLeft}) Incorrect Guess: ${currentWord}, mistyped ${userAnswer}`);
 			displayStatus = 'Incorrect. Try again.';
@@ -152,7 +130,7 @@
 		<p>Task Left: {stepsLeft}</p>
 		<!-- show image corresponding to the current word -->
 		<img id="input-img" src="./images/{currentWord}.jpg" alt="img" />
-		<p hidden={seenWords.has(currentWord)}>Hint: The Item is {currentWord}</p>
+		<p hidden={$seenWords.has(currentWord)}>Hint: The Item is {currentWord}</p>
 		<input bind:value={userInput} type="text" placeholder="Input" on:keydown={handleKeyUp} />
 		<div class="status">{status}</div>
 	</div>

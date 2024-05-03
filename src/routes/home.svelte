@@ -1,25 +1,28 @@
 <script>
-	import Card from './card.svelte';
+	/* Archive ./card.svelte after full migration */
+	import Card from './cardv2.svelte'
 	import { onMount } from 'svelte';
-	import { logHistory, jobs, generateData, game } from '$lib/stores.js';
+	import {get} from 'svelte/store';
+	import { logHistory, jobs, game, generateDataV2 } from '$lib/stores.js';
   
 	function switchToLeisure() {
 		$game.inLeisure = true;
-		logHistory("switch to leisure", null, 'choose Switch to Leisure')
+		// console.log(get(get(game).prevGames));
 	}
-	
-	generateData();
+	/* generate the data for the log history */
+	generateDataV2();
+	// generateData();
 
 	// update job data, log history
 	onMount(() => {
 		const jobStrings = $jobs.map(
 			(job) =>
 				`i:(${job.index}) ${job.type} - ${job.city}: ${job.waitTime} waitTime, ${job.timeLimit} timeLimit`
-		);
+			);
 		const joblists = $jobs.map(
-			(job) =>
-			[job.index, job.waitTime, job.timeLimit]
-		)
+				(job) =>
+				[job.index, job.waitTime, job.timeLimit]
+			)
 		logHistory("enter home screen", joblists, `Entered home screen, displayed jobs: ${JSON.stringify(jobStrings)}`);
 	});
 </script>
@@ -29,6 +32,7 @@
 </div>
 <div class="choices">
 	<!-- each job is a Card element in card.svelte -->
+
 	<Card jobData={$jobs[3]} color="#ecb98d" />
 	<Card jobData={$jobs[2]} color="#eea7cf" />
 	<Card jobData={$jobs[1]} color="#96f0c8" />
