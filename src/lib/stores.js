@@ -244,12 +244,12 @@ export function generateDataV2() {
 	}
 }
 
-export function generateSingleDataV2() {
+export function generateSingleDataV2(index) {
 	if (get(mode) == SAVED) {
-		return queueNextJob();
+		return queueNextJob(index);
 	}
 	if (get(mode) == RANDOM) {
-		return queueRandomJob();
+		return queueRandomJob(index);
 	}
 }
 

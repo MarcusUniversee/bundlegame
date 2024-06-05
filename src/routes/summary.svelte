@@ -42,7 +42,7 @@
 	<h4>Rate your proficiency on this job:</h4>
 	<!-- star rating -->
 	<div class="rating">
-		<div class="left-label">still learning</div>
+		<div class="left-label">proficient</div>
 			<input type="radio" name="star" class="star-5" id="star-5" bind:group={rating} value="5" />
             <label class="star" for="star-5"></label>
             <input type="radio" name="star" class="star-4" id="star-4" bind:group={rating} value="4" />
@@ -53,7 +53,7 @@
             <label class="star" for="star-2"></label>
             <input type="radio" name="star" class="star-1" id="star-1" bind:group={rating} value="1" />
             <label class="star" for="star-1"></label>
-		<div class="right-label">proficient</div>
+		<div class="right-label">still learning</div>
 	</div>
 
 	<button on:click={returnHome} disabled={!isRatingSelected}>Return</button>

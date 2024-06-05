@@ -2,7 +2,7 @@
 	/* Archive ./card.svelte after full migration */
 	import Card from './cardv2.svelte'
 	import { onMount } from 'svelte';
-	import {get} from 'svelte/store';
+	import { get } from 'svelte/store';
 	import { logHistory, jobs, game, generateDataV2 } from '$lib/stores.js';
   
 	function switchToLeisure() {
@@ -15,6 +15,7 @@
 
 	// update job data, log history
 	onMount(() => {
+		console.log($jobs);
 		const jobStrings = $jobs.map(
 			(job) =>
 				`i:(${job.index}) ${job.type} - ${job.city}: ${job.waitTime} waitTime, ${job.timeLimit} timeLimit`

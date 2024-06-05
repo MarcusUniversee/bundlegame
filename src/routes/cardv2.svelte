@@ -64,7 +64,7 @@
 				if (expired) {
 					/* Replaces job with new generated job */
 					allJobs[jobIndex] = {
-						...generateSingleDataV2(), 
+						...generateSingleDataV2(jobIndex), 
 						ready: false, 
 						expired: false};
 					jobData = allJobs[jobIndex];
