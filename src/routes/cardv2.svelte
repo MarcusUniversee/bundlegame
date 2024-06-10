@@ -1,7 +1,7 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
 	import { get } from 'svelte/store';
-	import { startGameV2, logHistory, currLocation, elapsed, generateSingleDataV2, jobs, eatsJobsCompleted, driverJobsCompleted } from '$lib/stores.js';
+	import { startGameV2, logHistory, currLocation, elapsed, generateSingleDataV2, jobs, eatsJobsCompleted, driverJobsCompleted, session_id } from '$lib/stores.js';
 	
 	// time duration of each task
 	const SECONDS_PER_JOB_UBER = 2;
@@ -80,9 +80,34 @@
 		updateJobState(id, false, true);
 	}
 
-	function start() {
+	async function start(otherCards) {
 		// console.log('DEBUG:', countdown, countdown <= 0);
+		const access_key = '3866d256-1455-442a-a141-453def370653'
+		const dataframe_id = '66667ce7a04e9d77a88e2589'
 		if (jobData.ready) {
+			try {
+				const response = await fetch(`https://bobaapi.up.railway.app/api/sessions/${get(session_id)}`, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						access_key,
+						action: {
+							chosen: jobData,
+							otherChoices: jobs
+						},
+						dataframe_id,
+					})
+				});
+
+				const responseJson = await response.json()
+				console.log(responseJson);
+				console.log(`Logged Action: ${JSON.stringify(responseJson)}`)
+			} catch (err) {
+				console.log(err);
+			}
+
 			let hardLimit = jobData.trueTimeLimit * 2;
 
 			if ($currLocation !== jobData.city) {

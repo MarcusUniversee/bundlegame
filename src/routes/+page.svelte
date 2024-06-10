@@ -23,7 +23,8 @@
 		setMode,
 		mode,
 		SAVED,
-		RANDOM
+		RANDOM,
+		setSessionId
 	} from '$lib/stores.js';
 	import {get} from 'svelte/store';
 
@@ -37,9 +38,28 @@
 	let userName = '';
 	let localMode = get(mode);
 
-	function initializeGame() {
+	async function initializeGame() {
 		started = true;
 		resetTimer();
+		try {
+			const response = await fetch('https://bobaapi.up.railway.app/api/games/66667c12a04e9d77a88e2581/sessions', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					dataframe_ids: ['66667ce7a04e9d77a88e2589'],
+					player: userName,
+					access_key: '3866d256-1455-442a-a141-453def370653'
+				})})
+			const sessions = await response.json();
+			const { _id } = sessions[0];
+			console.log(sessions[0]);
+			setSessionId(_id);
+		} catch (err) {
+			console.log(err);
+		}
+
 		logHistory("start game", userName, `${userName} started a game with ${FullTimeLimit} timeLimit`);
 	}
 

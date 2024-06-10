@@ -17,6 +17,7 @@ export const GameOver = writable(false);
 export const currentGameIndex = 0;
 export const seenWords = writable(new Set())
 export const mode = writable(SAVED);
+export const session_id = writable('');
 
 // the number of jobs completed
 export const eatsJobsCompleted = writable(0);
@@ -282,6 +283,10 @@ export const game = writable({
 
 export function setMode(choice) {
 	mode.set(choice);
+}
+
+export function setSessionId(id) {
+	session_id.set(id);
 }
 
 /* Add word to seen words */
