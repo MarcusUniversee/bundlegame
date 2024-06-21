@@ -38,7 +38,11 @@
 		<h3>You have completed {job} job in {time}s</h3>
 	{/if}
 	<p>You made {mistake} mistakes</p>
-	<p>You earned ${earning}</p>
+	{#if time == hardLimit}
+		<p>You earned ${earning}</p>
+	{:else}
+		<p>You earned $0</p>
+	{/if}
 	<h4>Rate your proficiency on this job:</h4>
 	<!-- star rating -->
 	<div class="rating">

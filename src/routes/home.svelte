@@ -3,7 +3,7 @@
 	import Card from './cardv2.svelte'
 	import { onMount } from 'svelte';
 	import { get } from 'svelte/store';
-	import { logHistory, jobs, game, generateDataV2 } from '$lib/stores.js';
+	import { logHistory, jobs, game, generateDataV2, earned } from '$lib/stores.js';
   
 	function switchToLeisure() {
 		$game.inLeisure = true;
@@ -13,6 +13,9 @@
 	generateDataV2();
 	// generateData();
 
+	const urlParams = new URLSearchParams(window.location.search);
+	const isWorkOnly = urlParams.has('workOnly');
+	const continousQueue = urlParams.has('continuousQueue');
 	// update job data, log history
 	onMount(() => {
 		console.log($jobs);
@@ -25,12 +28,27 @@
 				[job.index, job.waitTime, job.timeLimit]
 			)
 		logHistory("enter home screen", joblists, `Entered home screen, displayed jobs: ${JSON.stringify(jobStrings)}`);
+
+		if (isWorkOnly) {
+			// Increment leisure time 
+			const waitingInterval = setInterval(() => {
+				earned.update((n) => parseFloat((n + 0.01).toFixed(2)));
+			}, 1000);
+	
+			return () => {
+				clearInterval(waitingInterval);
+			};
+		}
 	});
+
 </script>
 
-<div class="button-container">
-	<button on:click={switchToLeisure}>Switch to Leisure</button>
-</div>
+
+{#if !isWorkOnly}
+	<div class="button-container">
+		<button on:click={switchToLeisure}>Switch to Leisure</button>
+	</div>
+{/if}
 <div class="choices">
 	<!-- each job is a Card element in card.svelte -->
 

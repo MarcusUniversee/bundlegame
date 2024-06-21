@@ -1,7 +1,7 @@
 <script>
 	import { onMount, onDestroy } from 'svelte';
 	import { get } from 'svelte/store';
-	import { startGameV2, logHistory, currLocation, elapsed, generateSingleDataV2, jobs, eatsJobsCompleted, driverJobsCompleted, session_id } from '$lib/stores.js';
+	import { startGameV2, logHistory, currLocation, elapsed, generateSingleDataV2, jobs, eatsJobsCompleted, driverJobsCompleted, session_id, game } from '$lib/stores.js';
 	
 	// time duration of each task
 	const SECONDS_PER_JOB_UBER = 2;
@@ -29,8 +29,12 @@
 
 	onMount(() => {
 		// Start the subscription to the elapsed store
+		const urlParams = new URLSearchParams(window.location.search);
+		const continousQueue = urlParams.has('continuousQueue');
+		const inLeisure = $game.inLeisure;
+
 		unsubscribeElapsed = elapsed.subscribe($elapsed => {
-			if (jobData.trueWaitTime > 0) {
+			if (jobData.trueWaitTime > 0 && (!inLeisure || continousQueue)) {
 				countdown--;
 			}
 

@@ -63,8 +63,9 @@
 		logHistory("start game", userName, `${userName} started a game with ${FullTimeLimit} timeLimit`);
 	}
 
-	function goToLeisureOrWork() {
-		$game.inChoices = true;
+	function goToWork() {
+        $game.inChoices = false;
+        $game.inLeisure = false;
 	}
 
 	function setLocalMode(choice) {
@@ -113,13 +114,13 @@
 					To start playing, enter your name.
 				</p>
 			</div>
-			<div>
+			<!-- <div>
 				<button on:click={() => { setMode(SAVED); setLocalMode(SAVED)}} disabled={localMode === SAVED}>Saved Jobs</button>
 				<button on:click={() => { setMode(RANDOM); setLocalMode(RANDOM)}} disabled={localMode === RANDOM}>Random Jobs</button>
-			</div>
+			</div> -->
 			<p>Enter your name:</p>
 			<input bind:value={userName} type="text" />
-			<button on:click={() => { initializeGame(); goToLeisureOrWork(); }}>Start</button>
+			<button on:click={() => { initializeGame(); goToWork(); }}>Start</button>
 		</div>
 	</div>
 {:else if inChoices}
