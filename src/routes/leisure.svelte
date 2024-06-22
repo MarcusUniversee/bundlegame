@@ -9,7 +9,8 @@
             earned, 
             logHistory, 
             leisureStart,
-            elapsed
+            elapsed,
+            session_id
          } from '$lib/stores.js';
         
     let showPopup = writable(false);

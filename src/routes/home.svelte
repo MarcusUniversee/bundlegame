@@ -3,7 +3,7 @@
 	import Card from './cardv2.svelte'
 	import { onMount } from 'svelte';
 	import { get } from 'svelte/store';
-	import { logHistory, jobs, game, generateDataV2, earned, elapsed } from '$lib/stores.js';
+	import { logHistory, jobs, game, generateDataV2, earned, elapsed, session_id } from '$lib/stores.js';
   
 	async function switchToLeisure() {
 		$game.inLeisure = true;

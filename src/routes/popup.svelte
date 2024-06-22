@@ -10,7 +10,8 @@
         leisurePay,
         confirmedToStay,
         leisureStart,
-        elapsed
+        elapsed,
+        session_id
 	} from '$lib/stores.js';
 
     let timer;

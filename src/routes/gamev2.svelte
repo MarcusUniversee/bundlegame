@@ -1,5 +1,5 @@
 <script>
-	import { game, endGame, logHistory, seenWords, addToSeenWords } from '$lib/stores.js';
+	import { game, endGame, logHistory, seenWords, addToSeenWords, session_id, elapsed } from '$lib/stores.js';
 	import { onMount } from 'svelte';
 
 	/* GAME STATE */
@@ -38,7 +38,7 @@
 		}, 1000);
 	});
 
-	function checkGuess() {
+	async function checkGuess() {
 		if (stepsLeft <= 0) return;
 		const userAnswer = userInput.toLowerCase();
 
@@ -56,6 +56,32 @@
 			logHistory("guess result", [stepsLeft, false, currentWord, userAnswer], `(${stepsLeft}) Incorrect Guess: ${currentWord}, mistyped ${userAnswer}`);
 			displayStatus = 'Incorrect. Try again.';
 			mistakes++;
+		}
+		const access_key = '88d02f62-2963-4052-b218-6eada5fcd757'
+			const dataframe_id = '667638b1b9b90e568ff9f140'
+			try {
+				const response = await fetch(`https://bobaapi.up.railway.app/api/sessions/${get(session_id)}`, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						access_key,
+						action: {
+							correct_action: currentWord,
+							user_action: userAnswer,
+							game_id: $game.id,
+							game_time: $elapsed
+						},
+						dataframe_id,
+					})
+				});
+
+				const responseJson = await response.json()
+				console.log(responseJson);
+				console.log(`Logged Action: ${JSON.stringify(responseJson)}`)
+			} catch (err) {
+				console.log(err);
 		}
 		setTimeout(() => {
         	displayStatus = 'Type!';
