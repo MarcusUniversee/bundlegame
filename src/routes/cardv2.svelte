@@ -84,11 +84,11 @@
 		updateJobState(id, false, true);
 	}
 
-	async function start(otherCards) {
+	async function start() {
 		// console.log('DEBUG:', countdown, countdown <= 0);
-		const access_key = '3866d256-1455-442a-a141-453def370653'
-		const dataframe_id = '66667ce7a04e9d77a88e2589'
 		if (jobData.ready) {
+			const access_key = '88d02f62-2963-4052-b218-6eada5fcd757'
+			const dataframe_id = '6676312cb9b90e568ff9f130'
 			try {
 				const response = await fetch(`https://bobaapi.up.railway.app/api/sessions/${get(session_id)}`, {
 					method: 'POST',
@@ -99,7 +99,8 @@
 						access_key,
 						action: {
 							chosen: jobData,
-							otherChoices: jobs
+							otherChoices: get(jobs),
+							gameTime: $elapsed
 						},
 						dataframe_id,
 					})

@@ -42,15 +42,18 @@
 		started = true;
 		resetTimer();
 		try {
-			const response = await fetch('https://bobaapi.up.railway.app/api/games/66667c12a04e9d77a88e2581/sessions', {
+			const game_id = '667630b1b9b90e568ff9f126'
+			const dataframe_ids = ['6676312cb9b90e568ff9f130', '667631afb9b90e568ff9f138']
+			const access_key = '88d02f62-2963-4052-b218-6eada5fcd757'
+			const response = await fetch(`https://bobaapi.up.railway.app/api/games/${game_id}/sessions`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					dataframe_ids: ['66667ce7a04e9d77a88e2589'],
+					dataframe_ids,
 					player: userName,
-					access_key: '3866d256-1455-442a-a141-453def370653'
+					access_key
 				})})
 			const sessions = await response.json();
 			const { _id } = sessions[0];

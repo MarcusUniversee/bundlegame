@@ -9,7 +9,8 @@
         LeisureTime,
         leisurePay,
         confirmedToStay,
-        leisureStart
+        leisureStart,
+        elapsed
 	} from '$lib/stores.js';
 
     let timer;
@@ -24,7 +25,7 @@
         logHistory("confirm stay in leisure", null, 'Confirm to stay in leisure');
     };
   
-    const cancelStay = () => {
+    const cancelStay = async () => {
         $game.inChoices = true;
         confirmedToStay.set(false);
         const inLeisureTime = get(LeisureTime) - get(leisureStart);
@@ -35,10 +36,35 @@
         });
         clearInterval(timer);
         logHistory("confirm leave leisure", [inLeisureTime, earning], 'Confirm to leave leisure, stayed for ' + inLeisureTime + 's, earned $' + earning);
+        const access_key = '88d02f62-2963-4052-b218-6eada5fcd757'
+		const dataframe_id = '667631afb9b90e568ff9f138'
+		try {
+			const response = await fetch(`https://bobaapi.up.railway.app/api/sessions/${get(session_id)}`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					access_key,
+					action: {
+						current_view: 'Leisure',
+						next_view: 'Work',
+						is_voluntary: true,
+						game_time: $elapsed
+					},
+					dataframe_id,
+				})
+			});
 
+			const responseJson = await response.json()
+			console.log(responseJson);
+			console.log(`Logged Action: ${JSON.stringify(responseJson)}`)
+		} catch (err) {
+			console.log(err);
+		}
     };
 
-    const noResponse = () => {
+    const noResponse = async () => {
         $game.inChoices = true;
         confirmedToStay.set(false);
         const inLeisureTime = get(LeisureTime) - get(leisureStart);
@@ -48,7 +74,32 @@
             return updatedValue;
         });
         logHistory("didn't choose", [inLeisureTime, earning], 'Did not choose in 5s, forced to leave leisure, stayed for ' + inLeisureTime + 's, earned $' + earning);
+        const access_key = '88d02f62-2963-4052-b218-6eada5fcd757'
+		const dataframe_id = '667631afb9b90e568ff9f138'
+		try {
+			const response = await fetch(`https://bobaapi.up.railway.app/api/sessions/${get(session_id)}`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					access_key,
+					action: {
+						current_view: 'Leisure',
+						next_view: 'Work',
+						is_voluntary: false,
+						game_time: $elapsed
+					},
+					dataframe_id,
+				})
+			});
 
+			const responseJson = await response.json()
+			console.log(responseJson);
+			console.log(`Logged Action: ${JSON.stringify(responseJson)}`)
+		} catch (err) {
+			console.log(err);
+		}
     };
 
     onMount(() => {

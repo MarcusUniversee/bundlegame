@@ -3,11 +3,38 @@
 	import Card from './cardv2.svelte'
 	import { onMount } from 'svelte';
 	import { get } from 'svelte/store';
-	import { logHistory, jobs, game, generateDataV2, earned } from '$lib/stores.js';
+	import { logHistory, jobs, game, generateDataV2, earned, elapsed } from '$lib/stores.js';
   
-	function switchToLeisure() {
+	async function switchToLeisure() {
 		$game.inLeisure = true;
 		// console.log(get(get(game).prevGames));
+
+		const access_key = '88d02f62-2963-4052-b218-6eada5fcd757'
+		const dataframe_id = '667631afb9b90e568ff9f138'
+		try {
+			const response = await fetch(`https://bobaapi.up.railway.app/api/sessions/${get(session_id)}`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					access_key,
+					action: {
+						current_view: 'Work',
+						next_view: 'Leisure',
+						is_voluntary: true,
+						game_time: $elapsed
+					},
+					dataframe_id,
+				})
+			});
+
+			const responseJson = await response.json()
+			console.log(responseJson);
+			console.log(`Logged Action: ${JSON.stringify(responseJson)}`)
+		} catch (err) {
+			console.log(err);
+		}
 	}
 	/* generate the data for the log history */
 	generateDataV2();
