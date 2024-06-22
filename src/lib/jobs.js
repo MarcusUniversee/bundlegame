@@ -6,7 +6,7 @@ const CURRENT_MODE = default_job;
 const GAMES = default_job.map(obj => obj["games"]);
 
 /* Queues N jobs */
-export function queueNJobs(n) {
+export async function queueNJobs(n) {
     const next_jobs = [];
     for (let i = 0; i < job_index.length;i++) {
         next_jobs.push(GAMES[i][job_index[i]++]);

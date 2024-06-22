@@ -33,7 +33,7 @@
 		const continousQueue = urlParams.has('continuousQueue');
 		const inLeisure = $game.inLeisure;
 
-		unsubscribeElapsed = elapsed.subscribe($elapsed => {
+		unsubscribeElapsed = elapsed.subscribe(async $elapsed => {
 			if (jobData.trueWaitTime > 0 && (!inLeisure || continousQueue)) {
 				countdown--;
 			}
@@ -51,6 +51,29 @@
 				updateJobState(jobData.id, false, true);
 				curTime = null;
 				logHistory("job expire", [jobData.index, `${jobData.job_type} - ${jobData.city}`], `i:(${jobData.index}) Job ${`${jobData.job_type} - ${jobData.city}`} has expired`);
+				try {
+					const response = await fetch(`https://bobaapi.up.railway.app/api/sessions/${get(session_id)}`, {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({
+							access_key,
+							action: {
+								game_id: jobData.id,
+								action: 'unqueue',
+								game_time: elapsed
+							},
+							dataframe_id,
+						})
+					});
+
+					const responseJson = await response.json()
+					console.log(responseJson);
+					console.log(`Logged Action: ${JSON.stringify(responseJson)}`)
+				} catch (err) {
+					console.log(err);
+				}
 			}
 		});
 	});

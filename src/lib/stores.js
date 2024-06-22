@@ -234,10 +234,37 @@ export function generateData() {
 	});
 }
 
-export function generateDataV2() {
+export async function generateDataV2() {
 	if (get(mode) === SAVED) {
 		const generatedJobs = queueNJobs(4);
-		jobs.update(currentJobs => [...currentJobs, ...generatedJobs]);		
+		jobs.update(currentJobs => [...currentJobs, ...generatedJobs]);
+		const access_key = '88d02f62-2963-4052-b218-6eada5fcd757'
+		const dataframe_id = '66763aa3b9b90e568ff9f14a'
+		for (const job of jobs) {
+			try {
+				const response = await fetch(`https://bobaapi.up.railway.app/api/sessions/${session_id}`, {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						access_key,
+						action: {
+							game_id: job.id,
+							action: 'queue',
+							game_time: elapsed
+						},
+						dataframe_id,
+					})
+				});
+
+				const responseJson = await response.json()
+				console.log(responseJson);
+				console.log(`Logged Action: ${JSON.stringify(responseJson)}`)
+			} catch (err) {
+				console.log(err);
+			}
+		}
 	}
 	if (get(mode) === RANDOM) {
 		const generatedJobs = queueNRandomJobs(4);
@@ -245,9 +272,33 @@ export function generateDataV2() {
 	}
 }
 
-export function generateSingleDataV2(index) {
+export async function generateSingleDataV2(index) {
 	if (get(mode) == SAVED) {
-		return queueNextJob(index);
+		next_job = queueNextJob(index);
+		try {
+			const response = await fetch(`https://bobaapi.up.railway.app/api/sessions/${session_id}`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					access_key,
+					action: {
+						game_id: next_job.id,
+						action: 'queue',
+						game_time: elapsed
+					},
+					dataframe_id,
+				})
+			});
+
+			const responseJson = await response.json()
+			console.log(responseJson);
+			console.log(`Logged Action: ${JSON.stringify(responseJson)}`)
+		} catch (err) {
+			console.log(err);
+		}
+		return next_job;
 	}
 	if (get(mode) == RANDOM) {
 		return queueRandomJob(index);
@@ -268,6 +319,7 @@ export function generateSingleData(id) {
 		console.log(get(jobs));
 		return currentJobs;
 	});
+
 }
 
 /* Game State */
