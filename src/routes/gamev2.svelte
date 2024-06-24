@@ -1,6 +1,7 @@
 <script>
 	import { game, endGame, logHistory, seenWords, addToSeenWords, session_id, elapsed } from '$lib/stores.js';
 	import { onMount } from 'svelte';
+	import { get } from 'svelte/store';
 
 	/* GAME STATE */
 	let timePassed = 0.0;

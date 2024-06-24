@@ -51,14 +51,14 @@
 					'Content-Type': 'application/json',
 				},
 				body: JSON.stringify({
-					dataframe_ids,
+					dataframe_ids: dataframe_ids,
 					player: userName,
-					access_key
+					access_key: access_key
 				})})
 			const sessions = await response.json();
-			const { _id } = sessions[0];
+			const { session_id } = sessions[0];
 			console.log(sessions[0]);
-			setSessionId(_id);
+			setSessionId(session_id);
 		} catch (err) {
 			console.log(err);
 		}

@@ -13,27 +13,25 @@
 	export let jobData;
 	export let color;
 	export let timeRemaining; // Default set to 1000 to not start job prematurely
-
+	
+	// Start the subscription to the elapsed store
 	let countdown = jobData.trueWaitTime;
 
 	let previousWaitTime = jobData.trueWaitTime; 
-	
+
 	$: if (jobData.trueWaitTime !== previousWaitTime && jobData.ready === false) {
 		countdown = jobData.trueWaitTime; // reset the countdown to the new waitTime
-		previousWaitTime = jobData.trueWaitTime; 
+		previousWaitTime = jobData.trueWaitTime; 	
 	}
-	
 	let curTime = null;
 	let unsubscribeElapsed;
-	
 
 	onMount(() => {
-		// Start the subscription to the elapsed store
 		const urlParams = new URLSearchParams(window.location.search);
 		const continousQueue = urlParams.has('continuousQueue');
 		const inLeisure = $game.inLeisure;
 
-		unsubscribeElapsed = elapsed.subscribe(async $elapsed => {
+		unsubscribeElapsed = elapsed.subscribe($elapsed => {
 			if (jobData.trueWaitTime > 0 && (!inLeisure || continousQueue)) {
 				countdown--;
 			}
@@ -51,29 +49,31 @@
 				updateJobState(jobData.id, false, true);
 				curTime = null;
 				logHistory("job expire", [jobData.index, `${jobData.job_type} - ${jobData.city}`], `i:(${jobData.index}) Job ${`${jobData.job_type} - ${jobData.city}`} has expired`);
-				try {
-					const response = await fetch(`https://bobaapi.up.railway.app/api/sessions/${get(session_id)}`, {
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json',
-						},
-						body: JSON.stringify({
-							access_key,
-							action: {
-								game_id: jobData.id,
-								action: 'unqueue',
-								game_time: elapsed
-							},
-							dataframe_id,
-						})
-					});
+				// try {
+				// 	const access_key = '88d02f62-2963-4052-b218-6eada5fcd757'
+				// 	const dataframe_id = '66763aa3b9b90e568ff9f14a'
+				// 	const response = await fetch(`https://bobaapi.up.railway.app/api/sessions/${get(session_id)}`, {
+				// 		method: 'POST',
+				// 		headers: {
+				// 			'Content-Type': 'application/json',
+				// 		},
+				// 		body: JSON.stringify({
+				// 			access_key,
+				// 			action: {
+				// 				game_id: jobData.id,
+				// 				action: 'unqueue',
+				// 				game_time: elapsed
+				// 			},
+				// 			dataframe_id,
+				// 		})
+				// 	});
 
-					const responseJson = await response.json()
-					console.log(responseJson);
-					console.log(`Logged Action: ${JSON.stringify(responseJson)}`)
-				} catch (err) {
-					console.log(err);
-				}
+				// 	const responseJson = await response.json()
+				// 	console.log(responseJson);
+				// 	console.log(`Logged Action: ${JSON.stringify(responseJson)}`)
+				// } catch (err) {
+				// 	console.log(err);
+				// }
 			}
 		});
 	});
@@ -90,12 +90,15 @@
 				allJobs[jobIndex] = { ...allJobs[jobIndex], ready, expired };
 				if (expired) {
 					/* Replaces job with new generated job */
+					const new_job = generateSingleDataV2(jobIndex);
+					console.log(new_job);
 					allJobs[jobIndex] = {
-						...generateSingleDataV2(jobIndex), 
+						...new_job, 
 						ready: false, 
 						expired: false};
 					jobData = allJobs[jobIndex];
-					countdown = allJobs[jobIndex].trueWaitTime;
+					// countdown = allJobs[jobIndex].trueWaitTime;
+					console.log(allJobs[jobIndex])
 				}
 			}
 			return allJobs;
@@ -107,34 +110,34 @@
 		updateJobState(id, false, true);
 	}
 
-	async function start() {
+	function start() {
 		// console.log('DEBUG:', countdown, countdown <= 0);
 		if (jobData.ready) {
-			const access_key = '88d02f62-2963-4052-b218-6eada5fcd757'
-			const dataframe_id = '6676312cb9b90e568ff9f130'
-			try {
-				const response = await fetch(`https://bobaapi.up.railway.app/api/sessions/${get(session_id)}`, {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify({
-						access_key,
-						action: {
-							chosen: jobData,
-							otherChoices: get(jobs),
-							gameTime: $elapsed
-						},
-						dataframe_id,
-					})
-				});
+			// const access_key = '88d02f62-2963-4052-b218-6eada5fcd757'
+			// const dataframe_id = '6676312cb9b90e568ff9f130'
+			// try {
+			// 	const response = await fetch(`https://bobaapi.up.railway.app/api/sessions/${get(session_id)}`, {
+			// 		method: 'POST',
+			// 		headers: {
+			// 			'Content-Type': 'application/json',
+			// 		},
+			// 		body: JSON.stringify({
+			// 			access_key,
+			// 			action: {
+			// 				chosen: jobData,
+			// 				otherChoices: get(jobs),
+			// 				gameTime: $elapsed
+			// 			},
+			// 			dataframe_id,
+			// 		})
+			// 	});
 
-				const responseJson = await response.json()
-				console.log(responseJson);
-				console.log(`Logged Action: ${JSON.stringify(responseJson)}`)
-			} catch (err) {
-				console.log(err);
-			}
+			// 	const responseJson = await response.json()
+			// 	console.log(responseJson);
+			// 	console.log(`Logged Action: ${JSON.stringify(responseJson)}`)
+			// } catch (err) {
+			// 	console.log(err);
+			// }
 
 			let hardLimit = jobData.trueTimeLimit * 2;
 
@@ -168,7 +171,6 @@
 				driverJobsCompleted, 
 				jobData.itemSequence);
 			resetJob(jobData.id)
-			
 		}
 	}
 </script>
@@ -177,7 +179,7 @@
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div class="card-content" class:ready={jobData.ready} style="background: {color};" on:click={start}>
-		<h2>{`${jobData.job_type} - ${jobData.city}`}</h2>
+		<h2>{`${jobData?.job_type} - ${jobData.city}`}</h2>
 
 		<i>
 			<p>Avg Wait Time: {jobData.avgWait}</p>

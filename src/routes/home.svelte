@@ -44,18 +44,7 @@
 	const isWorkOnly = urlParams.has('workOnly');
 	const continousQueue = urlParams.has('continuousQueue');
 	// update job data, log history
-	onMount(() => {
-		console.log($jobs);
-		const jobStrings = $jobs.map(
-			(job) =>
-				`i:(${job.index}) ${job.type} - ${job.city}: ${job.waitTime} waitTime, ${job.timeLimit} timeLimit`
-			);
-		const joblists = $jobs.map(
-				(job) =>
-				[job.index, job.waitTime, job.timeLimit]
-			)
-		logHistory("enter home screen", joblists, `Entered home screen, displayed jobs: ${JSON.stringify(jobStrings)}`);
-
+	onMount(async () => {
 		if (isWorkOnly) {
 			// Increment leisure time 
 			const waitingInterval = setInterval(() => {
