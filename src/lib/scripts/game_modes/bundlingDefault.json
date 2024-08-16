@@ -1,0 +1,59 @@
+{
+    "names": ["Park", "Marcus", "Jared", "Shunan"],
+    "stores": [
+        {
+            "store": "Berkeley Bowl",
+            "city": "Berkeley",
+            "earnings": [10, 2],
+            "amount": [5, 2],
+            "items": ["apple", "pineapple", "banana"],
+            "locations": [
+                ["Entrance", "", ""],
+                ["", "Pineapple", ""],
+                ["Banana", "", "Apple"]
+            ],
+            "cellDistance": 1000
+        },
+        {
+            "store": "Whole Foods",
+            "city": "Oakland",
+            "earnings": [15, 3],
+            "amount": [8, 3],
+            "items": ["apple", "grape", "banana", "cherry"],
+            "locations": [
+                ["Entrance", "Cherry", ""],
+                ["Banana", "", "Apple"],
+                ["", "Grape", "Cherry"]
+            ],
+            "cellDistance": 2000
+        },
+        {
+            "store": "Trader Joes",
+            "city": "San Francisco",
+            "earnings": [14, 4],
+            "amount": [6, 2],
+            "items": ["apple", "grape", "banana", "cherry", "pineapple", "peach", "pear", "grapefruit"],
+            "locations": [
+                ["Entrance", "Apple", "Pear"],
+                ["Banana", "Cherry", "Pineapple"],
+                ["Grapefruit", "Grape", "Peach"]
+            ],
+            "cellDistance": 1000
+        }
+    ],
+    "distances": {
+        "Berkeley": {
+            "destinations": ["Oakland", "San Francisco"],
+            "distances": [3, 8]
+        },
+        "Oakland": {
+            "destinations": ["Berkeley", "San Francisco"],
+            "distances": [3, 6]
+        },
+        "San Francisco": {
+            "destinations": ["Oakland", "Berkeley"],
+            "distances": [6, 8]
+        }
+    }
+
+}
