@@ -1,5 +1,7 @@
 import default_job from "./scripts/game_modes/bundlingDefault.json" with { type: "json" };
 
+let id = 0;
+
 function gaussianRandom(mean, stdDev) {
     // Using the Box-Muller transform to generate a Gaussian-distributed random number
     let u1 = Math.random();
@@ -24,32 +26,45 @@ export function queueNRandomOrders(n) {
             name: default_job["names"][Math.floor(Math.random() * default_job["names"].length)]
         }
         let store = default_job["stores"][Math.floor(Math.random() * default_job["stores"].length)];
-        order["store"] = store["store"]
-        order["earnings"] = gaussianRandom(store["earnings"][0], store["earnings"][1])
-        order["city"] = store["city"]
+        order.store = store["store"]
+        order.earnings = gaussianRandom(store["earnings"][0], store["earnings"][1])
+        if (order.earnings < 1) {
+            order.earnings = 1;
+        }
+        order.city = store["city"]
         let count = gaussianRandom(store["amount"][0], store["amount"][1])
-        order["items"] = {}
+        if (count < 1) {
+            count = 1;
+        }
+        order.amount = count
+        order.items = {}
+        order.id = "generated" + id
         for (let i=0; i<count; i++) {
             //pick an item
             let item = store["items"][Math.floor(Math.random() * store["items"].length)]
             if (Object.keys(order["items"]).includes(item)) {
-                order["items"][item] += 1
+                order.items[item] += 1
             } else {
-                order["items"][item] = 1
+                order.items[item] = 1
             }
         }
         next_orders.push(order);
+        id += 1;
     }
     return next_orders;
 }
 
 /* Returns the configuration for a store */
 export function storeConfig(store) {
-    store = store.toLowerCase();
+    let r = ""
     default_job["stores"].forEach((e) => {
-        if (e["store"].toLowerCase == store) {
-            return e;
+        if (e["store"] === store) {
+            r = e;
         }
     })
-    return "";
+    return r;
+}
+
+export function getDistances(location) {
+    return default_job["distances"][location]
 }

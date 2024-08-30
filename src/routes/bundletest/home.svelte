@@ -1,38 +1,68 @@
 <script>
-    import { game, orders, gameText, currLocation } from "$lib/bundle.js";
-    import { queueNRandomOrders } from "$lib/config.js";
+    import { get } from 'svelte/store';
+    import { game, orders, gameText, currLocation, logOrder } from "$lib/bundle.js";
+    import { queueNRandomOrders, getDistances } from "$lib/config.js";
     import Order from "./order.svelte";
 
     let waiting = false;
     let orderList = queueNRandomOrders(4)
+    let distances = getDistances($currLocation)
+    let duration = 0;
+    let travelingTo = ""
 
     function start() {
-        if ($orders.length < 1) {
+        const selOrders = get(orders)
+        const curGame = get(game)
+        const curLoc = get(currLocation)
+        if (selOrders.length < 1) {
             alert("Please select 1 or 2 orders!")
             return;
         }
-        if ($orders.length > 1) {
-            if ($orders[0].store != $orders[1].store || $orders[0].city != $orders[1].city) {
+        if (selOrders.length > 1) {
+            if (selOrders[0].store != selOrders[1].store || selOrders[0].city != selOrders[1].city) {
                 alert("Cannot bundle different stores/cities!")
                 return;
             }
-            $game.bundled = true;
+            curGame.bundled = true;
         } else {
-            $game.bundled = false;
+            curGame.bundled = false;
         }
         orderList = queueNRandomOrders(4)
-        if ($orders[0].city != $currLocation) {
-            waiting = true;
-            setTimeout(() => {
-                waiting = false;
-                $game.inStore = true;
-                $game.inSelect= false;
-            }, 2000)
+        if (selOrders[0].city != curLoc) {
+            travel(selOrders[0].city, true)
         } else {
-            $game.inStore = true;
-            $game.inSelect= false;
+            gameWindow()
         }
-        
+    }
+
+    function travel(city, visitStore) {
+        //find index of city
+        let index = distances["destinations"].indexOf(city)
+        if (index == -1) {
+            return;
+        }
+        duration = distances["distances"][index]
+        waiting = true;
+        travelingTo = city;
+        setTimeout(() => {
+            waiting = false;
+            currLocation.set(city)
+            if (visitStore) {
+                gameWindow()
+            }
+        }, duration * 1000)
+    }
+
+    function gameWindow() {
+        //log first order
+        const selOrders = get(orders)
+        logOrder(selOrders[0])
+        if (get(game).bundled) {
+            //log second order
+            logOrder(selOrders[1])
+        }
+        $game.inStore = true;
+        $game.inSelect= false;
     }
 </script>
 
@@ -41,16 +71,17 @@
 </style>
 
 {#if waiting}
-    <p>Traveling to {$orders[0].city}. Travel duration: 2 seconds hard coded will change</p>
+    <p>Traveling to {travelingTo}. Travel duration: {duration}</p>
 {:else}
     <div class="home">
         {#each orderList as order}
             <Order orderData={order} />
         {/each}
-        <button on:click={start}>{$gameText.selector}</button>
+        <button id="startorder" on:click={start}>{$gameText.selector}</button>
     </div>
     <div>
-        <button on:click={travel1}>{$gameText.location1}</button>
-        <button on:click={travel2}>{$gameText.location2}</button>
+        {#each distances["destinations"] as dest}
+            <button id="travel" on:click={() => travel(dest, false)}>Travel to {dest}</button>
+        {/each}
     </div>
 {/if}

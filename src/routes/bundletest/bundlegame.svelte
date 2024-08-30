@@ -1,7 +1,8 @@
 <script>
-    import { game, orders, finishedOrders, failedOrders, earned, currLocation } from "$lib/bundle.js"
+    import { get } from 'svelte/store';
+    import { game, orders, finishedOrders, failedOrders, earned, currLocation, elapsed, completeOrder, logAction } from "$lib/bundle.js"
     import { storeConfig } from "$lib/config.js";
-    $: config = storeConfig($currLocation)
+    let config = storeConfig($orders[0].store)
 
     let GameState = 0;
     let curLocation = [0, 0];
@@ -12,6 +13,8 @@
     let bag2 = {}
     let dist = 0;
     let correct = false;
+    let startTimer = $elapsed;
+    $: endTimer = $elapsed - startTimer;
 
     function handleCell(value, row, col) {
         if (value == "") {
@@ -23,13 +26,25 @@
         GameState = 2;
         setTimeout(() => {
             GameState = 1;
-        }, dist*config.cellDistance)
+        }, dist*config["cellDistance"])
     }
 
     function addBag() {
-        let item = config.locations[curLocation[0]][curLocation[1]]
+        
+        let item = config["locations"][curLocation[0]][curLocation[1]]
         let bag1InputInt;
         let bag2InputInt;
+        if (!$game.bundled) {
+            bag2Input = 0;
+        }
+        let action = {
+            buttonID: "addtobag",
+            buttonContent: "Add to bag",
+            bagInput1: bag1Input,
+            bagInput2: bag2Input,
+            itemInput: wordInput
+        }
+        logAction(action)
         if (item == "" || item == "Entrance") {
             return;
         }
@@ -37,6 +52,13 @@
             bag1InputInt = parseInt(bag1Input)
             bag2InputInt = parseInt(bag2Input)
         } catch {
+            alert("Error: Quantity inputs must be numbers")
+            bag1Input = "";
+            bag2Input = "";
+            wordInput = "";
+            return;
+        }
+        if (isNaN(bag1InputInt) || isNaN(bag2InputInt)) {
             alert("Error: Quantity inputs must be numbers")
             bag1Input = "";
             bag2Input = "";
@@ -69,6 +91,9 @@
     }
 
     function start() {
+        const selOrders = get(orders)
+        startTimer = $elapsed;
+        config = storeConfig(selOrders[0].store)
         GameState = 1;
     }
     function exit() {
@@ -77,43 +102,70 @@
         $game.inStore = false;
     }
 
-    function checkout() {
+    function checkoutSingle() {
+        //verify if it is correct
+        const selOrders = get(orders)
+        let c1 = true;
+        Object.keys(bag1).forEach((key) => {
+            if(selOrders[0].items[key] != bag1[key]) {
+                c1 = false;
+            }
+        })
+        if (Object.keys(bag1).length != Object.keys(selOrders[0].items).length) {
+            c1 = false;
+        }
+        correct = c1;
+        bag1 = {}
+        if (correct) {
+            $earned += selOrders[0].earnings;
+            completeOrder(selOrders[0].id)
+            $finishedOrders.push(selOrders[0]);
+            $orders.splice(0, 1)
+            GameState = 3;
+
+        } else {
+            GameState = 4;
+        }
+    }
+
+    function checkoutBundle() {
+        const selOrders = get(orders)
         //verify if it is correct
         let c1 = true;
         let c2 = true;
         //check bag1 -> order1, bag2 -> order2
         Object.keys(bag1).forEach((key) => {
-            if($orders[0].items[key] != bag1[key]) {
+            if(selOrders[0].items[key] != bag1[key]) {
                 c1 = false;
             }
         })
-        if (Object.keys(bag1).length != Object.keys($orders[0].items).length) {
+        if (Object.keys(bag1).length != Object.keys(selOrders[0].items).length) {
             c1 = false;
         }
         Object.keys(bag2).forEach((key) => {
-            if($orders[1].items[key] != bag2[key]) {
+            if(selOrders[1].items[key] != bag2[key]) {
                 c1 = false;
             }
         })
-        if (Object.keys(bag2).length != Object.keys($orders[1].items).length) {
+        if (Object.keys(bag2).length != Object.keys(selOrders[1].items).length) {
             c1 = false;
         }
 
         //check bag1 -> order1, bag2 -> order2
         Object.keys(bag1).forEach((key) => {
-            if($orders[1].items[key] != bag1[key]) {
+            if(selOrders[1].items[key] != bag1[key]) {
                 c2 = false;
             }
         })
-        if (Object.keys(bag1).length != Object.keys($orders[1].items).length) {
+        if (Object.keys(bag1).length != Object.keys(selOrders[1].items).length) {
             c2 = false;
         }
         Object.keys(bag2).forEach((key) => {
-            if($orders[0].items[key] != bag2[key]) {
+            if(selOrders[0].items[key] != bag2[key]) {
                 c2 = false;
             }
         })
-        if (Object.keys(bag2).length != Object.keys($orders[0].items).length) {
+        if (Object.keys(bag2).length != Object.keys(selOrders[0].items).length) {
             c2 = false;
         }
         correct = c1 || c2;
@@ -122,10 +174,12 @@
         bag1 = {}
         bag2 = {}
         if (correct) {
-            $earned += $orders[0].earnings;
-            $earned += $orders[1].earnings;
-            $finishedOrders.push($orders[0]);
-            $finishedOrders.push($orders[1]);
+            $earned += selOrders[0].earnings;
+            $earned += selOrders[1].earnings;
+            completeOrder(selOrders[0].id)
+            completeOrder(selOrders[1].id)
+            $finishedOrders.push(selOrders[0]);
+            $finishedOrders.push(selOrders[1]);
             $orders.splice(0, 2)
             GameState = 3;
         } else {
@@ -145,6 +199,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      background-color: white;
       border: 1px solid #ccc;
       padding: 20px;
       cursor: pointer;
@@ -152,13 +207,25 @@
     .inputbag {
         width: 10px;
     }
+    .order {
+        padding-right: 1em;
+    }
+    .selected {
+        background-color: aqua;
+    }
   </style>
 
 <div class="bundlegame">
+    <h5>{$orders[0].store}</h5>
     <div style="display: table;">
         <div style="display: table-row">
             {#each $orders as order}
-                <div style="display: table-cell;">
+                <div class="order" style="display: table-cell;">
+                    <p>
+                        Order for {order.name}
+                        <br>
+                        Earnings: {order.earnings}
+                    </p>
                     <ul>
                         {#each Object.keys(order.items) as item}
                             <li>{order.items[item]} - {item}</li>
@@ -167,56 +234,76 @@
                 </div>
             {/each}
         </div>
+        {#if GameState == 1 || GameState == 2}
+            <p>Time spent: {endTimer}</p>
+        {/if}
     </div>
     {#if GameState == 0}
         <!-- shop/browse -->
-        <button id="start" on:click={start}>Start</button>
+        {#if $game.bundled}
+            <button id="startbundle" on:click={start}>Start</button>
+        {:else}
+            <button id="startsingle" on:click={start}>Start</button>
+        {/if}
+        
     {:else if GameState == 1}
-        <h3>{config.locations[curLocation[0]][curLocation[1]]}</h3>
+        <h3>{config["locations"][curLocation[0]][curLocation[1]]}</h3>
         <div style="display: inline-block;">
             <div class="inputbags">
                 <input class="inputword" bind:value={wordInput}>
                 <input class="inputbag" bind:value={bag1Input}>
-                <input class="inputbag" bind:value={bag2Input}>
-                <button on:click={addBag}>Add to bag</button>
+                {#if $game.bundled}
+                    <input class="inputbag" bind:value={bag2Input}>
+                {/if}
+                <button id="addtobag" on:click={addBag}>Add to bag</button>
             </div>
             <div class="grid">
-                {#each config.locations as row, rowIndex}
+                {#each config["locations"] as row, rowIndex}
                     {#each row as cell, colIndex}
-                        <button class="cell" on:click={() => handleCell(cell, rowIndex, colIndex)}>
+                        <button id="moveinstore" class="cell" class:selected={cell.toLowerCase() == config["locations"][curLocation[0]][curLocation[1]].toLowerCase()} on:click={() => handleCell(cell, rowIndex, colIndex)}>
                             {cell}
                         </button>
                     {/each}
                 {/each}
             </div>
         </div>
-        <button on:click={checkout}>Checkout and Exit</button>
+        {#if $game.bundled}
+            <button id="checkout" on:click={checkoutBundle}>Checkout and Exit</button>
+        {:else}
+            <button id="checkout" on:click={checkoutSingle}>Checkout and Exit</button>
+        {/if}
     {:else if GameState == 2}
-    <h3>Walking to {config.locations[curLocation[0]][curLocation[1]]}</h3>
-    <h5>{dist*config.cellDistance/1000} seconds</h5>
+    <h3>Walking to {config["locations"][curLocation[0]][curLocation[1]]}</h3>
+    <h5>{dist*config["cellDistance"]/1000} seconds</h5>
     {:else if GameState == 3}
         <p>Correct!</p>
-        <button id="exit" on:click={exit}>Go Back</button>
+        <button id="ordersuccess" on:click={exit}>Go Back</button>
     {:else}
         <p>Incorrect</p>
-        <button id="start" on:click={start}>Try Again</button>
+        <button id="orderretry" on:click={start}>Try Again</button>
     {/if}
     <div style="display: inline;">
         <div>
-            <h5>Bag1</h5>
+            {#if $game.bundled}
+                <h5>Bag1</h5>
+            {:else}
+                <h5>Bag</h5>
+            {/if}
             <ul>
                 {#each Object.keys(bag1) as key}
                     <li>{key}: {bag1[key]}</li>
                 {/each}
             </ul>
         </div>
-        <div>
-            <h5>Bag2</h5>
-            <ul>
-                {#each Object.keys(bag2) as key}
-                    <li>{key}: {bag2[key]}</li>
-                {/each}
-            </ul>
-        </div>
+        {#if $game.bundled}
+            <div>
+                <h5>Bag2</h5>
+                <ul>
+                    {#each Object.keys(bag2) as key}
+                        <li>{key}: {bag2[key]}</li>
+                    {/each}
+                </ul>
+            </div>
+        {/if}
     </div>
 </div>
