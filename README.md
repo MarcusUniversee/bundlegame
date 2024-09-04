@@ -1,3 +1,6 @@
+## Notes
+I built this game off of Jared's original future of work uber eats game, due to plans of updating his game with bundling. However, we decided to create a new game entirely, so this exists in the bundlegame folder
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
