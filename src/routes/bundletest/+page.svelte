@@ -1,6 +1,6 @@
 <script>
     import Bundlegame from "./bundlegame.svelte";
-    import { game, elapsed, resetTimer, earned, currLocation, id, logAction, GameOver } from "$lib/bundle.js";
+    import { game, elapsed, resetTimer, earned, currLocation, id, logAction, GameOver, authUser } from "$lib/bundle.js";
     import { createUser } from "$lib/firebaseDB.js";
 	import Home from "./home.svelte";
 	import { onMount } from "svelte";
@@ -9,14 +9,21 @@
 	$: inStore = $game.inStore;
     $: bundled = $game.bundled;
     let userInput = '';
+    let userPass = '';
 
     let started = false;
-    function start() {
-        resetTimer();
-        createUser(userInput)
-        $game.inSelect = true;
-        $id = userInput
-        started = true;
+    async function start() {
+        const auth = await authUser(userInput, userPass)
+        if (auth === 1) {
+            resetTimer();
+            createUser(userInput)
+            $game.inSelect = true;
+            $id = userInput
+            started = true;
+        } else {
+            alert("Error! Wrong username or password")
+        }
+        
     }
 
     function handleClick(event) {
@@ -51,6 +58,8 @@
     {#if !started}
         <p>input your id</p>
         <input type="text" bind:value={userInput} placeholder="Enter" />
+        <p>input your password</p>
+        <input type="password" bind:value={userPass} placeholder="Enter" />
         <button id="start" on:click={start}>Start</button>
     {:else if inSelect}
         <Home />

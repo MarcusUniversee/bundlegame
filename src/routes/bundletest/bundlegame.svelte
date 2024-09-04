@@ -31,11 +31,11 @@
 
     function addBag() {
         
-        let item = config["locations"][curLocation[0]][curLocation[1]]
+        let item = config["locations"][curLocation[0]][curLocation[1]].toLowerCase()
         let bag1InputInt;
         let bag2InputInt;
         if (!$game.bundled) {
-            bag2Input = 0;
+            bag2Input = "0";
         }
         let action = {
             buttonID: "addtobag",
@@ -107,6 +107,7 @@
         const selOrders = get(orders)
         let c1 = true;
         Object.keys(bag1).forEach((key) => {
+            console.log(selOrders[0].items[key])
             if(selOrders[0].items[key] != bag1[key]) {
                 c1 = false;
             }
@@ -260,7 +261,7 @@
             <div class="grid">
                 {#each config["locations"] as row, rowIndex}
                     {#each row as cell, colIndex}
-                        <button id="moveinstore" class="cell" class:selected={cell.toLowerCase() == config["locations"][curLocation[0]][curLocation[1]].toLowerCase()} on:click={() => handleCell(cell, rowIndex, colIndex)}>
+                        <button id="moveinstore" class="cell" class:selected={(rowIndex == curLocation[0] && colIndex == curLocation[1])} on:click={() => handleCell(cell, rowIndex, colIndex)}>
                             {cell}
                         </button>
                     {/each}

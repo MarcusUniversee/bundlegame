@@ -1,5 +1,5 @@
 import { writable, readable, derived, get} from 'svelte/store';
-import { addAction, addOrder, updateFields, updateOrder } from './firebaseDB';
+import { addAction, addOrder, updateFields, updateOrder, authenticateUser } from './firebaseDB';
 
 let start;
 let actionCounter = 0;
@@ -52,7 +52,7 @@ export const currLocation = writable('Berkeley');
 
 export const elapsed = derived(timeStamp, ($timeStamp, set) => {
 	const elapsedSeconds = Math.round($timeStamp / 1000);
-	if (elapsedSeconds >= FullTimeLimit) {
+	if (elapsedSeconds == FullTimeLimit) {
 		updateFields(get(id), {
 			earnings: get(earned),
         	ordersComplete: get(finishedOrders).length,
@@ -92,4 +92,8 @@ export const completeOrder = (orderID) => {
 		endgametime: get(elapsed)
 	}
 	updateOrder(get(id), state, orderID)
+}
+
+export const authUser = (id, pass) => {
+	return authenticateUser(id, pass)
 }

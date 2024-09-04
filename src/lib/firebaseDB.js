@@ -1,6 +1,6 @@
 import { timeStamp } from './bundle';
 import {app, firestore} from './firebaseConfig';
-import { collection, doc, setDoc, getDocs, addDoc, arrayUnion, updateDoc, Timestamp } from "firebase/firestore";
+import { collection, doc, setDoc, getDoc, addDoc, arrayUnion, updateDoc, Timestamp } from "firebase/firestore";
 
 export const createUser = async (id) => {
     const data = {
@@ -36,6 +36,40 @@ export const createUser = async (id) => {
     return id
 }
 
+//returns 0 on error and 1 on success
+export const authenticateUser = async (id, pass) => {
+    const userDocRef = doc(collection(firestore, 'Auth'), id);
+    const userDocSnap = await getDoc(userDocRef)
+    if (userDocSnap.exists()) {
+        console.log("Retrieved user with ID", id)
+    } else {
+        console.log("User with ID " + id + " does not exist")
+        return 0
+    }
+    //check if password is correct
+    if (userDocSnap.data().password != pass) {
+        return 0
+    }
+    //check if played
+    if (userDocSnap.data().status == 1) {
+        console.log("This user has already played")
+        return 0
+    }
+    //update user to played
+    if (userDocSnap.data().status == 0) {
+        try {
+            await updateDoc(userDocRef, {
+                status: 1
+            })
+            console.log("Auth document updated with id: ", id)
+        } catch (error) {
+            console.error("Error updating document: ", error);
+            return 0
+        }
+    }
+    return 1
+}
+
 export const addAction = async (id, gamestate, name) => {
     const actionDocRef = doc(collection(firestore, 'Users/' + id + '/Actions'), name)
     gamestate.createdAt = Timestamp.fromDate(new Date())
@@ -67,7 +101,7 @@ export const updateOrder = async (id, gamestate, orderID) => {
     gamestate.updatedAt = Timestamp.fromDate(new Date())
     try {
         await updateDoc(orderDocRef, gamestate)
-        console.log("Document updated with id: , id")
+        console.log("Document updated with id: ", id)
     } catch (error) {
         console.error("Error updating document: ", error);
     }
