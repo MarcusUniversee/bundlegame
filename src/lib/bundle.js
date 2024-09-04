@@ -3,7 +3,7 @@ import { addAction, addOrder, updateFields, updateOrder, authenticateUser } from
 
 let start;
 let actionCounter = 0;
-export const FullTimeLimit = 200;
+export const FullTimeLimit = 900;
 export const GameOver = writable(false);
 export const gameText = writable({
 	selector: "None selected",
@@ -52,7 +52,7 @@ export const currLocation = writable('Berkeley');
 
 export const elapsed = derived(timeStamp, ($timeStamp, set) => {
 	const elapsedSeconds = Math.round($timeStamp / 1000);
-	if (elapsedSeconds == FullTimeLimit) {
+	if (elapsedSeconds >= FullTimeLimit && elapsedSeconds <= FullTimeLimit + 2) {
 		updateFields(get(id), {
 			earnings: get(earned),
         	ordersComplete: get(finishedOrders).length,
