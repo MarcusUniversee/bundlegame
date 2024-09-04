@@ -122,8 +122,8 @@
 				<button on:click={() => { setMode(RANDOM); setLocalMode(RANDOM)}} disabled={localMode === RANDOM}>Random Jobs</button>
 			</div> -->
 			<p>Enter your name:</p>
-			<input bind:value={userName} type="text" />
-			<button on:click={() => { initializeGame(); goToWork(); }}>Start</button>
+			<!--<input bind:value={userName} type="text" />
+			<button on:click={() => { initializeGame(); goToWork(); }}>Start</button>--->
 		</div>
 	</div>
 {:else if inChoices}
