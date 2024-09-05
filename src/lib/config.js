@@ -57,6 +57,7 @@ export function queueNRandomOrders(n) {
 }
 
 export function queueNFixedOrders(n) {
+    console.log("queuing " + n + " orders")
     const next_orders = []
     for (let i = 0; i < n; i++) {
         next_orders.push(order_list[orderid])

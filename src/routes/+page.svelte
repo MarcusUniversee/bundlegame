@@ -1,9 +1,10 @@
 <script>
     import Bundlegame from "./bundlegame.svelte";
-    import { game, elapsed, resetTimer, earned, currLocation, id, logAction, GameOver, authUser } from "$lib/bundle.js";
+    import { game, elapsed, resetTimer, earned, currLocation, id, logAction, GameOver, authUser, orderList, ordersShown } from "$lib/bundle.js";
     import { createUser } from "$lib/firebaseDB.js";
 	import Home from "./home.svelte";
 	import { onMount } from "svelte";
+    import { queueNRandomOrders, queueNFixedOrders, getDistances } from "$lib/config.js";
 
     $: inSelect = $game.inSelect;
 	$: inStore = $game.inStore;
@@ -20,6 +21,7 @@
             $game.inSelect = true;
             $id = userInput
             started = true;
+            $orderList = queueNFixedOrders(ordersShown)
         } else {
             alert("Error! Wrong username or password")
         }

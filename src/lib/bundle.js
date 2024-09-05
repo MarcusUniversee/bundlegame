@@ -3,12 +3,13 @@ import { addAction, addOrder, updateFields, updateOrder, authenticateUser } from
 
 let start;
 let actionCounter = 0;
+export const orderList = writable([])
 export const FullTimeLimit = 900;
 export const GameOver = writable(false);
 export const gameText = writable({
 	selector: "None selected",
 })
-
+export const ordersShown = 4;
 export const game = writable({
 	inSelect: false,
 	inStore: false,
