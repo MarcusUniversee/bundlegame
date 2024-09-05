@@ -1,11 +1,11 @@
 <script>
     import { get } from 'svelte/store';
     import { game, orders, gameText, currLocation, logOrder } from "$lib/bundle.js";
-    import { queueNRandomOrders, getDistances } from "$lib/config.js";
+    import { queueNRandomOrders, queueNFixedOrders, getDistances } from "$lib/config.js";
     import Order from "./order.svelte";
 
     let waiting = false;
-    let orderList = queueNRandomOrders(4)
+    let orderList = queueNFixedOrders(4)
     let distances = getDistances($currLocation)
     let duration = 0;
     let travelingTo = ""
@@ -27,7 +27,7 @@
         } else {
             curGame.bundled = false;
         }
-        orderList = queueNRandomOrders(4)
+        orderList = queueNFixedOrders(4)
         if (selOrders[0].city != curLoc) {
             travel(selOrders[0].city, true)
         } else {

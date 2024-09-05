@@ -1,6 +1,8 @@
 import default_job from "./scripts/game_modes/bundlingDefault.json" with { type: "json" };
+import order_list from "./scripts/game_modes/generated_orders.json" with { type: "json" };
 
 let id = 0;
+let orderid = 0;
 
 function gaussianRandom(mean, stdDev) {
     // Using the Box-Muller transform to generate a Gaussian-distributed random number
@@ -52,6 +54,15 @@ export function queueNRandomOrders(n) {
         id += 1;
     }
     return next_orders;
+}
+
+export function queueNFixedOrders(n) {
+    const next_orders = []
+    for (let i = 0; i < n; i++) {
+        next_orders.push(order_list[orderid])
+        orderid += 1;
+    }
+    return next_orders
 }
 
 /* Returns the configuration for a store */

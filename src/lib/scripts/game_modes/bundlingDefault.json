@@ -1,10 +1,14 @@
 {
-    "names": ["Park", "Marcus", "Jared", "Shunan"],
+    "names": [
+        "Noah", "Liam", "Jacob", "Mason", "William", "Ethan", "Michael", "Oliver", "Elijah", "James",
+        "Lucas", "Benjamin", "Alexander", "Aiden", "Daniel", "Logan", "David", "Matthew", "Christopher", "Joseph",
+        "Olivia", "Emma", "Ava", "Sophia", "Isabella", "Charlotte", "Mia", "Amelia", "Evelyn", "Abigail"
+    ],
     "stores": [
         {
             "store": "Berkeley Bowl",
             "city": "Berkeley",
-            "earnings": [10, 2],
+            "earnings": [8, 2],
             "amount": [5, 2],
             "items": ["apple", "pineapple", "banana"],
             "locations": [
@@ -12,20 +16,22 @@
                 ["", "Pineapple", ""],
                 ["Banana", "", "Apple"]
             ],
-            "cellDistance": 1000
+            "cellDistance": 1000,
+            "expire": [1, 1]
         },
         {
             "store": "Whole Foods",
             "city": "Oakland",
             "earnings": [15, 3],
-            "amount": [8, 3],
+            "amount": [9, 3],
             "items": ["apple", "grape", "banana", "cherry"],
             "locations": [
                 ["Entrance", "Cherry", ""],
                 ["Banana", "", "Apple"],
-                ["", "Grape", "Cherry"]
+                ["Grape", "Cherry", ""]
             ],
-            "cellDistance": 2000
+            "cellDistance": 2000,
+            "expire": [1, 1]
         },
         {
             "store": "Trader Joes",
@@ -38,7 +44,8 @@
                 ["Banana", "Cherry", "Pineapple"],
                 ["Grapefruit", "Grape", "Peach"]
             ],
-            "cellDistance": 1000
+            "cellDistance": 1000,
+            "expire": [1, 1]
         }
     ],
     "distances": {
