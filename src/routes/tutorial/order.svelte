@@ -1,5 +1,5 @@
 <script>
-    import { orders, currLocation, gameText } from "$lib/bundle.js"
+    import { orders, currLocation, gameText } from "$lib/tutorial/bundle.js"
     export let orderData;
     let selected = false;
 
