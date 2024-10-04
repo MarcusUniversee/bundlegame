@@ -14,17 +14,17 @@
 
     let started = false;
     async function start() {
-        const auth = await authUser(userInput, userPass)
-        if (auth === 1) {
-            resetTimer();
-            createUser(userInput)
-            $game.inSelect = true;
-            $id = userInput
-            started = true;
-            $orderList = queueNFixedOrders(ordersShown)
-        } else {
-            alert("Error! Wrong username or password")
-        }
+        //const auth = await authUser(userInput, userPass)
+        //if (auth === 1) {
+        resetTimer();
+        createUser(userInput)
+        $game.inSelect = true;
+        $id = userInput
+        started = true;
+        $orderList = queueNFixedOrders(ordersShown)
+        //} else {
+            //alert("id and token do not match")
+        //}
         
     }
 
@@ -60,7 +60,7 @@
     {#if !started}
         <p>input your id</p>
         <input type="text" bind:value={userInput} placeholder="Enter" />
-        <p>input your password</p>
+        <p>input your token (include dashes)</p>
         <input type="password" bind:value={userPass} placeholder="Enter" />
         <button id="start" on:click={start}>Start</button>
     {:else if inSelect}
