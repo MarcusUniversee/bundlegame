@@ -1,6 +1,6 @@
 <script>
     import { get } from 'svelte/store';
-    import { game, orders, gameText, currLocation, logOrder, orderList, ordersShown } from "$lib/bundle.js";
+    import { game, orders, gameText, currLocation, logOrder, logBundledOrder, orderList, ordersShown } from "$lib/bundle.js";
     import { queueNRandomOrders, queueNFixedOrders, getDistances } from "$lib/config.js";
     import Order from "./order.svelte";
     import { onMount } from "svelte";
@@ -63,12 +63,11 @@
     }
 
     function gameWindow() {
-        //log first order
         const selOrders = get(orders)
-        logOrder(selOrders[0])
         if (get(game).bundled) {
-            //log second order
-            logOrder(selOrders[1])
+            logBundledOrder(selOrders[0], selOrders[1], selOrders)
+        } else {
+            logOrder(selOrders[0], selOrders)
         }
         $game.inStore = true;
         $game.inSelect= false;

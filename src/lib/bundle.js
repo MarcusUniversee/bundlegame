@@ -76,12 +76,34 @@ export const logAction = (action) => {
 	actionCounter += 1;
 }
 
-export const logOrder = (order) => {
+export const logOrder = (order, options) => {
 	order.startgametime = get(elapsed)
 	order.status = 0
-	order.bundled = get(game).bundled
-	console.log(order)
+	order.bundled = false
+	let optionslst = []
+	for (let i=0; i<options.length; i++) {
+		optionslst.push(options[i].id)
+	}
+	order.options = optionslst
 	addOrder(get(id), order, order.id)
+}
+export const logBundledOrder = (order1, order2, options) => {
+	order1.startgametime = get(elapsed)
+	order1.status = 0
+	order1.bundled = true
+	order1.bundledWith = order2.id
+	order2.startgametime = get(elapsed)
+	order2.status = 0
+	order2.bundled = true
+	order2.bundledWith = order1.id
+	let optionslst = []
+	for (let i=0; i<options.length; i++) {
+		optionslst.push(options[i].id)
+	}
+	order1.options = optionslst
+	order2.options = optionslst
+	addOrder(get(id), order1, order1.id)
+	addOrder(get(id), order2, order2.id)
 }
 
 //state should contain info such as:

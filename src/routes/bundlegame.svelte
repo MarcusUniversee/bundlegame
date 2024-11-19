@@ -30,21 +30,27 @@
     }
 
     function addBag() {
-        
+        const selOrders = get(orders)
         let item = config["locations"][curLocation[0]][curLocation[1]].toLowerCase()
         let bag1InputInt;
         let bag2InputInt;
-        if (!$game.bundled) {
-            bag2Input = "0";
-        }
         let action = {
             buttonID: "addtobag",
             buttonContent: "Add to bag",
             bagInput1: bag1Input,
             bagInput2: bag2Input,
-            itemInput: wordInput
+            itemInput: wordInput,
+            bag1_: bag1,
+            bag2_: bag2,
+            order1: selOrders[0]
         }
-        logAction(action)
+        if (!$game.bundled) {
+            bag2Input = "0";
+        } else {
+            action.order2 = selOrders[1]
+        }
+        
+        
         if (item == "" || item == "Entrance") {
             return;
         }
@@ -53,23 +59,29 @@
             bag2InputInt = parseInt(bag2Input)
         } catch {
             alert("Error: Quantity inputs must be numbers")
+            action.mistake = "numbertypo"
             bag1Input = "";
             bag2Input = "";
             wordInput = "";
+            logAction(action)
             return;
         }
         if (isNaN(bag1InputInt) || isNaN(bag2InputInt)) {
             alert("Error: Quantity inputs must be numbers")
+            action.mistake = "numberempty"
             bag1Input = "";
             bag2Input = "";
             wordInput = "";
+            logAction(action)
             return;
         }
         if (wordInput.toLowerCase() != item.toLowerCase()) {
             alert("Incorrect! You must type the name of the item")
+            action.mistake = "itemtypo"
             bag1Input = "";
             bag2Input = "";
             wordInput = "";
+            logAction(action)
             return;
         }
         if (Object.keys(bag1).includes(item)) {
@@ -88,6 +100,7 @@
         bag1Input = "";
         bag2Input = "";
         wordInput = "";
+        logAction(action)
     }
 
     function start() {

@@ -1,6 +1,6 @@
 import { timeStamp } from './bundle';
 import {app, firestore} from './firebaseConfig';
-import { collection, doc, setDoc, getDoc, addDoc, arrayUnion, updateDoc, Timestamp } from "firebase/firestore";
+import { collection, collectionGroup, doc, setDoc, getDoc, getDocs, addDoc, arrayUnion, updateDoc, Timestamp } from "firebase/firestore";
 
 export const createUser = async (id) => {
     const data = {
@@ -148,6 +148,7 @@ export const addAction = async (id, gamestate, name) => {
     const actionDocRef = doc(collection(firestore, 'Users/' + id + '/Actions'), name)
     gamestate.createdAt = Timestamp.fromDate(new Date())
     gamestate.updatedAt = Timestamp.fromDate(new Date())
+    gamestate.userID = id
     try {
         await setDoc(actionDocRef, gamestate)
         console.log("Start action written with id ", id);
@@ -161,6 +162,7 @@ export const addOrder = async (id, gamestate, orderID) => {
     const orderDocRef = doc(collection(firestore, 'Users/' + id + '/Orders'), orderID)
     gamestate.createdAt = Timestamp.fromDate(new Date())
     gamestate.updatedAt = Timestamp.fromDate(new Date())
+    gamestate.userID = id
     try {
         await setDoc(orderDocRef, gamestate)
         console.log("Added an order with ", id);
@@ -192,4 +194,38 @@ export const updateFields = async (id, gamestate) => {
         console.error("Error updating document: ", error);
     }
     return id
+}
+
+async function getSubcollections(id, field) {
+    const subcollectionRefs = await getDocs(collection(firestore, 'Users/' + id + field)); // Adjust this line for specific subcollections
+    const subcollectionData = subcollectionRefs.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }));
+    return subcollectionData;
+  }
+
+export const retrieveData = async () => {
+    const querySnapshot = await getDocs(collection(firestore, 'Users'));
+    const data = [];
+    console.log(querySnapshot)
+
+    for (const docSnapshot of querySnapshot.docs) {
+        const docData = docSnapshot.data();
+        const docId = docSnapshot.id;
+        console.log(docId)
+        // Fetch subcollections for each document
+        const orders = await getSubcollections(docId, '/Orders');
+        const actions = await getSubcollections(docId, '/Actions');
+        
+        
+        data.push({
+        id: docId,  // Include document ID
+        ...docData,
+        orders,
+        actions  // Attach subcollections
+        });
+    }
+
+    return data;
 }
