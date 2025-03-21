@@ -72,18 +72,26 @@
         $game.inStore = true;
         $game.inSelect= false;
     }
+    function updateEarnings(index, newEarnings) {
+        console.log("updated: " + index + " " + newEarnings)
+        orderList.update(list => {
+            list[index].earnings = newEarnings;
+            return list;
+        });
+    }
 </script>
 
 <style>
 
 </style>
+{#if $game.inSelect}
 
 {#if waiting}
     <p>Traveling to {travelingTo}. Travel duration: {duration}</p>
 {:else}
     <div class="home">
-        {#each $orderList as order}
-            <Order orderData={order} />
+        {#each $orderList as order, i (order.id)}
+            <Order orderData={order} index={i} updateEarnings={updateEarnings}/>
         {/each}
         <button id="startorder" on:click={start}>{$gameText.selector}</button>
     </div>
@@ -92,4 +100,5 @@
             <button id="travel" on:click={() => travel(dest, false)}>Travel to {dest}</button>
         {/each}
     </div>
+{/if}
 {/if}

@@ -12,6 +12,16 @@ def gaussian_random(mean, std_dev):
     random_float = z0 * std_dev + mean
     return round(random_float)
 
+def gaussian_random_float(mean, std_dev):
+    """
+    Generates a random number using the Box-Muller transform.
+    """
+    u1 = random.random()
+    u2 = random.random()
+    z0 = math.sqrt(-2.0 * math.log(u1)) * math.cos(2.0 * math.pi * u2)
+    random_float = z0 * std_dev + mean
+    return random_float
+
 def load_default_job(filename):
     """
     Loads the default job data from a JSON file.
@@ -33,6 +43,7 @@ def generate_order(default_job, id):
 
     if order["earnings"] < 1:
         order["earnings"] = 1
+    order["startingearnings"] = order["earnings"]
 
     order["city"] = store["city"]
     order["amount"] = gaussian_random(store["amount"][0], store["amount"][1])
@@ -42,6 +53,7 @@ def generate_order(default_job, id):
     if order["expire"] < 1:
         order["expire"] = 1
     order["items"] = {}
+    order["demand"] = gaussian_random_float(store["demand"][0], store["demand"][1])
     for _ in range(order["amount"]):
         item = random.choice(store["items"])
         order["items"][item] = order["items"].get(item, 0) + 1

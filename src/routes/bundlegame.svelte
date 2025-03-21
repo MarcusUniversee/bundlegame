@@ -1,5 +1,6 @@
 <script>
     import { get } from 'svelte/store';
+    import { onMount, onDestroy } from 'svelte';
     import { game, orders, finishedOrders, failedOrders, earned, currLocation, elapsed, completeOrder, logAction } from "$lib/bundle.js"
     import { storeConfig } from "$lib/config.js";
     let config = storeConfig($orders[0].store)
@@ -14,7 +15,39 @@
     let dist = 0;
     let correct = false;
     let startTimer = $elapsed;
+    let intervalId;
+    let startEarnings;
+    let totalEarnings;
+    let curTip = 0;
     $: endTimer = $elapsed - startTimer;
+
+    function updateTip() {
+        let tipIndex = Math.floor(endTimer / config["tipinterval"])
+        let percentIncrease = tipIndex < config["tip"].length ? (1 + (config["tip"][tipIndex]/100)) : (config["tip"][config["tip"].length - 1]/100)
+        curTip = Math.round(percentIncrease * 100 - 100);
+        totalEarnings = Math.round(startEarnings*percentIncrease*100)/100
+    }
+
+    onMount(() => {
+        const selOrders = get(orders)
+        if ($game.bundled) {
+            startEarnings = selOrders[0].earnings + selOrders[1].earnings
+        } else {
+            startEarnings = selOrders[0].earnings
+        }
+        totalEarnings = startEarnings
+        config = storeConfig($orders[0].store)
+        if ($game.phase == 2) {
+            intervalId = setInterval(updateTip, 1000); // Run updateTimer every 1000ms (1 second)
+        }
+        
+    });
+
+    onDestroy(() => {
+        if ($game.phase == 2) {
+            clearInterval(intervalId);
+        }
+    });
 
     function handleCell(value, row, col) {
         if (value == "") {
@@ -131,7 +164,7 @@
         correct = c1;
         bag1 = {}
         if (correct) {
-            $earned += selOrders[0].earnings;
+            $earned += totalEarnings;
             completeOrder(selOrders[0].id)
             $finishedOrders.push(selOrders[0]);
             $orders.splice(0, 1)
@@ -188,8 +221,7 @@
         bag1 = {}
         bag2 = {}
         if (correct) {
-            $earned += selOrders[0].earnings;
-            $earned += selOrders[1].earnings;
+            $earned += totalEarnings;
             completeOrder(selOrders[0].id)
             completeOrder(selOrders[1].id)
             $finishedOrders.push(selOrders[0]);
@@ -232,6 +264,11 @@
 <div class="bundlegame">
     <h5>{$orders[0].store}</h5>
     <div style="display: table;">
+        {#if $game.phase == 2}
+        <div style="display: table-row">Total Earnings: ${totalEarnings} (${startEarnings} + {curTip}% tip)</div>
+        {:else}
+        <div style="display: table-row">Total Earnings: ${totalEarnings}</div>
+        {/if}
         <div style="display: table-row">
             {#each $orders as order}
                 <div class="order" style="display: table-cell;">

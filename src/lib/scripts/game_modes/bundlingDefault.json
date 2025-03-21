@@ -17,7 +17,13 @@
                 ["Banana", "", "Apple"]
             ],
             "cellDistance": 1000,
-            "expire": [1, 1]
+            "expire": [1, 1],
+            "demand": [1.5, 0.5],
+            "waiting": [0, 2, 5, 10, 18, 30],
+            "waitinginterval": 5,
+            "refresh": 3,
+            "tip": [20, 15, 10, 5, 0],
+            "tipinterval": 15
         },
         {
             "store": "Whole Foods",
@@ -31,7 +37,13 @@
                 ["Grape", "Cherry", ""]
             ],
             "cellDistance": 2000,
-            "expire": [1, 1]
+            "expire": [1, 1],
+            "demand": [1.5, 0.5],
+            "waiting": [0, 2, 5, 10, 18, 30],
+            "waitinginterval": 5,
+            "refresh": 3,
+            "tip": [20, 15, 10, 5],
+            "tipinterval": 15
         },
         {
             "store": "Trader Joes",
@@ -45,7 +57,13 @@
                 ["Grapefruit", "Grape", "Peach"]
             ],
             "cellDistance": 1000,
-            "expire": [1, 1]
+            "expire": [1, 1],
+            "demand": [2, 1],
+            "waiting": [0, 2, 5, 10, 18, 30],
+            "waitinginterval": 5,
+            "refresh": 4,
+            "tip": [20, 15, 10, 5],
+            "tipinterval": 15
         }
     ],
     "distances": {
