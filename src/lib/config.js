@@ -1,5 +1,5 @@
-import default_job from "./scripts/game_modes/bundlingDefault.json" with { type: "json" };
-import order_list from "./scripts/game_modes/generated_orders.json" with { type: "json" };
+import default_job from "./scripts/game_modes/phase1Stores.json" with { type: "json" };
+import order_list from "./scripts/game_modes/phase1_orders.json" with { type: "json" };
 
 let id = 0;
 let orderid = 0;
@@ -56,6 +56,7 @@ export function queueNRandomOrders(n) {
     return next_orders;
 }
 
+// TODO add way to pull from different JSON here
 export function queueNFixedOrders(n) {
     console.log("queuing " + n + " orders")
     const next_orders = []

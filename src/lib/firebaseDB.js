@@ -114,19 +114,30 @@ function generateToken(id) {
     return first + "-" + second + "-" + third + "-" + fourth
 }
 
+export const generateCompleteId = (id) => {
+    let newId = id + "qq"
+    let generatedToken = generateToken(newId)
+    return generatedToken
+}
+
 //returns 0 on error and 1 on success
 export const authenticateUser = async (id, token) => {
-    const userDocRef = doc(collection(firestore, 'Auth'), token);
+    const userDocRef = doc(collection(firestore, 'Auth'), id);
     const userDocSnap = await getDoc(userDocRef)
     if (userDocSnap.exists()) {
         console.log("Retrieved user with token", token)
+        console.log(userDocSnap.data())
         if (userDocSnap.data().status == 2) {
             return 1
         }
         return 0
     }
     //token does not exist, generate a token for the user and see if matches
-    if (generateToken(id) == token) {
+    let generatedToken = generateToken(id)
+    console.log("Generated token vs token")
+    console.log(generatedToken)
+    console.log(token)
+    if (generatedToken == token) {
         const data = {
             userid: id,
             status: 1

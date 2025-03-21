@@ -4,7 +4,7 @@ import { addAction, addOrder, updateFields, updateOrder, authenticateUser } from
 let start;
 let actionCounter = 0;
 export const orderList = writable([])
-export const FullTimeLimit = 1200;
+export const FullTimeLimit = 100;
 export const GameOver = writable(false);
 export const gameText = writable({
 	selector: "None selected",
@@ -14,7 +14,59 @@ export const game = writable({
 	inSelect: false,
 	inStore: false,
 	bundled: false,
+	phase: 1,
 });
+
+export const tipTimers = writable([])
+
+export function createTipTimer(id, initialTime) {
+	tipTimers.update(t => {
+		const newTimer = { orderId: id, remainingTime: initialTime, intervalId: null };
+      	return [...t, newTimer];
+	})
+}
+
+export function startTipTimer(id) {
+    tipTimers.update(t => {
+      	const updatedTimers = t.map(timer => {
+			if (timer.id === id && timer.intervalId === null) {
+				timer.intervalId = setInterval(() => {
+					tipTimers.update(tipTimers => {
+						const updated = tipTimers.map(t => {
+							if (t.id === id && t.remainingTime > 0) {
+								t.remainingTime -= 1;
+							}
+							return t;
+						});
+						return updated;
+					});
+				}, 1000);
+			}
+        	return timer;
+      	});
+      	return updatedTimers;
+    });
+}
+
+export function stopTipTimer(id) {
+	tipTimers.update(t => {
+		const updatedTimers = t.map(timer => {
+			if (timer.id === id && timer.intervalId !== null) {
+				clearInterval(timer.intervalId);
+				timer.intervalId = null;
+			}
+			return timer;
+		});
+		return updatedTimers;
+	});
+}
+
+export function removeTipTimer(id) {
+	tipTimers.update(t => {
+		const updatedTimers = t.filter(timer => timer.id !== id); // Filter out the timer with the specified id
+		return updatedTimers;
+	});
+}
 
 export function resetTimer() {
 	start = new Date();
