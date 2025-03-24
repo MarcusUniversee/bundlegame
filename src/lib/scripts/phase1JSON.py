@@ -255,13 +255,13 @@ def calculation_bundle_helper(default_job, order1, order2, loc):
     max_time += movement*(store["cellDistance"]/1000 + 0.3)
 
     #next find time for typing.
-    #Lets say a typing speed of 20 - 80 WPM. with an average of 5 characters per word
-    # this is 1/1.67 sec - 1/6.67 
+    #Lets say a typing speed of 30 - 100 WPM. with an average of 5 characters per word
+    # this is 1/2.5 sec - 1/8.33
     for item in items:
         #add a little bit for mouse movement/clicking and to type quantity
         #this extra addition is a little bit more for this versus non-bundled
-        min_time += ((len(item) + 2)/6.67) + 0.8
-        max_time += ((len(item) + 2)/1.67) + 0.8
+        min_time += ((len(item) + 2)/8.33) + 0.8
+        max_time += ((len(item) + 2)/2.5) + 0.8
     selection["mintypingtime"] = min_time - selection["movementtime"]
     selection["maxtypingtime"] = max_time - selection["movementtime"]
 
@@ -373,7 +373,17 @@ def determine_optimal(orders, possibilities, loc, threshold=[0.2, 0.2, 0.2, 0.2]
                     max_expected_key = key
                     max_expected_value = v
         
-        optimal[l]["optimal_choice"] = max_expected_key
+        max_keys = []
+
+        for key, value in possibilities.items():
+            if not value:
+                continue
+            if l == value["starting_location"]:
+                v = (value["low_expected_value"] + value["high_expected_value"])/2
+                if v == max_expected_value:
+                    max_keys.append(key)
+
+        optimal[l]["optimal_choice"] = max_keys
 
         #look at the less optimal combos for comparison
         bundles_exist = False
@@ -385,7 +395,7 @@ def determine_optimal(orders, possibilities, loc, threshold=[0.2, 0.2, 0.2, 0.2]
                 continue
             if "," in key:
                 bundles_exist = True
-            if key == max_expected_key:
+            if key in max_keys:
                 continue
             possible_locs.add(value["city"])
             unoptimal.append(value)
@@ -417,7 +427,7 @@ def determine_optimal(orders, possibilities, loc, threshold=[0.2, 0.2, 0.2, 0.2]
                 earning = False
                 break
             #if we lower the optimal earnings to the other, and see that the value is now less
-            if u["high_expected_value"] < u["earnings"]/total_high_time:
+            if u["high_expected_value"] > u["earnings"]/total_high_time:
                 earning = False
                 break
         if earning:
@@ -520,6 +530,9 @@ if __name__ == "__main__":
     previous_locs = createSet(commonsense_item_amount, default_job, count, next_orders, next_possibilities, next_optimal, previous_locs)
     count += 4
     for x in range(80):
+        if x % 5 == 3:
+            previous_locs = createSet(pure_randomness, default_job, count, next_orders, next_possibilities, next_optimal, previous_locs)
+            continue
         if x % 3 <= 1:
             previous_locs = createSet(random.choice(generators), default_job, count, next_orders, next_possibilities, next_optimal, previous_locs)
         else:
