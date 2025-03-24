@@ -5,7 +5,7 @@ let start;
 let stopTimeInterval;
 let actionCounter = 0;
 export const orderList = writable([])
-export const FullTimeLimit = 50;
+export const FullTimeLimit = 1500;
 export const GameOver = writable(false);
 export const gameText = writable({
 	selector: "None selected",
