@@ -7,8 +7,8 @@
     "order3"
   ],
   "Emeryville": {
-    "optimal_choice": "order1,order3;Emeryville-Oakland",
-    "tags": ["bundle"]
+    "optimal_choice": ["order0;Emeryville-Oakland"],
+    "tags": ["single","movement","typing:fast","typing:s"]
   },
   "generator": "commonsense_item_amount"
 },
@@ -20,10 +20,10 @@
     "order7"
   ],
   "Oakland": {
-    "optimal_choice": "order5,order6;Oakland-Emeryville",
-    "tags": ["bundle"]
+    "optimal_choice": ["order7;Oakland-Oakland"],
+    "tags": ["single","movement"]
   },
-  "generator": "equal_earnings"
+  "generator": "vary_location"
 },
 {
   "order_ids": [
@@ -32,15 +32,15 @@
     "order10",
     "order11"
   ],
-  "Oakland": {
-    "optimal_choice": "order10;Oakland-Oakland",
+  "Piedmont": {
+    "optimal_choice": ["order11;Piedmont-Oakland"],
     "tags": ["single"]
   },
-  "Emeryville": {
-    "optimal_choice": "order9,order10;Emeryville-Oakland",
-    "tags": ["bundle"]
+  "Oakland": {
+    "optimal_choice": ["order11;Oakland-Oakland"],
+    "tags": ["single"]
   },
-  "generator": "commonsense_item_amount"
+  "generator": "equal_location_earnings"
 },
 {
   "order_ids": [
@@ -50,8 +50,8 @@
     "order15"
   ],
   "Oakland": {
-    "optimal_choice": "order15;Oakland-Oakland",
-    "tags": ["single","movement","typing:s"]
+    "optimal_choice": ["order15;Oakland-Oakland"],
+    "tags": ["single","movement","typing:fast","typing:s"]
   },
   "generator": "equal_location_earnings"
 },
@@ -63,10 +63,31 @@
     "order19"
   ],
   "Oakland": {
-    "optimal_choice": "order19;Oakland-Oakland",
-    "tags": ["single","movement"]
+    "optimal_choice": ["order18;Oakland-Emeryville"],
+    "tags": ["single","typing:fast","typing:s"]
   },
-  "generator": "equal_everything"
+  "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order16",
+    "order17",
+    "order18",
+    "order19"
+  ],
+  "Emeryville": {
+    "optimal_choice": ["order18;Emeryville-Oakland"],
+    "tags": ["single"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order18;Berkeley-Oakland"],
+    "tags": ["single"]
+  },
+  "Oakland": {
+    "optimal_choice": ["order18;Oakland-Oakland"],
+    "tags": ["single"]
+  },
+  "generator": "vary_earnings_item_amount"
 },
 {
   "order_ids": [
@@ -76,10 +97,10 @@
     "order23"
   ],
   "Oakland": {
-    "optimal_choice": "order21,order22;Oakland-Oakland",
-    "tags": ["bundle"]
+    "optimal_choice": ["order23;Oakland-Oakland"],
+    "tags": ["single","movement","typing:fast","typing:s"]
   },
-  "generator": "vary_earnings_item_amount"
+  "generator": "equal_location_earnings"
 },
 {
   "order_ids": [
@@ -89,8 +110,8 @@
     "order27"
   ],
   "Oakland": {
-    "optimal_choice": "order24,order25;Oakland-Oakland",
-    "tags": ["bundle"]
+    "optimal_choice": ["order24;Oakland-Oakland"],
+    "tags": ["single","movement","typing:fast","typing:s"]
   },
   "generator": "equal_location_earnings"
 },
@@ -102,10 +123,10 @@
     "order31"
   ],
   "Oakland": {
-    "optimal_choice": "order30;Oakland-Oakland",
-    "tags": ["single","movement","typing:fast","typing:s"]
+    "optimal_choice": ["order28,order30;Oakland-Emeryville"],
+    "tags": ["bundle"]
   },
-  "generator": "equal_location_earnings"
+  "generator": "equal_earnings"
 },
 {
   "order_ids": [
@@ -114,11 +135,36 @@
     "order34",
     "order35"
   ],
-  "Oakland": {
-    "optimal_choice": "order32;Oakland-Oakland",
-    "tags": ["single","movement","typing:fast","typing:s"]
+  "Emeryville": {
+    "optimal_choice": ["order32;Emeryville-Oakland"],
+    "tags": ["single"]
   },
-  "generator": "commonsense_item_amount"
+  "Piedmont": {
+    "optimal_choice": ["order33,order35;Piedmont-Berkeley"],
+    "tags": ["bundle"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order33,order35;Berkeley-Berkeley"],
+    "tags": ["bundle"]
+  },
+  "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order32",
+    "order33",
+    "order34",
+    "order35"
+  ],
+  "Berkeley": {
+    "optimal_choice": ["order32,order34;Berkeley-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Oakland": {
+    "optimal_choice": ["order32,order34;Oakland-Oakland"],
+    "tags": ["bundle"]
+  },
+  "generator": "equal_everything"
 },
 {
   "order_ids": [
@@ -128,10 +174,10 @@
     "order39"
   ],
   "Oakland": {
-    "optimal_choice": "order37,order38;Oakland-Oakland",
+    "optimal_choice": ["order37,order38;Oakland-Oakland"],
     "tags": ["bundle"]
   },
-  "generator": "equal_location_earnings"
+  "generator": "equal_everything"
 },
 {
   "order_ids": [
@@ -141,10 +187,10 @@
     "order43"
   ],
   "Oakland": {
-    "optimal_choice": "order40,order43;Oakland-Oakland",
+    "optimal_choice": ["order40,order42;Oakland-Oakland"],
     "tags": ["bundle"]
   },
-  "generator": "equal_everything"
+  "generator": "equal_location_earnings"
 },
 {
   "order_ids": [
@@ -154,8 +200,21 @@
     "order47"
   ],
   "Oakland": {
-    "optimal_choice": "order44;Oakland-Piedmont",
-    "tags": ["difflocation:Piedmont"]
+    "optimal_choice": ["order46;Oakland-Oakland"],
+    "tags": ["single","movement","typing:fast","typing:s"]
+  },
+  "generator": "commonsense_item_amount"
+},
+{
+  "order_ids": [
+    "order48",
+    "order49",
+    "order50",
+    "order51"
+  ],
+  "Oakland": {
+    "optimal_choice": ["order49,order51;Oakland-Oakland"],
+    "tags": ["bundle"]
   },
   "generator": "pure_randomness"
 },
@@ -166,21 +225,17 @@
     "order50",
     "order51"
   ],
-  "Oakland": {
-    "optimal_choice": "order48,order49;Oakland-Oakland",
-    "tags": ["bundle"]
-  },
-  "Emeryville": {
-    "optimal_choice": "order49,order50;Emeryville-Oakland",
-    "tags": ["bundle"]
-  },
   "Piedmont": {
-    "optimal_choice": "order48,order49;Piedmont-Oakland",
-    "tags": ["bundle"]
+    "optimal_choice": ["order50;Piedmont-Oakland"],
+    "tags": ["single"]
   },
   "Berkeley": {
-    "optimal_choice": "order48,order49;Berkeley-Oakland",
-    "tags": ["bundle"]
+    "optimal_choice": ["order50;Berkeley-Oakland"],
+    "tags": ["single"]
+  },
+  "Oakland": {
+    "optimal_choice": ["order50;Oakland-Oakland"],
+    "tags": ["single"]
   },
   "generator": "equal_location_earnings"
 },
@@ -192,10 +247,10 @@
     "order55"
   ],
   "Oakland": {
-    "optimal_choice": "order52,order53;Oakland-Piedmont",
-    "tags": ["bundle"]
+    "optimal_choice": ["order55;Oakland-Oakland"],
+    "tags": ["single","samelocation:Oakland","movement","typing:fast","typing:s"]
   },
-  "generator": "vary_location"
+  "generator": "equal_earnings"
 },
 {
   "order_ids": [
@@ -204,15 +259,19 @@
     "order58",
     "order59"
   ],
+  "Emeryville": {
+    "optimal_choice": ["order58,order59;Emeryville-Oakland"],
+    "tags": ["bundle"]
+  },
   "Piedmont": {
-    "optimal_choice": "order56,order59;Piedmont-Oakland",
+    "optimal_choice": ["order58,order59;Piedmont-Oakland"],
     "tags": ["bundle"]
   },
-  "Berkeley": {
-    "optimal_choice": "order56,order59;Berkeley-Oakland",
+  "Oakland": {
+    "optimal_choice": ["order58,order59;Oakland-Oakland"],
     "tags": ["bundle"]
   },
-  "generator": "equal_everything"
+  "generator": "equal_earnings"
 },
 {
   "order_ids": [
@@ -221,8 +280,12 @@
     "order62",
     "order63"
   ],
+  "Piedmont": {
+    "optimal_choice": ["order60,order63;Piedmont-Oakland"],
+    "tags": ["bundle"]
+  },
   "Oakland": {
-    "optimal_choice": "order60,order62;Oakland-Oakland",
+    "optimal_choice": ["order60,order63;Oakland-Oakland"],
     "tags": ["bundle"]
   },
   "generator": "equal_location_earnings"
@@ -235,8 +298,29 @@
     "order67"
   ],
   "Oakland": {
-    "optimal_choice": "order65;Oakland-Oakland",
-    "tags": ["single","movement","typing:s"]
+    "optimal_choice": ["order64;Oakland-Piedmont"],
+    "tags": ["single","difflocation:Piedmont","earnings","typing:fast","typing:s"]
+  },
+  "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order64",
+    "order65",
+    "order66",
+    "order67"
+  ],
+  "Piedmont": {
+    "optimal_choice": ["order67;Piedmont-Oakland"],
+    "tags": ["single"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order67;Berkeley-Oakland"],
+    "tags": ["single"]
+  },
+  "Oakland": {
+    "optimal_choice": ["order67;Oakland-Oakland"],
+    "tags": ["single"]
   },
   "generator": "equal_location_earnings"
 },
@@ -248,10 +332,10 @@
     "order71"
   ],
   "Oakland": {
-    "optimal_choice": "order68;Oakland-Oakland",
+    "optimal_choice": ["order68;Oakland-Oakland"],
     "tags": ["single","movement","typing:fast","typing:s"]
   },
-  "generator": "vary_earnings_item_amount"
+  "generator": "equal_location_earnings"
 },
 {
   "order_ids": [
@@ -261,10 +345,10 @@
     "order75"
   ],
   "Oakland": {
-    "optimal_choice": "order74,order75;Oakland-Oakland",
+    "optimal_choice": ["order73,order74;Oakland-Oakland"],
     "tags": ["bundle"]
   },
-  "generator": "equal_location_earnings"
+  "generator": "equal_everything"
 },
 {
   "order_ids": [
@@ -274,10 +358,10 @@
     "order79"
   ],
   "Oakland": {
-    "optimal_choice": "order77;Oakland-Oakland",
+    "optimal_choice": ["order78;Oakland-Oakland"],
     "tags": ["single","movement","typing:fast","typing:s"]
   },
-  "generator": "equal_location_earnings"
+  "generator": "commonsense_item_amount"
 },
 {
   "order_ids": [
@@ -287,10 +371,31 @@
     "order83"
   ],
   "Oakland": {
-    "optimal_choice": "order82;Oakland-Oakland",
-    "tags": ["single","movement"]
+    "optimal_choice": ["order81,order82;Oakland-Oakland"],
+    "tags": ["bundle"]
   },
-  "generator": "vary_earnings_item_amount"
+  "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order80",
+    "order81",
+    "order82",
+    "order83"
+  ],
+  "Piedmont": {
+    "optimal_choice": ["order81;Piedmont-Oakland"],
+    "tags": []
+  },
+  "Berkeley": {
+    "optimal_choice": ["order81;Berkeley-Oakland"],
+    "tags": []
+  },
+  "Oakland": {
+    "optimal_choice": ["order81;Oakland-Oakland"],
+    "tags": []
+  },
+  "generator": "vary_location"
 },
 {
   "order_ids": [
@@ -299,9 +404,21 @@
     "order86",
     "order87"
   ],
+  "Emeryville": {
+    "optimal_choice": ["order85;Emeryville-Oakland"],
+    "tags": ["single"]
+  },
+  "Piedmont": {
+    "optimal_choice": ["order85;Piedmont-Oakland"],
+    "tags": ["single"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order85;Berkeley-Oakland"],
+    "tags": ["single"]
+  },
   "Oakland": {
-    "optimal_choice": "order84,order85;Oakland-Oakland",
-    "tags": ["bundle","typing:fast","typing:s"]
+    "optimal_choice": ["order85;Oakland-Oakland"],
+    "tags": ["single"]
   },
   "generator": "equal_location_earnings"
 },
@@ -313,10 +430,10 @@
     "order91"
   ],
   "Oakland": {
-    "optimal_choice": "order89,order91;Oakland-Piedmont",
-    "tags": ["bundle"]
+    "optimal_choice": ["order89;Oakland-Oakland"],
+    "tags": ["single","movement","typing:fast","typing:s"]
   },
-  "generator": "equal_earnings"
+  "generator": "equal_location_earnings"
 },
 {
   "order_ids": [
@@ -326,18 +443,10 @@
     "order95"
   ],
   "Oakland": {
-    "optimal_choice": "order94,order95;Oakland-Oakland",
-    "tags": ["bundle"]
+    "optimal_choice": ["order95;Oakland-Berkeley"],
+    "tags": ["single","movement","typing:fast","typing:s"]
   },
-  "Emeryville": {
-    "optimal_choice": "order94,order95;Emeryville-Oakland",
-    "tags": ["bundle"]
-  },
-  "Piedmont": {
-    "optimal_choice": "order94,order95;Piedmont-Oakland",
-    "tags": ["bundle"]
-  },
-  "generator": "commonsense_item_amount"
+  "generator": "pure_randomness"
 },
 {
   "order_ids": [
@@ -346,8 +455,33 @@
     "order98",
     "order99"
   ],
+  "Emeryville": {
+    "optimal_choice": ["order97,order99;Emeryville-Piedmont"],
+    "tags": ["bundle"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order99;Berkeley-Piedmont"],
+    "tags": ["single"]
+  },
+  "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order96",
+    "order97",
+    "order98",
+    "order99"
+  ],
+  "Piedmont": {
+    "optimal_choice": ["order97,order98;Piedmont-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order97,order98;Berkeley-Oakland"],
+    "tags": ["bundle"]
+  },
   "Oakland": {
-    "optimal_choice": "order96,order97;Oakland-Oakland",
+    "optimal_choice": ["order97,order98;Oakland-Oakland"],
     "tags": ["bundle"]
   },
   "generator": "equal_location_earnings"
@@ -360,10 +494,10 @@
     "order103"
   ],
   "Oakland": {
-    "optimal_choice": "order100,order101;Oakland-Berkeley",
+    "optimal_choice": ["order100,order102;Oakland-Oakland"],
     "tags": ["bundle"]
   },
-  "generator": "equal_earnings"
+  "generator": "equal_everything"
 },
 {
   "order_ids": [
@@ -372,19 +506,11 @@
     "order106",
     "order107"
   ],
-  "Emeryville": {
-    "optimal_choice": "order104,order107;Emeryville-Oakland",
+  "Oakland": {
+    "optimal_choice": ["order104,order105;Oakland-Oakland","order104,order106;Oakland-Oakland"],
     "tags": ["bundle"]
   },
-  "Piedmont": {
-    "optimal_choice": "order104,order107;Piedmont-Oakland",
-    "tags": ["bundle"]
-  },
-  "Berkeley": {
-    "optimal_choice": "order104,order107;Berkeley-Oakland",
-    "tags": ["bundle"]
-  },
-  "generator": "commonsense_item_amount"
+  "generator": "equal_everything"
 },
 {
   "order_ids": [
@@ -394,7 +520,7 @@
     "order111"
   ],
   "Oakland": {
-    "optimal_choice": "order108,order110;Oakland-Oakland",
+    "optimal_choice": ["order108,order110;Oakland-Oakland"],
     "tags": ["bundle"]
   },
   "generator": "equal_location_earnings"
@@ -407,10 +533,35 @@
     "order115"
   ],
   "Oakland": {
-    "optimal_choice": "order113,order115;Oakland-Oakland",
-    "tags": ["bundle","earnings"]
+    "optimal_choice": ["order114;Oakland-Oakland"],
+    "tags": ["samelocation:Oakland","earnings","movement","typing:fast","typing:s"]
   },
   "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order112",
+    "order113",
+    "order114",
+    "order115"
+  ],
+  "Emeryville": {
+    "optimal_choice": ["order113,order114;Emeryville-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Piedmont": {
+    "optimal_choice": ["order113,order114;Piedmont-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order113,order114;Berkeley-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Oakland": {
+    "optimal_choice": ["order113,order114;Oakland-Oakland"],
+    "tags": ["bundle"]
+  },
+  "generator": "equal_everything"
 },
 {
   "order_ids": [
@@ -420,16 +571,8 @@
     "order119"
   ],
   "Oakland": {
-    "optimal_choice": "order119;Oakland-Oakland",
-    "tags": ["single"]
-  },
-  "Piedmont": {
-    "optimal_choice": "order119;Piedmont-Oakland",
-    "tags": ["single"]
-  },
-  "Berkeley": {
-    "optimal_choice": "order119;Berkeley-Oakland",
-    "tags": ["single"]
+    "optimal_choice": ["order118;Oakland-Oakland"],
+    "tags": ["single","movement","typing:fast","typing:s"]
   },
   "generator": "equal_location_earnings"
 },
@@ -441,10 +584,10 @@
     "order123"
   ],
   "Oakland": {
-    "optimal_choice": "order123;Oakland-Oakland",
-    "tags": ["single","movement","typing:fast","typing:s"]
+    "optimal_choice": ["order120;Oakland-Oakland"],
+    "tags": ["single","movement"]
   },
-  "generator": "equal_location_earnings"
+  "generator": "equal_everything"
 },
 {
   "order_ids": [
@@ -454,10 +597,10 @@
     "order127"
   ],
   "Oakland": {
-    "optimal_choice": "order125,order126;Oakland-Oakland",
+    "optimal_choice": ["order125,order127;Oakland-Oakland"],
     "tags": ["bundle"]
   },
-  "generator": "equal_everything"
+  "generator": "vary_earnings_item_amount"
 },
 {
   "order_ids": [
@@ -467,10 +610,27 @@
     "order131"
   ],
   "Oakland": {
-    "optimal_choice": "order128,order129;Oakland-Oakland",
+    "optimal_choice": ["order130,order131;Oakland-Berkeley"],
     "tags": ["bundle"]
   },
-  "generator": "equal_location_earnings"
+  "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order128",
+    "order129",
+    "order130",
+    "order131"
+  ],
+  "Emeryville": {
+    "optimal_choice": ["order131;Emeryville-Emeryville"],
+    "tags": ["single"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order131;Berkeley-Emeryville"],
+    "tags": ["single"]
+  },
+  "generator": "pure_randomness"
 },
 {
   "order_ids": [
@@ -479,11 +639,19 @@
     "order134",
     "order135"
   ],
-  "Oakland": {
-    "optimal_choice": "order133,order135;Oakland-Oakland",
+  "Emeryville": {
+    "optimal_choice": ["order132;Emeryville-Oakland"],
+    "tags": ["single"]
+  },
+  "Piedmont": {
+    "optimal_choice": ["order132,order135;Piedmont-Oakland"],
     "tags": ["bundle"]
   },
-  "generator": "equal_location_earnings"
+  "Oakland": {
+    "optimal_choice": ["order132;Oakland-Oakland"],
+    "tags": ["single"]
+  },
+  "generator": "equal_everything"
 },
 {
   "order_ids": [
@@ -493,10 +661,10 @@
     "order139"
   ],
   "Oakland": {
-    "optimal_choice": "order137,order139;Oakland-Oakland",
-    "tags": ["bundle"]
+    "optimal_choice": ["order138;Oakland-Oakland"],
+    "tags": ["single","movement","typing:fast","typing:s"]
   },
-  "generator": "commonsense_item_amount"
+  "generator": "equal_location_earnings"
 },
 {
   "order_ids": [
@@ -506,10 +674,10 @@
     "order143"
   ],
   "Oakland": {
-    "optimal_choice": "order140;Oakland-Oakland",
-    "tags": ["single","movement","typing:fast","typing:s"]
+    "optimal_choice": ["order141;Oakland-Piedmont"],
+    "tags": ["single","difflocation:Piedmont"]
   },
-  "generator": "commonsense_item_amount"
+  "generator": "pure_randomness"
 },
 {
   "order_ids": [
@@ -518,9 +686,34 @@
     "order146",
     "order147"
   ],
+  "Piedmont": {
+    "optimal_choice": ["order144,order145;Piedmont-Piedmont"],
+    "tags": ["bundle"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order146;Berkeley-Oakland"],
+    "tags": ["single"]
+  },
   "Oakland": {
-    "optimal_choice": "order146;Oakland-Oakland",
-    "tags": ["single","movement","typing:fast","typing:s"]
+    "optimal_choice": ["order146;Oakland-Oakland"],
+    "tags": ["single"]
+  },
+  "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order144",
+    "order145",
+    "order146",
+    "order147"
+  ],
+  "Piedmont": {
+    "optimal_choice": ["order144,order146;Piedmont-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Oakland": {
+    "optimal_choice": ["order144,order146;Oakland-Oakland"],
+    "tags": ["bundle"]
   },
   "generator": "equal_location_earnings"
 },
@@ -532,10 +725,10 @@
     "order151"
   ],
   "Oakland": {
-    "optimal_choice": "order148;Oakland-Oakland",
-    "tags": ["single","movement"]
+    "optimal_choice": ["order150,order151;Oakland-Berkeley"],
+    "tags": ["bundle","earnings","typing:s"]
   },
-  "generator": "equal_everything"
+  "generator": "pure_randomness"
 },
 {
   "order_ids": [
@@ -544,11 +737,19 @@
     "order154",
     "order155"
   ],
-  "Oakland": {
-    "optimal_choice": "order152,order154;Oakland-Oakland",
+  "Emeryville": {
+    "optimal_choice": ["order152,order153;Emeryville-Oakland"],
     "tags": ["bundle"]
   },
-  "generator": "equal_everything"
+  "Berkeley": {
+    "optimal_choice": ["order152,order153;Berkeley-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Oakland": {
+    "optimal_choice": ["order152,order153;Oakland-Oakland"],
+    "tags": ["bundle"]
+  },
+  "generator": "vary_earnings_item_amount"
 },
 {
   "order_ids": [
@@ -558,8 +759,8 @@
     "order159"
   ],
   "Oakland": {
-    "optimal_choice": "order159;Oakland-Oakland",
-    "tags": ["single","movement","typing:fast","typing:s"]
+    "optimal_choice": ["order157,order158;Oakland-Oakland"],
+    "tags": ["bundle"]
   },
   "generator": "equal_location_earnings"
 },
@@ -571,10 +772,35 @@
     "order163"
   ],
   "Oakland": {
-    "optimal_choice": "order160;Oakland-Oakland",
-    "tags": ["single","typing:fast","typing:s"]
+    "optimal_choice": ["order160;Oakland-Oakland"],
+    "tags": ["samelocation:Oakland","earnings","typing:fast","typing:s"]
   },
-  "generator": "commonsense_item_amount"
+  "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order160",
+    "order161",
+    "order162",
+    "order163"
+  ],
+  "Emeryville": {
+    "optimal_choice": ["order160,order161;Emeryville-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Piedmont": {
+    "optimal_choice": ["order160,order161;Piedmont-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order160,order161;Berkeley-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Oakland": {
+    "optimal_choice": ["order163;Oakland-Oakland"],
+    "tags": ["single"]
+  },
+  "generator": "equal_everything"
 },
 {
   "order_ids": [
@@ -584,10 +810,10 @@
     "order167"
   ],
   "Oakland": {
-    "optimal_choice": "order164,order165;Oakland-Oakland",
+    "optimal_choice": ["order165,order166;Oakland-Oakland"],
     "tags": ["bundle"]
   },
-  "generator": "equal_everything"
+  "generator": "equal_location_earnings"
 },
 {
   "order_ids": [
@@ -597,10 +823,10 @@
     "order171"
   ],
   "Oakland": {
-    "optimal_choice": "order168,order170;Oakland-Oakland",
+    "optimal_choice": ["order168,order170;Oakland-Oakland"],
     "tags": ["bundle"]
   },
-  "generator": "equal_location_earnings"
+  "generator": "equal_everything"
 },
 {
   "order_ids": [
@@ -610,7 +836,7 @@
     "order175"
   ],
   "Oakland": {
-    "optimal_choice": "order172,order173;Oakland-Oakland",
+    "optimal_choice": ["order173,order175;Oakland-Oakland"],
     "tags": ["bundle"]
   },
   "generator": "equal_everything"
@@ -623,10 +849,31 @@
     "order179"
   ],
   "Oakland": {
-    "optimal_choice": "order177;Oakland-Oakland",
-    "tags": ["single","typing:fast","typing:s"]
+    "optimal_choice": ["order177,order178;Oakland-Piedmont"],
+    "tags": ["bundle","earnings","typing:s"]
   },
-  "generator": "commonsense_item_amount"
+  "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order176",
+    "order177",
+    "order178",
+    "order179"
+  ],
+  "Emeryville": {
+    "optimal_choice": ["order178,order179;Emeryville-Piedmont"],
+    "tags": ["bundle"]
+  },
+  "Piedmont": {
+    "optimal_choice": ["order178,order179;Piedmont-Piedmont"],
+    "tags": ["bundle"]
+  },
+  "Oakland": {
+    "optimal_choice": ["order178,order179;Oakland-Piedmont"],
+    "tags": ["bundle"]
+  },
+  "generator": "vary_location"
 },
 {
   "order_ids": [
@@ -635,11 +882,19 @@
     "order182",
     "order183"
   ],
-  "Oakland": {
-    "optimal_choice": "order183;Oakland-Oakland",
-    "tags": ["single","movement"]
+  "Emeryville": {
+    "optimal_choice": ["order180,order181;Emeryville-Oakland"],
+    "tags": ["bundle"]
   },
-  "generator": "equal_location_earnings"
+  "Piedmont": {
+    "optimal_choice": ["order180,order181;Piedmont-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order180,order181;Berkeley-Oakland"],
+    "tags": ["bundle"]
+  },
+  "generator": "equal_everything"
 },
 {
   "order_ids": [
@@ -649,10 +904,10 @@
     "order187"
   ],
   "Oakland": {
-    "optimal_choice": "order184,order187;Oakland-Oakland",
+    "optimal_choice": ["order185,order187;Oakland-Oakland"],
     "tags": ["bundle"]
   },
-  "generator": "vary_earnings_item_amount"
+  "generator": "equal_location_earnings"
 },
 {
   "order_ids": [
@@ -662,10 +917,10 @@
     "order191"
   ],
   "Oakland": {
-    "optimal_choice": "order188,order191;Oakland-Oakland",
-    "tags": ["bundle"]
+    "optimal_choice": ["order188;Oakland-Oakland"],
+    "tags": ["single","movement","typing:s"]
   },
-  "generator": "commonsense_item_amount"
+  "generator": "equal_everything"
 },
 {
   "order_ids": [
@@ -675,8 +930,29 @@
     "order195"
   ],
   "Oakland": {
-    "optimal_choice": "order193;Oakland-Oakland",
-    "tags": ["single","movement","typing:fast","typing:s"]
+    "optimal_choice": ["order194,order195;Oakland-Berkeley"],
+    "tags": ["bundle"]
+  },
+  "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order192",
+    "order193",
+    "order194",
+    "order195"
+  ],
+  "Emeryville": {
+    "optimal_choice": ["order192,order194;Emeryville-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Piedmont": {
+    "optimal_choice": ["order192,order194;Piedmont-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order192,order194;Berkeley-Oakland"],
+    "tags": ["bundle"]
   },
   "generator": "equal_location_earnings"
 },
@@ -688,10 +964,10 @@
     "order199"
   ],
   "Oakland": {
-    "optimal_choice": "order198,order199;Oakland-Oakland",
+    "optimal_choice": ["order197,order199;Oakland-Oakland"],
     "tags": ["bundle"]
   },
-  "generator": "equal_location_earnings"
+  "generator": "equal_everything"
 },
 {
   "order_ids": [
@@ -701,10 +977,10 @@
     "order203"
   ],
   "Oakland": {
-    "optimal_choice": "order200,order201;Oakland-Oakland",
+    "optimal_choice": ["order200,order201;Oakland-Oakland","order200,order202;Oakland-Oakland","order200,order203;Oakland-Oakland","order201,order202;Oakland-Oakland","order201,order203;Oakland-Oakland","order202,order203;Oakland-Oakland"],
     "tags": ["bundle"]
   },
-  "generator": "equal_everything"
+  "generator": "equal_location_earnings"
 },
 {
   "order_ids": [
@@ -714,7 +990,7 @@
     "order207"
   ],
   "Oakland": {
-    "optimal_choice": "order204,order205;Oakland-Oakland",
+    "optimal_choice": ["order204,order207;Oakland-Oakland"],
     "tags": ["bundle"]
   },
   "generator": "equal_location_earnings"
@@ -727,8 +1003,33 @@
     "order211"
   ],
   "Oakland": {
-    "optimal_choice": "order208;Oakland-Berkeley",
-    "tags": ["single","movement","typing:fast","typing:s"]
+    "optimal_choice": ["order209;Oakland-Oakland"],
+    "tags": ["samelocation:Oakland"]
+  },
+  "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order208",
+    "order209",
+    "order210",
+    "order211"
+  ],
+  "Emeryville": {
+    "optimal_choice": ["order210,order211;Emeryville-Berkeley"],
+    "tags": ["bundle"]
+  },
+  "Piedmont": {
+    "optimal_choice": ["order210,order211;Piedmont-Berkeley"],
+    "tags": ["bundle"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order210,order211;Berkeley-Berkeley"],
+    "tags": ["bundle"]
+  },
+  "Oakland": {
+    "optimal_choice": ["order210,order211;Oakland-Berkeley"],
+    "tags": ["bundle"]
   },
   "generator": "pure_randomness"
 },
@@ -739,15 +1040,19 @@
     "order214",
     "order215"
   ],
-  "Emeryville": {
-    "optimal_choice": "order214,order215;Emeryville-Oakland",
-    "tags": ["bundle"]
+  "Piedmont": {
+    "optimal_choice": ["order215;Piedmont-Oakland"],
+    "tags": ["single"]
   },
   "Berkeley": {
-    "optimal_choice": "order214,order215;Berkeley-Oakland",
-    "tags": ["bundle"]
+    "optimal_choice": ["order215;Berkeley-Oakland"],
+    "tags": ["single"]
   },
-  "generator": "equal_everything"
+  "Oakland": {
+    "optimal_choice": ["order215;Oakland-Oakland"],
+    "tags": ["single"]
+  },
+  "generator": "equal_location_earnings"
 },
 {
   "order_ids": [
@@ -757,10 +1062,10 @@
     "order219"
   ],
   "Oakland": {
-    "optimal_choice": "order217,order218;Oakland-Oakland",
-    "tags": ["bundle","typing:fast","typing:s"]
+    "optimal_choice": ["order217;Oakland-Oakland"],
+    "tags": ["single","movement","typing:fast","typing:s"]
   },
-  "generator": "equal_location_earnings"
+  "generator": "vary_earnings_item_amount"
 },
 {
   "order_ids": [
@@ -770,10 +1075,10 @@
     "order223"
   ],
   "Oakland": {
-    "optimal_choice": "order221;Oakland-Emeryville",
-    "tags": ["single","difflocation:Emeryville"]
+    "optimal_choice": ["order223;Oakland-Oakland"],
+    "tags": ["single","movement","typing:fast","typing:s"]
   },
-  "generator": "equal_earnings"
+  "generator": "commonsense_item_amount"
 },
 {
   "order_ids": [
@@ -783,18 +1088,27 @@
     "order227"
   ],
   "Oakland": {
-    "optimal_choice": "order224,order227;Oakland-Emeryville",
+    "optimal_choice": ["order224,order227;Oakland-Emeryville"],
     "tags": ["bundle"]
   },
+  "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order224",
+    "order225",
+    "order226",
+    "order227"
+  ],
   "Emeryville": {
-    "optimal_choice": "order224,order227;Emeryville-Emeryville",
-    "tags": ["bundle"]
+    "optimal_choice": ["order227;Emeryville-Oakland"],
+    "tags": ["single"]
   },
-  "Berkeley": {
-    "optimal_choice": "order225,order226;Berkeley-Berkeley",
-    "tags": ["bundle"]
+  "Piedmont": {
+    "optimal_choice": ["order227;Piedmont-Oakland"],
+    "tags": ["single"]
   },
-  "generator": "vary_location"
+  "generator": "commonsense_item_amount"
 },
 {
   "order_ids": [
@@ -803,15 +1117,11 @@
     "order230",
     "order231"
   ],
-  "Emeryville": {
-    "optimal_choice": "order228,order229;Emeryville-Oakland",
+  "Oakland": {
+    "optimal_choice": ["order229,order230;Oakland-Oakland"],
     "tags": ["bundle"]
   },
-  "Berkeley": {
-    "optimal_choice": "order228,order229;Berkeley-Oakland",
-    "tags": ["bundle"]
-  },
-  "generator": "equal_location_earnings"
+  "generator": "vary_earnings_item_amount"
 },
 {
   "order_ids": [
@@ -821,8 +1131,8 @@
     "order235"
   ],
   "Oakland": {
-    "optimal_choice": "order234,order235;Oakland-Oakland",
-    "tags": ["bundle"]
+    "optimal_choice": ["order233;Oakland-Oakland"],
+    "tags": ["single","movement","typing:fast","typing:s"]
   },
   "generator": "equal_location_earnings"
 },
@@ -834,10 +1144,10 @@
     "order239"
   ],
   "Oakland": {
-    "optimal_choice": "order237;Oakland-Oakland",
+    "optimal_choice": ["order237;Oakland-Oakland"],
     "tags": ["single","typing:fast","typing:s"]
   },
-  "generator": "commonsense_item_amount"
+  "generator": "pure_randomness"
 },
 {
   "order_ids": [
@@ -846,8 +1156,37 @@
     "order242",
     "order243"
   ],
+  "Emeryville": {
+    "optimal_choice": ["order240,order242;Emeryville-Emeryville"],
+    "tags": ["bundle"]
+  },
+  "Piedmont": {
+    "optimal_choice": ["order240,order242;Piedmont-Emeryville"],
+    "tags": ["bundle"]
+  },
   "Oakland": {
-    "optimal_choice": "order240,order242;Oakland-Oakland",
+    "optimal_choice": ["order240,order242;Oakland-Emeryville"],
+    "tags": ["bundle"]
+  },
+  "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order240",
+    "order241",
+    "order242",
+    "order243"
+  ],
+  "Emeryville": {
+    "optimal_choice": ["order240,order242;Emeryville-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order240,order242;Berkeley-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Oakland": {
+    "optimal_choice": ["order240,order242;Oakland-Oakland"],
     "tags": ["bundle"]
   },
   "generator": "equal_location_earnings"
@@ -860,10 +1199,10 @@
     "order247"
   ],
   "Oakland": {
-    "optimal_choice": "order245;Oakland-Oakland",
-    "tags": ["single","movement","typing:s"]
+    "optimal_choice": ["order245;Oakland-Oakland"],
+    "tags": ["single","movement","typing:fast","typing:s"]
   },
-  "generator": "equal_everything"
+  "generator": "commonsense_item_amount"
 },
 {
   "order_ids": [
@@ -873,10 +1212,10 @@
     "order251"
   ],
   "Oakland": {
-    "optimal_choice": "order249;Oakland-Oakland",
-    "tags": ["single","movement"]
+    "optimal_choice": ["order249,order251;Oakland-Berkeley"],
+    "tags": ["bundle"]
   },
-  "generator": "equal_everything"
+  "generator": "vary_location"
 },
 {
   "order_ids": [
@@ -885,9 +1224,17 @@
     "order254",
     "order255"
   ],
-  "Oakland": {
-    "optimal_choice": "order252;Oakland-Oakland",
-    "tags": ["single","movement","typing:s"]
+  "Emeryville": {
+    "optimal_choice": ["order253,order254;Emeryville-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Piedmont": {
+    "optimal_choice": ["order253,order254;Piedmont-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Berkeley": {
+    "optimal_choice": ["order253,order254;Berkeley-Oakland"],
+    "tags": ["bundle"]
   },
   "generator": "equal_location_earnings"
 },
@@ -899,233 +1246,26 @@
     "order259"
   ],
   "Oakland": {
-    "optimal_choice": "order257,order259;Oakland-Oakland",
+    "optimal_choice": ["order257;Oakland-Oakland"],
+    "tags": ["single","movement","typing:fast","typing:s"]
+  },
+  "generator": "pure_randomness"
+},
+{
+  "order_ids": [
+    "order256",
+    "order257",
+    "order258",
+    "order259"
+  ],
+  "Piedmont": {
+    "optimal_choice": ["order256,order257;Piedmont-Oakland"],
+    "tags": ["bundle"]
+  },
+  "Oakland": {
+    "optimal_choice": ["order256,order257;Oakland-Oakland"],
     "tags": ["bundle"]
   },
   "generator": "equal_everything"
-},
-{
-  "order_ids": [
-    "order260",
-    "order261",
-    "order262",
-    "order263"
-  ],
-  "Oakland": {
-    "optimal_choice": "order260,order261;Oakland-Berkeley",
-    "tags": ["bundle"]
-  },
-  "generator": "vary_location"
-},
-{
-  "order_ids": [
-    "order264",
-    "order265",
-    "order266",
-    "order267"
-  ],
-  "Emeryville": {
-    "optimal_choice": "order266;Emeryville-Oakland",
-    "tags": ["single"]
-  },
-  "Berkeley": {
-    "optimal_choice": "order266;Berkeley-Oakland",
-    "tags": ["single"]
-  },
-  "generator": "equal_location_earnings"
-},
-{
-  "order_ids": [
-    "order268",
-    "order269",
-    "order270",
-    "order271"
-  ],
-  "Oakland": {
-    "optimal_choice": "order270;Oakland-Oakland",
-    "tags": ["single","movement","typing:fast","typing:s"]
-  },
-  "generator": "commonsense_item_amount"
-},
-{
-  "order_ids": [
-    "order272",
-    "order273",
-    "order274",
-    "order275"
-  ],
-  "Oakland": {
-    "optimal_choice": "order275;Oakland-Oakland",
-    "tags": ["single","movement","typing:fast","typing:s"]
-  },
-  "generator": "vary_earnings_item_amount"
-},
-{
-  "order_ids": [
-    "order276",
-    "order277",
-    "order278",
-    "order279"
-  ],
-  "Oakland": {
-    "optimal_choice": "order276,order277;Oakland-Oakland",
-    "tags": ["bundle"]
-  },
-  "generator": "equal_location_earnings"
-},
-{
-  "order_ids": [
-    "order280",
-    "order281",
-    "order282",
-    "order283"
-  ],
-  "Oakland": {
-    "optimal_choice": "order280;Oakland-Oakland",
-    "tags": ["single","movement","typing:fast","typing:s"]
-  },
-  "generator": "equal_location_earnings"
-},
-{
-  "order_ids": [
-    "order284",
-    "order285",
-    "order286",
-    "order287"
-  ],
-  "Oakland": {
-    "optimal_choice": "order284,order286;Oakland-Piedmont",
-    "tags": ["bundle","earnings"]
-  },
-  "generator": "equal_earnings"
-},
-{
-  "order_ids": [
-    "order288",
-    "order289",
-    "order290",
-    "order291"
-  ],
-  "Emeryville": {
-    "optimal_choice": "order288,order290;Emeryville-Oakland",
-    "tags": ["bundle"]
-  },
-  "Piedmont": {
-    "optimal_choice": "order288,order290;Piedmont-Oakland",
-    "tags": ["bundle"]
-  },
-  "Berkeley": {
-    "optimal_choice": "order288,order290;Berkeley-Oakland",
-    "tags": ["bundle"]
-  },
-  "generator": "equal_location_earnings"
-},
-{
-  "order_ids": [
-    "order292",
-    "order293",
-    "order294",
-    "order295"
-  ],
-  "Oakland": {
-    "optimal_choice": "order295;Oakland-Emeryville",
-    "tags": ["single","typing:fast","typing:s"]
-  },
-  "generator": "equal_earnings"
-},
-{
-  "order_ids": [
-    "order296",
-    "order297",
-    "order298",
-    "order299"
-  ],
-  "Emeryville": {
-    "optimal_choice": "order297,order298;Emeryville-Oakland",
-    "tags": ["bundle"]
-  },
-  "Berkeley": {
-    "optimal_choice": "order297,order298;Berkeley-Oakland",
-    "tags": ["bundle"]
-  },
-  "generator": "equal_location_earnings"
-},
-{
-  "order_ids": [
-    "order300",
-    "order301",
-    "order302",
-    "order303"
-  ],
-  "Oakland": {
-    "optimal_choice": "order301,order302;Oakland-Oakland",
-    "tags": ["bundle"]
-  },
-  "generator": "equal_location_earnings"
-},
-{
-  "order_ids": [
-    "order304",
-    "order305",
-    "order306",
-    "order307"
-  ],
-  "Oakland": {
-    "optimal_choice": "order305,order307;Oakland-Oakland",
-    "tags": ["bundle"]
-  },
-  "generator": "commonsense_item_amount"
-},
-{
-  "order_ids": [
-    "order308",
-    "order309",
-    "order310",
-    "order311"
-  ],
-  "Oakland": {
-    "optimal_choice": "order309;Oakland-Oakland",
-    "tags": ["single"]
-  },
-  "generator": "vary_earnings_item_amount"
-},
-{
-  "order_ids": [
-    "order312",
-    "order313",
-    "order314",
-    "order315"
-  ],
-  "Oakland": {
-    "optimal_choice": "order312,order313;Oakland-Oakland",
-    "tags": ["bundle"]
-  },
-  "generator": "equal_location_earnings"
-},
-{
-  "order_ids": [
-    "order316",
-    "order317",
-    "order318",
-    "order319"
-  ],
-  "Oakland": {
-    "optimal_choice": "order319;Oakland-Oakland",
-    "tags": ["single","movement","typing:fast","typing:s"]
-  },
-  "generator": "vary_earnings_item_amount"
-},
-{
-  "order_ids": [
-    "order320",
-    "order321",
-    "order322",
-    "order323"
-  ],
-  "Oakland": {
-    "optimal_choice": "order320,order323;Oakland-Oakland",
-    "tags": ["bundle"]
-  },
-  "generator": "commonsense_item_amount"
 }
 ]
