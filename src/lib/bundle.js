@@ -2,9 +2,10 @@ import { writable, readable, derived, get} from 'svelte/store';
 import { addAction, addOrder, updateFields, updateOrder, authenticateUser } from './firebaseDB';
 
 let start;
+let stopTimeInterval;
 let actionCounter = 0;
 export const orderList = writable([])
-export const FullTimeLimit = 1500;
+export const FullTimeLimit = 50;
 export const GameOver = writable(false);
 export const gameText = writable({
 	selector: "None selected",
@@ -76,6 +77,8 @@ const time = readable(new Date(), function start(set) {
 	const interval = setInterval(() => {
 		set(new Date());
 	}, 10);
+
+	stopTimeInterval = () => clearInterval(interval);
 	
 	return function stop() {
 		clearInterval(interval);
@@ -105,6 +108,7 @@ export const currLocation = writable('Berkeley');
 
 export const elapsed = derived(timeStamp, ($timeStamp, set) => {
 	const elapsedSeconds = Math.round($timeStamp / 1000);
+	console.log(elapsedSeconds)
 	if (elapsedSeconds >= FullTimeLimit && elapsedSeconds <= FullTimeLimit + 2) {
 		updateFields(get(id), {
 			earnings: get(earned),
@@ -112,7 +116,7 @@ export const elapsed = derived(timeStamp, ($timeStamp, set) => {
         	gametime: FullTimeLimit
 		})
 		GameOver.set(true);
-		clearInterval();
+		stopTimeInterval?.();
 		set(FullTimeLimit)
 		return;
 	}
