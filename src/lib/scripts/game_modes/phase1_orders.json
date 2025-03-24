@@ -1,58 +1,60 @@
 [
 {
-  "name": "Ava",
+  "name": "Mia",
   "id": "order0",
-  "store": "Safeway",
+  "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
-  "city": "Piedmont",
-  "amount": 11,
+  "city": "Oakland",
+  "amount": 5,
   "expire": 1,
   "items": {
-    "orange": 3,
-    "watermelon": 4,
-    "apple": 4
+    "apple": 2,
+    "grape": 3
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "commonsense_item_amount"
 },
 {
-  "name": "Isabella",
+  "name": "Sophia",
   "id": "order1",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 12,
+  "amount": 15,
   "expire": 1,
   "items": {
-    "apple": 2,
-    "grape": 2,
-    "pear": 3,
+    "apple": 5,
     "pineapple": 2,
-    "grapefruit": 2,
-    "peach": 1
+    "cherry": 1,
+    "peach": 5,
+    "grapefruit": 2
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "commonsense_item_amount"
 },
 {
-  "name": "Mia",
+  "name": "Ava",
   "id": "order2",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 6,
+  "amount": 15,
   "expire": 1,
   "items": {
-    "peach": 2,
-    "banana": 2,
-    "grapefruit": 1,
-    "apple": 1
+    "apple": 1,
+    "pear": 3,
+    "grape": 3,
+    "grapefruit": 6,
+    "peach": 2
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "commonsense_item_amount"
 },
 {
-  "name": "Benjamin",
+  "name": "Emma",
   "id": "order3",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
@@ -61,37 +63,18 @@
   "amount": 15,
   "expire": 1,
   "items": {
-    "banana": 3,
-    "peach": 3,
-    "pear": 2,
+    "grapefruit": 4,
     "cherry": 4,
-    "pineapple": 1,
-    "grape": 1,
-    "grapefruit": 1
+    "banana": 3,
+    "pineapple": 2,
+    "apple": 2
   },
-  "demand": 0
-},
-{
-  "name": "Emma",
-  "id": "order4",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 16,
-  "expire": 1,
-  "items": {
-    "peach": 5,
-    "apple": 2,
-    "grape": 3,
-    "banana": 4,
-    "pineapple": 2
-  },
-  "demand": 0
+  "demand": 0,
+  "generator": "commonsense_item_amount"
 },
 {
   "name": "Amelia",
-  "id": "order5",
+  "id": "order4",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
@@ -99,40 +82,454 @@
   "amount": 19,
   "expire": 1,
   "items": {
+    "banana": 1,
     "peach": 3,
-    "banana": 3,
-    "grapefruit": 3,
-    "grape": 3,
-    "apple": 1,
-    "cherry": 3,
-    "pear": 1,
-    "pineapple": 2
+    "grape": 6,
+    "grapefruit": 1,
+    "pineapple": 3,
+    "cherry": 2,
+    "pear": 2,
+    "apple": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_earnings"
 },
 {
-  "name": "Marcus",
+  "name": "Joseph",
+  "id": "order5",
+  "store": "Target",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Emeryville",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "watermelon": 3,
+    "pineapple": 2,
+    "apple": 2,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Michael",
   "id": "order6",
+  "store": "Target",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Emeryville",
+  "amount": 3,
+  "expire": 1,
+  "items": {
+    "grape": 2,
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Elijah",
+  "id": "order7",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 18,
+  "amount": 4,
   "expire": 1,
   "items": {
-    "banana": 4,
-    "pear": 4,
-    "cherry": 2,
-    "apple": 2,
-    "grapefruit": 1,
-    "peach": 3,
-    "grape": 2
+    "apple": 1,
+    "pineapple": 1,
+    "pear": 1,
+    "grapefruit": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_earnings"
 },
 {
-  "name": "Emma",
-  "id": "order7",
+  "name": "Elijah",
+  "id": "order8",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "grape": 4,
+    "cherry": 5,
+    "pear": 2,
+    "pineapple": 4
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Mason",
+  "id": "order9",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "grape": 5,
+    "peach": 4,
+    "cherry": 3,
+    "pineapple": 3
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Oliver",
+  "id": "order10",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "pineapple": 3,
+    "peach": 2
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Isabella",
+  "id": "order11",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "pear": 3,
+    "pineapple": 6,
+    "apple": 2,
+    "grape": 3,
+    "grapefruit": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Liam",
+  "id": "order12",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "pear": 1,
+    "grapefruit": 3,
+    "grape": 1,
+    "apple": 2,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Mia",
+  "id": "order13",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 3,
+  "expire": 1,
+  "items": {
+    "grape": 2,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Aiden",
+  "id": "order14",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 2,
+  "expire": 1,
+  "items": {
+    "grape": 1,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "William",
+  "id": "order15",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Noah",
+  "id": "order16",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "apple": 3,
+    "pineapple": 3
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Evelyn",
+  "id": "order17",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "banana": 2,
+    "apple": 2,
+    "pineapple": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Oliver",
+  "id": "order18",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "pear": 4,
+    "cherry": 1,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Aiden",
+  "id": "order19",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grapefruit": 3,
+    "banana": 3
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Ava",
+  "id": "order20",
+  "store": "Sprouts Farmers Market",
+  "earnings": 19,
+  "startingearnings": 19,
+  "city": "Oakland",
+  "amount": 17,
+  "expire": 1,
+  "items": {
+    "cherry": 1,
+    "peach": 2,
+    "grapefruit": 4,
+    "apple": 2,
+    "grape": 3,
+    "banana": 1,
+    "pear": 3,
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Mia",
+  "id": "order21",
+  "store": "Sprouts Farmers Market",
+  "earnings": 19,
+  "startingearnings": 19,
+  "city": "Oakland",
+  "amount": 7,
+  "expire": 1,
+  "items": {
+    "grape": 1,
+    "apple": 1,
+    "grapefruit": 3,
+    "pear": 1,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Lucas",
+  "id": "order22",
+  "store": "Sprouts Farmers Market",
+  "earnings": 28,
+  "startingearnings": 28,
+  "city": "Oakland",
+  "amount": 12,
+  "expire": 1,
+  "items": {
+    "grape": 1,
+    "pineapple": 3,
+    "peach": 3,
+    "grapefruit": 3,
+    "pear": 2
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "William",
+  "id": "order23",
+  "store": "Sprouts Farmers Market",
+  "earnings": 21,
+  "startingearnings": 21,
+  "city": "Oakland",
+  "amount": 14,
+  "expire": 1,
+  "items": {
+    "banana": 2,
+    "peach": 2,
+    "apple": 1,
+    "grape": 3,
+    "cherry": 2,
+    "grapefruit": 1,
+    "pineapple": 3
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Aiden",
+  "id": "order24",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 11,
+  "expire": 1,
+  "items": {
+    "grape": 3,
+    "pineapple": 1,
+    "peach": 1,
+    "cherry": 2,
+    "grapefruit": 1,
+    "banana": 3
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Christopher",
+  "id": "order25",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 7,
+  "expire": 1,
+  "items": {
+    "grape": 1,
+    "cherry": 3,
+    "banana": 1,
+    "pear": 1,
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Ava",
+  "id": "order26",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 11,
+  "expire": 1,
+  "items": {
+    "pineapple": 2,
+    "apple": 1,
+    "cherry": 2,
+    "grapefruit": 2,
+    "peach": 3,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Mia",
+  "id": "order27",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "peach": 2,
+    "pineapple": 1,
+    "apple": 1,
+    "cherry": 1,
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Elijah",
+  "id": "order28",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 7,
+  "expire": 1,
+  "items": {
+    "cherry": 1,
+    "grape": 2,
+    "banana": 2,
+    "grapefruit": 1,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Michael",
+  "id": "order29",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
@@ -142,381 +539,30 @@
   "items": {
     "pineapple": 3,
     "banana": 1,
-    "grapefruit": 1,
-    "apple": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Ethan",
-  "id": "order8",
-  "store": "Target",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Emeryville",
-  "amount": 1,
-  "expire": 1,
-  "items": {
+    "pear": 1,
     "grape": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
-  "name": "William",
-  "id": "order9",
-  "store": "Safeway",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Piedmont",
-  "amount": 9,
-  "expire": 1,
-  "items": {
-    "watermelon": 3,
-    "orange": 3,
-    "apple": 3
-  },
-  "demand": 0
-},
-{
-  "name": "Marcus",
-  "id": "order10",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 11,
-  "expire": 1,
-  "items": {
-    "grape": 4,
-    "grapefruit": 2,
-    "pear": 2,
-    "peach": 1,
-    "banana": 1,
-    "apple": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Ava",
-  "id": "order11",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 1,
-  "expire": 1,
-  "items": {
-    "apple": 1
-  },
-  "demand": 0
-},
-{
-  "name": "William",
-  "id": "order12",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 2,
-  "expire": 1,
-  "items": {
-    "banana": 2
-  },
-  "demand": 0
-},
-{
-  "name": "James",
-  "id": "order13",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 11,
-  "expire": 1,
-  "items": {
-    "cherry": 2,
-    "banana": 5,
-    "grape": 2,
-    "pear": 2
-  },
-  "demand": 0
-},
-{
-  "name": "Evelyn",
-  "id": "order14",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 10,
-  "expire": 1,
-  "items": {
-    "pear": 1,
-    "apple": 2,
-    "cherry": 3,
-    "grape": 2,
-    "peach": 1,
-    "banana": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Park",
-  "id": "order15",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 1,
-  "expire": 1,
-  "items": {
-    "banana": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Oliver",
-  "id": "order16",
-  "store": "Berkeley Bowl",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Berkeley",
-  "amount": 2,
-  "expire": 1,
-  "items": {
-    "watermelon": 1,
-    "pineapple": 1
-  },
-  "demand": 0
-},
-{
-  "name": "James",
-  "id": "order17",
-  "store": "Berkeley Bowl",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Berkeley",
-  "amount": 1,
-  "expire": 1,
-  "items": {
-    "watermelon": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Oliver",
-  "id": "order18",
-  "store": "Safeway",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Piedmont",
-  "amount": 9,
-  "expire": 1,
-  "items": {
-    "watermelon": 2,
-    "apple": 5,
-    "orange": 2
-  },
-  "demand": 0
-},
-{
-  "name": "Christopher",
-  "id": "order19",
-  "store": "Target",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Emeryville",
-  "amount": 2,
-  "expire": 1,
-  "items": {
-    "apple": 1,
-    "banana": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Mason",
-  "id": "order20",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 9,
-  "expire": 1,
-  "items": {
-    "pear": 2,
-    "cherry": 2,
-    "grapefruit": 2,
-    "pineapple": 1,
-    "apple": 1,
-    "peach": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Aiden",
-  "id": "order21",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 6,
-  "expire": 1,
-  "items": {
-    "apple": 1,
-    "grapefruit": 2,
-    "pear": 1,
-    "cherry": 2
-  },
-  "demand": 0
-},
-{
-  "name": "Elijah",
-  "id": "order22",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 4,
-  "expire": 1,
-  "items": {
-    "grapefruit": 1,
-    "pear": 1,
-    "banana": 1,
-    "cherry": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Christopher",
-  "id": "order23",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 13,
-  "expire": 1,
-  "items": {
-    "grape": 4,
-    "pear": 3,
-    "banana": 1,
-    "apple": 3,
-    "cherry": 1,
-    "grapefruit": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Amelia",
-  "id": "order24",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 11,
-  "expire": 1,
-  "items": {
-    "cherry": 2,
-    "pineapple": 5,
-    "banana": 1,
-    "pear": 1,
-    "peach": 1,
-    "apple": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Michael",
-  "id": "order25",
-  "store": "Berkeley Bowl",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Berkeley",
-  "amount": 9,
-  "expire": 1,
-  "items": {
-    "orange": 2,
-    "grape": 3,
-    "apple": 3,
-    "pineapple": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Ava",
-  "id": "order26",
-  "store": "Berkeley Bowl",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Berkeley",
-  "amount": 8,
-  "expire": 1,
-  "items": {
-    "watermelon": 2,
-    "pineapple": 2,
-    "grape": 2,
-    "orange": 2
-  },
-  "demand": 0
-},
-{
-  "name": "Mason",
-  "id": "order27",
-  "store": "Safeway",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Piedmont",
-  "amount": 9,
-  "expire": 1,
-  "items": {
-    "orange": 5,
-    "watermelon": 4
-  },
-  "demand": 0
-},
-{
-  "name": "Olivia",
-  "id": "order28",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 17,
-  "expire": 1,
-  "items": {
-    "cherry": 3,
-    "banana": 4,
-    "pineapple": 1,
-    "pear": 6,
-    "apple": 2,
-    "grapefruit": 1
-  },
-  "demand": 0
-},
-{
-  "name": "William",
-  "id": "order29",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 16,
-  "expire": 1,
-  "items": {
-    "grape": 4,
-    "pear": 3,
-    "apple": 2,
-    "grapefruit": 2,
-    "peach": 2,
-    "banana": 1,
-    "pineapple": 1,
-    "cherry": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Charlotte",
+  "name": "Alexander",
   "id": "order30",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Jacob",
+  "id": "order31",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
@@ -525,102 +571,113 @@
   "expire": 1,
   "items": {
     "apple": 4,
-    "peach": 3,
+    "banana": 3,
     "grapefruit": 3,
     "pear": 4,
-    "banana": 1,
-    "grape": 1,
-    "pineapple": 2
+    "grape": 2,
+    "pineapple": 1,
+    "cherry": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
-  "name": "Joseph",
-  "id": "order31",
+  "name": "Abigail",
+  "id": "order32",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 9,
+  "amount": 5,
   "expire": 1,
   "items": {
-    "grapefruit": 1,
-    "cherry": 3,
-    "banana": 1,
-    "peach": 1,
-    "grape": 1,
-    "pear": 1,
-    "apple": 1
+    "peach": 2,
+    "banana": 3
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "commonsense_item_amount"
 },
 {
-  "name": "Logan",
-  "id": "order32",
-  "store": "Target",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Emeryville",
-  "amount": 9,
-  "expire": 1,
-  "items": {
-    "apple": 2,
-    "pineapple": 4,
-    "watermelon": 1,
-    "grape": 2
-  },
-  "demand": 0
-},
-{
-  "name": "Christopher",
+  "name": "David",
   "id": "order33",
-  "store": "Safeway",
+  "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
-  "city": "Piedmont",
-  "amount": 3,
+  "city": "Oakland",
+  "amount": 15,
   "expire": 1,
   "items": {
-    "watermelon": 1,
-    "apple": 1,
-    "orange": 1
+    "cherry": 3,
+    "grape": 5,
+    "banana": 3,
+    "peach": 3,
+    "pineapple": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Aiden",
+  "id": "order34",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "grape": 3,
+    "pineapple": 2,
+    "banana": 7,
+    "grapefruit": 2,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
 },
 {
   "name": "William",
-  "id": "order34",
-  "store": "Target",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Emeryville",
-  "amount": 1,
-  "expire": 1,
-  "items": {
-    "banana": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Mia",
   "id": "order35",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 8,
+  "amount": 15,
   "expire": 1,
   "items": {
-    "banana": 1,
     "pear": 2,
-    "grapefruit": 2,
-    "peach": 3
+    "apple": 7,
+    "pineapple": 2,
+    "banana": 3,
+    "grape": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "commonsense_item_amount"
 },
 {
-  "name": "Jacob",
+  "name": "Emma",
   "id": "order36",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "pineapple": 1,
+    "peach": 3,
+    "grapefruit": 3,
+    "pear": 3,
+    "apple": 2,
+    "cherry": 2,
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Lucas",
+  "id": "order37",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
@@ -628,51 +685,29 @@
   "amount": 1,
   "expire": 1,
   "items": {
-    "grapefruit": 1
+    "grape": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
-  "name": "Ethan",
-  "id": "order37",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 19,
-  "expire": 1,
-  "items": {
-    "grapefruit": 4,
-    "apple": 2,
-    "pear": 3,
-    "grape": 2,
-    "peach": 4,
-    "cherry": 2,
-    "pineapple": 1,
-    "banana": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Liam",
+  "name": "Sophia",
   "id": "order38",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 9,
+  "amount": 3,
   "expire": 1,
   "items": {
-    "banana": 3,
-    "cherry": 3,
-    "grape": 1,
-    "pineapple": 1,
-    "pear": 1
+    "peach": 2,
+    "banana": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
-  "name": "William",
+  "name": "Ava",
   "id": "order39",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
@@ -682,88 +717,67 @@
   "expire": 1,
   "items": {
     "banana": 1,
-    "pineapple": 1,
     "grapefruit": 1,
-    "grape": 2,
-    "peach": 1
+    "grape": 1,
+    "cherry": 2,
+    "pineapple": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
-  "name": "Oliver",
+  "name": "Sophia",
   "id": "order40",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 11,
+  "amount": 6,
   "expire": 1,
   "items": {
-    "grapefruit": 1,
-    "apple": 3,
-    "pineapple": 1,
-    "cherry": 1,
-    "banana": 1,
+    "pear": 4,
+    "banana": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Marcus",
+  "id": "order41",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "pineapple": 3,
     "grape": 2,
-    "peach": 1,
     "pear": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_everything"
 },
 {
-  "name": "Abigail",
-  "id": "order41",
-  "store": "Safeway",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Piedmont",
-  "amount": 15,
-  "expire": 1,
-  "items": {
-    "apple": 5,
-    "watermelon": 5,
-    "orange": 5
-  },
-  "demand": 0
-},
-{
-  "name": "Ethan",
+  "name": "James",
   "id": "order42",
-  "store": "Target",
+  "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
-  "city": "Emeryville",
+  "city": "Oakland",
   "amount": 6,
   "expire": 1,
   "items": {
-    "pineapple": 3,
     "apple": 1,
     "grape": 1,
-    "banana": 1
+    "grapefruit": 4
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_everything"
 },
 {
-  "name": "Lucas",
+  "name": "Michael",
   "id": "order43",
-  "store": "Target",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Emeryville",
-  "amount": 18,
-  "expire": 1,
-  "items": {
-    "pineapple": 3,
-    "grape": 6,
-    "watermelon": 4,
-    "banana": 3,
-    "apple": 2
-  },
-  "demand": 0
-},
-{
-  "name": "Alexander",
-  "id": "order44",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
@@ -771,154 +785,49 @@
   "amount": 6,
   "expire": 1,
   "items": {
-    "peach": 3,
-    "grape": 1,
-    "banana": 1,
-    "pineapple": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Noah",
-  "id": "order45",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 19,
-  "expire": 1,
-  "items": {
-    "pineapple": 1,
-    "grapefruit": 5,
     "pear": 3,
-    "grape": 3,
-    "cherry": 3,
-    "banana": 1,
     "apple": 3
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_everything"
 },
 {
-  "name": "Noah",
-  "id": "order46",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 11,
-  "expire": 1,
-  "items": {
-    "banana": 3,
-    "grapefruit": 1,
-    "peach": 1,
-    "cherry": 3,
-    "apple": 2,
-    "pear": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Evelyn",
-  "id": "order47",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 8,
-  "expire": 1,
-  "items": {
-    "grapefruit": 2,
-    "peach": 1,
-    "apple": 1,
-    "pineapple": 2,
-    "cherry": 2
-  },
-  "demand": 0
-},
-{
-  "name": "Charlotte",
-  "id": "order48",
-  "store": "Target",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Emeryville",
+  "name": "James",
+  "id": "order44",
+  "store": "Safeway",
+  "earnings": 25,
+  "startingearnings": 25,
+  "city": "Piedmont",
   "amount": 5,
   "expire": 1,
   "items": {
-    "pineapple": 1,
-    "banana": 1,
-    "apple": 3
-  },
-  "demand": 0
-},
-{
-  "name": "Abigail",
-  "id": "order49",
-  "store": "Berkeley Bowl",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Berkeley",
-  "amount": 4,
-  "expire": 1,
-  "items": {
-    "pineapple": 1,
     "watermelon": 1,
-    "grape": 2
+    "apple": 2,
+    "orange": 2
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "pure_randomness"
 },
 {
-  "name": "Evelyn",
-  "id": "order50",
+  "name": "Sophia",
+  "id": "order45",
   "store": "Target",
-  "earnings": 20,
-  "startingearnings": 20,
+  "earnings": 1,
+  "startingearnings": 1,
   "city": "Emeryville",
-  "amount": 14,
-  "expire": 1,
-  "items": {
-    "grape": 3,
-    "watermelon": 5,
-    "banana": 4,
-    "pineapple": 2
-  },
-  "demand": 0
-},
-{
-  "name": "Lucas",
-  "id": "order51",
-  "store": "Target",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Emeryville",
-  "amount": 12,
+  "amount": 6,
   "expire": 1,
   "items": {
     "grape": 2,
-    "watermelon": 5,
-    "banana": 3,
-    "pineapple": 1,
-    "apple": 1
+    "pineapple": 2,
+    "banana": 2
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "pure_randomness"
 },
 {
-  "name": "Amelia",
-  "id": "order52",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 1,
-  "expire": 1,
-  "items": {
-    "grape": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Daniel",
-  "id": "order53",
+  "name": "Joseph",
+  "id": "order46",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
@@ -926,124 +835,267 @@
   "amount": 7,
   "expire": 1,
   "items": {
-    "cherry": 2,
-    "grapefruit": 1,
-    "apple": 1,
-    "pineapple": 1,
-    "banana": 1,
-    "pear": 1
+    "grape": 2,
+    "pear": 2,
+    "apple": 2,
+    "pineapple": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "pure_randomness"
 },
 {
-  "name": "Elijah",
-  "id": "order54",
+  "name": "Joseph",
+  "id": "order47",
+  "store": "Berkeley Bowl",
+  "earnings": 10,
+  "startingearnings": 10,
+  "city": "Berkeley",
+  "amount": 4,
+  "expire": 1,
+  "items": {
+    "pineapple": 3,
+    "watermelon": 1
+  },
+  "demand": 0,
+  "generator": "pure_randomness"
+},
+{
+  "name": "Oliver",
+  "id": "order48",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 18,
+  "amount": 11,
   "expire": 1,
   "items": {
-    "banana": 3,
-    "grapefruit": 6,
+    "apple": 3,
+    "grapefruit": 1,
+    "peach": 1,
     "pineapple": 1,
-    "cherry": 4,
+    "banana": 1,
+    "cherry": 3,
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Lucas",
+  "id": "order49",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 10,
+  "expire": 1,
+  "items": {
+    "pear": 1,
+    "peach": 1,
+    "apple": 1,
+    "pineapple": 3,
+    "banana": 2,
+    "grapefruit": 1,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Marcus",
+  "id": "order50",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "pineapple": 1,
     "pear": 1,
     "grape": 1,
-    "apple": 1,
-    "peach": 1
+    "cherry": 1,
+    "apple": 2
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
   "name": "Matthew",
-  "id": "order55",
+  "id": "order51",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 1,
+  "amount": 16,
   "expire": 1,
   "items": {
-    "cherry": 1
+    "apple": 3,
+    "peach": 2,
+    "banana": 1,
+    "grape": 2,
+    "grapefruit": 2,
+    "pear": 2,
+    "cherry": 2,
+    "pineapple": 2
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
-  "name": "Sophia",
-  "id": "order56",
+  "name": "Logan",
+  "id": "order52",
+  "store": "Safeway",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Piedmont",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "watermelon": 4,
+    "apple": 4
+  },
+  "demand": 0,
+  "generator": "vary_location"
+},
+{
+  "name": "Michael",
+  "id": "order53",
+  "store": "Safeway",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Piedmont",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "watermelon": 4,
+    "orange": 4
+  },
+  "demand": 0,
+  "generator": "vary_location"
+},
+{
+  "name": "Park",
+  "id": "order54",
   "store": "Berkeley Bowl",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Berkeley",
-  "amount": 1,
+  "amount": 8,
   "expire": 1,
   "items": {
-    "watermelon": 1
+    "watermelon": 4,
+    "grape": 4
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "vary_location"
 },
 {
-  "name": "Benjamin",
+  "name": "Amelia",
+  "id": "order55",
+  "store": "Berkeley Bowl",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Berkeley",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "apple": 6,
+    "pineapple": 2
+  },
+  "demand": 0,
+  "generator": "vary_location"
+},
+{
+  "name": "Elijah",
+  "id": "order56",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grapefruit": 3,
+    "peach": 2,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Ethan",
   "id": "order57",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 15,
+  "amount": 6,
   "expire": 1,
   "items": {
-    "apple": 2,
-    "cherry": 4,
-    "banana": 4,
-    "peach": 1,
-    "grapefruit": 2,
-    "grape": 1,
-    "pear": 1
+    "grapefruit": 3,
+    "pear": 2,
+    "cherry": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_everything"
 },
 {
-  "name": "Lucas",
+  "name": "Matthew",
   "id": "order58",
-  "store": "Target",
+  "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
-  "city": "Emeryville",
-  "amount": 18,
+  "city": "Oakland",
+  "amount": 6,
   "expire": 1,
   "items": {
-    "banana": 4,
-    "grape": 2,
-    "watermelon": 3,
-    "apple": 3,
-    "pineapple": 6
+    "banana": 3,
+    "apple": 2,
+    "grapefruit": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_everything"
 },
 {
-  "name": "James",
+  "name": "Logan",
   "id": "order59",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 12,
+  "amount": 6,
   "expire": 1,
   "items": {
-    "cherry": 5,
     "peach": 2,
-    "pineapple": 1,
-    "grapefruit": 1,
-    "pear": 2,
-    "apple": 1
+    "pineapple": 3,
+    "grapefruit": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_everything"
 },
 {
-  "name": "Lucas",
+  "name": "Joseph",
   "id": "order60",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "banana": 2,
+    "grapefruit": 1,
+    "apple": 1,
+    "cherry": 1,
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Ethan",
+  "id": "order61",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
@@ -1051,30 +1103,17 @@
   "amount": 17,
   "expire": 1,
   "items": {
-    "apple": 4,
-    "grapefruit": 3,
-    "banana": 1,
-    "grape": 3,
+    "grape": 2,
+    "banana": 4,
     "pineapple": 2,
-    "cherry": 2,
-    "pear": 1,
-    "peach": 1
+    "cherry": 1,
+    "apple": 2,
+    "peach": 2,
+    "pear": 2,
+    "grapefruit": 2
   },
-  "demand": 0
-},
-{
-  "name": "Emma",
-  "id": "order61",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 1,
-  "expire": 1,
-  "items": {
-    "peach": 1
-  },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
   "name": "Abigail",
@@ -1083,449 +1122,21 @@
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 2,
-  "expire": 1,
-  "items": {
-    "banana": 1,
-    "peach": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Sophia",
-  "id": "order63",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 12,
-  "expire": 1,
-  "items": {
-    "pineapple": 3,
-    "grapefruit": 3,
-    "banana": 1,
-    "peach": 1,
-    "apple": 1,
-    "cherry": 1,
-    "grape": 2
-  },
-  "demand": 0
-},
-{
-  "name": "Amelia",
-  "id": "order64",
-  "store": "Berkeley Bowl",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Berkeley",
-  "amount": 7,
-  "expire": 1,
-  "items": {
-    "grape": 2,
-    "watermelon": 1,
-    "orange": 1,
-    "pineapple": 2,
-    "apple": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Benjamin",
-  "id": "order65",
-  "store": "Target",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Emeryville",
-  "amount": 19,
-  "expire": 1,
-  "items": {
-    "apple": 6,
-    "banana": 2,
-    "watermelon": 2,
-    "grape": 6,
-    "pineapple": 3
-  },
-  "demand": 0
-},
-{
-  "name": "Joseph",
-  "id": "order66",
-  "store": "Target",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Emeryville",
-  "amount": 19,
-  "expire": 1,
-  "items": {
-    "watermelon": 10,
-    "pineapple": 1,
-    "apple": 4,
-    "grape": 3,
-    "banana": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Amelia",
-  "id": "order67",
-  "store": "Safeway",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Piedmont",
-  "amount": 18,
-  "expire": 1,
-  "items": {
-    "apple": 9,
-    "orange": 6,
-    "watermelon": 3
-  },
-  "demand": 0
-},
-{
-  "name": "Joseph",
-  "id": "order68",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
   "amount": 6,
   "expire": 1,
   "items": {
-    "cherry": 2,
+    "banana": 1,
     "pineapple": 1,
-    "peach": 1,
-    "grape": 1,
-    "apple": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Matthew",
-  "id": "order69",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 4,
-  "expire": 1,
-  "items": {
-    "cherry": 1,
-    "apple": 2,
-    "peach": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Emma",
-  "id": "order70",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 1,
-  "expire": 1,
-  "items": {
-    "pear": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Olivia",
-  "id": "order71",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 8,
-  "expire": 1,
-  "items": {
-    "grape": 1,
-    "pear": 1,
-    "apple": 2,
-    "peach": 3,
-    "banana": 1
-  },
-  "demand": 0
-},
-{
-  "name": "William",
-  "id": "order72",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 3,
-  "expire": 1,
-  "items": {
-    "grapefruit": 1,
-    "banana": 1,
-    "cherry": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Mason",
-  "id": "order73",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 16,
-  "expire": 1,
-  "items": {
-    "apple": 1,
-    "pineapple": 2,
-    "cherry": 4,
-    "peach": 3,
-    "grapefruit": 2,
-    "grape": 2,
-    "banana": 1,
-    "pear": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Matthew",
-  "id": "order74",
-  "store": "Target",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Emeryville",
-  "amount": 18,
-  "expire": 1,
-  "items": {
-    "apple": 4,
-    "pineapple": 3,
-    "watermelon": 4,
-    "banana": 4,
-    "grape": 3
-  },
-  "demand": 0
-},
-{
-  "name": "Marcus",
-  "id": "order75",
-  "store": "Berkeley Bowl",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Berkeley",
-  "amount": 19,
-  "expire": 1,
-  "items": {
-    "apple": 8,
-    "watermelon": 1,
-    "grape": 6,
-    "orange": 3,
-    "pineapple": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Logan",
-  "id": "order76",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 1,
-  "expire": 1,
-  "items": {
-    "cherry": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Matthew",
-  "id": "order77",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 7,
-  "expire": 1,
-  "items": {
-    "pear": 1,
-    "grape": 1,
     "peach": 2,
-    "pineapple": 1,
-    "apple": 1,
-    "banana": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Alexander",
-  "id": "order78",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 5,
-  "expire": 1,
-  "items": {
-    "cherry": 1,
-    "grapefruit": 1,
-    "grape": 1,
-    "apple": 1,
-    "pear": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Jacob",
-  "id": "order79",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 18,
-  "expire": 1,
-  "items": {
-    "cherry": 3,
-    "pineapple": 3,
-    "peach": 3,
-    "pear": 2,
-    "grapefruit": 4,
-    "grape": 3
-  },
-  "demand": 0
-},
-{
-  "name": "Benjamin",
-  "id": "order80",
-  "store": "Safeway",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Piedmont",
-  "amount": 16,
-  "expire": 1,
-  "items": {
-    "apple": 4,
-    "watermelon": 5,
-    "orange": 7
-  },
-  "demand": 0
-},
-{
-  "name": "Daniel",
-  "id": "order81",
-  "store": "Target",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Emeryville",
-  "amount": 12,
-  "expire": 1,
-  "items": {
-    "banana": 2,
-    "grape": 4,
-    "pineapple": 2,
-    "watermelon": 3,
-    "apple": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Matthew",
-  "id": "order82",
-  "store": "Safeway",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Piedmont",
-  "amount": 5,
-  "expire": 1,
-  "items": {
-    "apple": 2,
-    "watermelon": 2,
-    "orange": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Michael",
-  "id": "order83",
-  "store": "Target",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Emeryville",
-  "amount": 6,
-  "expire": 1,
-  "items": {
-    "watermelon": 3,
-    "grape": 1,
-    "apple": 1,
-    "banana": 1
-  },
-  "demand": 0
-},
-{
-  "name": "William",
-  "id": "order84",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 8,
-  "expire": 1,
-  "items": {
-    "apple": 2,
-    "cherry": 1,
     "pear": 1,
-    "pineapple": 2,
-    "banana": 1,
-    "peach": 1
+    "cherry": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
-  "name": "Liam",
-  "id": "order85",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 2,
-  "expire": 1,
-  "items": {
-    "banana": 2
-  },
-  "demand": 0
-},
-{
-  "name": "Michael",
-  "id": "order86",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 1,
-  "expire": 1,
-  "items": {
-    "pear": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Noah",
-  "id": "order87",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 8,
-  "expire": 1,
-  "items": {
-    "grapefruit": 3,
-    "banana": 1,
-    "cherry": 1,
-    "pineapple": 1,
-    "grape": 1,
-    "peach": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Alexander",
-  "id": "order88",
+  "name": "Abigail",
+  "id": "order63",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
@@ -1533,73 +1144,544 @@
   "amount": 14,
   "expire": 1,
   "items": {
-    "cherry": 3,
-    "grapefruit": 2,
-    "peach": 3,
-    "pineapple": 1,
+    "peach": 2,
     "grape": 1,
-    "pear": 2,
+    "banana": 3,
+    "grapefruit": 2,
     "apple": 1,
-    "banana": 1
+    "pineapple": 2,
+    "pear": 2,
+    "cherry": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
-  "name": "William",
-  "id": "order89",
-  "store": "Berkeley Bowl",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Berkeley",
-  "amount": 15,
-  "expire": 1,
-  "items": {
-    "apple": 2,
-    "grape": 4,
-    "watermelon": 1,
-    "orange": 2,
-    "pineapple": 6
-  },
-  "demand": 0
-},
-{
-  "name": "Noah",
-  "id": "order90",
-  "store": "Berkeley Bowl",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Berkeley",
-  "amount": 11,
-  "expire": 1,
-  "items": {
-    "apple": 2,
-    "orange": 3,
-    "grape": 2,
-    "watermelon": 2,
-    "pineapple": 2
-  },
-  "demand": 0
-},
-{
-  "name": "Lucas",
-  "id": "order91",
+  "name": "Benjamin",
+  "id": "order64",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 19,
+  "amount": 18,
+  "expire": 1,
+  "items": {
+    "pineapple": 3,
+    "grape": 4,
+    "cherry": 4,
+    "grapefruit": 3,
+    "peach": 2,
+    "banana": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Daniel",
+  "id": "order65",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 4,
+  "expire": 1,
+  "items": {
+    "banana": 1,
+    "grape": 2,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Matthew",
+  "id": "order66",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "pear": 1,
+    "pineapple": 1,
+    "banana": 1,
+    "apple": 1,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Isabella",
+  "id": "order67",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "peach": 2,
+    "grape": 1,
+    "banana": 1,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Benjamin",
+  "id": "order68",
+  "store": "Sprouts Farmers Market",
+  "earnings": 23,
+  "startingearnings": 23,
+  "city": "Oakland",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Ava",
+  "id": "order69",
+  "store": "Sprouts Farmers Market",
+  "earnings": 33,
+  "startingearnings": 33,
+  "city": "Oakland",
+  "amount": 2,
+  "expire": 1,
+  "items": {
+    "peach": 1,
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Noah",
+  "id": "order70",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 18,
   "expire": 1,
   "items": {
     "grapefruit": 1,
-    "pear": 2,
-    "pineapple": 4,
-    "cherry": 3,
     "grape": 2,
-    "peach": 3,
-    "apple": 2,
-    "banana": 2
+    "apple": 3,
+    "pear": 4,
+    "banana": 5,
+    "pineapple": 2,
+    "cherry": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Ethan",
+  "id": "order71",
+  "store": "Sprouts Farmers Market",
+  "earnings": 21,
+  "startingearnings": 21,
+  "city": "Oakland",
+  "amount": 7,
+  "expire": 1,
+  "items": {
+    "grape": 1,
+    "apple": 2,
+    "grapefruit": 2,
+    "pear": 1,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Olivia",
+  "id": "order72",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 18,
+  "expire": 1,
+  "items": {
+    "banana": 3,
+    "grape": 3,
+    "cherry": 1,
+    "grapefruit": 3,
+    "peach": 4,
+    "pineapple": 1,
+    "apple": 2,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Olivia",
+  "id": "order73",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 14,
+  "expire": 1,
+  "items": {
+    "banana": 2,
+    "pineapple": 3,
+    "grapefruit": 5,
+    "peach": 2,
+    "grape": 1,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Olivia",
+  "id": "order74",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 7,
+  "expire": 1,
+  "items": {
+    "apple": 2,
+    "cherry": 1,
+    "grapefruit": 2,
+    "pineapple": 1,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Noah",
+  "id": "order75",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "pineapple": 1,
+    "peach": 1,
+    "cherry": 2,
+    "banana": 1,
+    "grapefruit": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Abigail",
+  "id": "order76",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 13,
+  "expire": 1,
+  "items": {
+    "banana": 2,
+    "grape": 3,
+    "grapefruit": 1,
+    "cherry": 2,
+    "apple": 3,
+    "pear": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Daniel",
+  "id": "order77",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 4,
+  "expire": 1,
+  "items": {
+    "pineapple": 1,
+    "cherry": 2,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Amelia",
+  "id": "order78",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 9,
+  "expire": 1,
+  "items": {
+    "cherry": 3,
+    "apple": 2,
+    "pineapple": 1,
+    "banana": 1,
+    "pear": 1,
+    "grapefruit": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Ethan",
+  "id": "order79",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 11,
+  "expire": 1,
+  "items": {
+    "grape": 2,
+    "peach": 2,
+    "cherry": 1,
+    "pear": 4,
+    "banana": 1,
+    "grapefruit": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Aiden",
+  "id": "order80",
+  "store": "Sprouts Farmers Market",
+  "earnings": 14,
+  "startingearnings": 14,
+  "city": "Oakland",
+  "amount": 12,
+  "expire": 1,
+  "items": {
+    "peach": 1,
+    "grapefruit": 1,
+    "pear": 2,
+    "apple": 2,
+    "cherry": 3,
+    "grape": 3
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Noah",
+  "id": "order81",
+  "store": "Sprouts Farmers Market",
+  "earnings": 7,
+  "startingearnings": 7,
+  "city": "Oakland",
+  "amount": 17,
+  "expire": 1,
+  "items": {
+    "pineapple": 3,
+    "peach": 2,
+    "cherry": 4,
+    "pear": 2,
+    "grapefruit": 2,
+    "apple": 2,
+    "grape": 1,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Noah",
+  "id": "order82",
+  "store": "Sprouts Farmers Market",
+  "earnings": 29,
+  "startingearnings": 29,
+  "city": "Oakland",
+  "amount": 7,
+  "expire": 1,
+  "items": {
+    "pineapple": 1,
+    "cherry": 2,
+    "pear": 3,
+    "grapefruit": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Mason",
+  "id": "order83",
+  "store": "Sprouts Farmers Market",
+  "earnings": 32,
+  "startingearnings": 32,
+  "city": "Oakland",
+  "amount": 10,
+  "expire": 1,
+  "items": {
+    "banana": 1,
+    "peach": 2,
+    "apple": 3,
+    "pear": 1,
+    "grape": 3
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Park",
+  "id": "order84",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Joseph",
+  "id": "order85",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Christopher",
+  "id": "order86",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 14,
+  "expire": 1,
+  "items": {
+    "cherry": 4,
+    "apple": 1,
+    "peach": 1,
+    "grape": 2,
+    "grapefruit": 1,
+    "banana": 3,
+    "pear": 1,
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Ethan",
+  "id": "order87",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 18,
+  "expire": 1,
+  "items": {
+    "grape": 3,
+    "peach": 4,
+    "pineapple": 2,
+    "grapefruit": 2,
+    "cherry": 4,
+    "pear": 2,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "David",
+  "id": "order88",
+  "store": "Target",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Emeryville",
+  "amount": 14,
+  "expire": 1,
+  "items": {
+    "apple": 6,
+    "pineapple": 2,
+    "banana": 5,
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Aiden",
+  "id": "order89",
+  "store": "Safeway",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Piedmont",
+  "amount": 9,
+  "expire": 1,
+  "items": {
+    "orange": 6,
+    "apple": 3
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Oliver",
+  "id": "order90",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 17,
+  "expire": 1,
+  "items": {
+    "apple": 3,
+    "grape": 3,
+    "pineapple": 2,
+    "pear": 2,
+    "banana": 1,
+    "cherry": 2,
+    "grapefruit": 3,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Mia",
+  "id": "order91",
+  "store": "Safeway",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Piedmont",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "apple": 4,
+    "orange": 2,
+    "watermelon": 2
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
 },
 {
   "name": "Charlotte",
@@ -1608,157 +1690,21 @@
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 4,
+  "amount": 15,
   "expire": 1,
   "items": {
-    "banana": 2,
-    "apple": 1,
-    "peach": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Noah",
-  "id": "order93",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 2,
-  "expire": 1,
-  "items": {
-    "peach": 1,
-    "pineapple": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Joseph",
-  "id": "order94",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 1,
-  "expire": 1,
-  "items": {
-    "grape": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Joseph",
-  "id": "order95",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 18,
-  "expire": 1,
-  "items": {
+    "cherry": 2,
+    "grapefruit": 3,
     "grape": 4,
-    "peach": 3,
-    "banana": 2,
-    "pineapple": 4,
-    "cherry": 2,
-    "pear": 1,
-    "grapefruit": 1,
-    "apple": 1
+    "peach": 4,
+    "pineapple": 2
   },
-  "demand": 0
-},
-{
-  "name": "Logan",
-  "id": "order96",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 19,
-  "expire": 1,
-  "items": {
-    "apple": 4,
-    "pear": 3,
-    "cherry": 2,
-    "banana": 2,
-    "grape": 1,
-    "grapefruit": 2,
-    "peach": 2,
-    "pineapple": 3
-  },
-  "demand": 0
-},
-{
-  "name": "Ethan",
-  "id": "order97",
-  "store": "Berkeley Bowl",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Berkeley",
-  "amount": 10,
-  "expire": 1,
-  "items": {
-    "watermelon": 3,
-    "pineapple": 2,
-    "orange": 2,
-    "grape": 3
-  },
-  "demand": 0
-},
-{
-  "name": "Christopher",
-  "id": "order98",
-  "store": "Safeway",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Piedmont",
-  "amount": 5,
-  "expire": 1,
-  "items": {
-    "orange": 4,
-    "apple": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Michael",
-  "id": "order99",
-  "store": "Berkeley Bowl",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Berkeley",
-  "amount": 8,
-  "expire": 1,
-  "items": {
-    "apple": 1,
-    "grape": 3,
-    "orange": 1,
-    "pineapple": 2,
-    "watermelon": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Park",
-  "id": "order100",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 5,
-  "expire": 1,
-  "items": {
-    "banana": 1,
-    "peach": 1,
-    "apple": 1,
-    "cherry": 1,
-    "grape": 1
-  },
-  "demand": 0
+  "demand": 0,
+  "generator": "commonsense_item_amount"
 },
 {
   "name": "Joseph",
-  "id": "order101",
+  "id": "order93",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
@@ -1766,74 +1712,18 @@
   "amount": 15,
   "expire": 1,
   "items": {
-    "peach": 2,
-    "apple": 3,
-    "banana": 3,
-    "grape": 3,
-    "cherry": 1,
-    "grapefruit": 1,
-    "pear": 2
-  },
-  "demand": 0
-},
-{
-  "name": "Aiden",
-  "id": "order102",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 14,
-  "expire": 1,
-  "items": {
-    "banana": 2,
-    "pear": 1,
-    "cherry": 1,
     "grape": 4,
-    "grapefruit": 2,
-    "pineapple": 1,
-    "peach": 3
-  },
-  "demand": 0
-},
-{
-  "name": "Ethan",
-  "id": "order103",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 14,
-  "expire": 1,
-  "items": {
-    "grapefruit": 2,
-    "peach": 1,
     "cherry": 2,
-    "pineapple": 2,
-    "banana": 3,
-    "grape": 1,
-    "pear": 2,
-    "apple": 1
+    "pineapple": 6,
+    "peach": 1,
+    "apple": 2
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "commonsense_item_amount"
 },
 {
-  "name": "Charlotte",
-  "id": "order104",
-  "store": "Safeway",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Piedmont",
-  "amount": 1,
-  "expire": 1,
-  "items": {
-    "watermelon": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Abigail",
-  "id": "order105",
+  "name": "James",
+  "id": "order94",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
@@ -1841,32 +1731,74 @@
   "amount": 5,
   "expire": 1,
   "items": {
-    "pear": 2,
-    "pineapple": 1,
-    "cherry": 1,
-    "grapefruit": 1
+    "grape": 3,
+    "pear": 2
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "commonsense_item_amount"
 },
 {
-  "name": "Christopher",
-  "id": "order106",
-  "store": "Berkeley Bowl",
+  "name": "Elijah",
+  "id": "order95",
+  "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
-  "city": "Berkeley",
-  "amount": 7,
+  "city": "Oakland",
+  "amount": 15,
   "expire": 1,
   "items": {
-    "apple": 3,
-    "grape": 2,
-    "pineapple": 2
+    "pear": 3,
+    "grape": 3,
+    "banana": 3,
+    "cherry": 3,
+    "pineapple": 3
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "commonsense_item_amount"
 },
 {
-  "name": "Noah",
-  "id": "order107",
+  "name": "Aiden",
+  "id": "order96",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "peach": 1,
+    "cherry": 1,
+    "apple": 1,
+    "banana": 2,
+    "grapefruit": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Matthew",
+  "id": "order97",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 17,
+  "expire": 1,
+  "items": {
+    "pineapple": 1,
+    "grape": 2,
+    "apple": 4,
+    "grapefruit": 5,
+    "pear": 1,
+    "peach": 2,
+    "banana": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Amelia",
+  "id": "order98",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
@@ -1874,85 +1806,20 @@
   "amount": 12,
   "expire": 1,
   "items": {
-    "grapefruit": 4,
+    "banana": 1,
+    "grape": 3,
+    "peach": 3,
     "pineapple": 2,
-    "apple": 2,
-    "cherry": 4
-  },
-  "demand": 0
-},
-{
-  "name": "Mia",
-  "id": "order108",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 1,
-  "expire": 1,
-  "items": {
+    "cherry": 1,
+    "pear": 1,
     "apple": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
-  "name": "Lucas",
-  "id": "order109",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 18,
-  "expire": 1,
-  "items": {
-    "grape": 4,
-    "pear": 2,
-    "pineapple": 2,
-    "apple": 4,
-    "peach": 1,
-    "grapefruit": 2,
-    "cherry": 2,
-    "banana": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Emma",
-  "id": "order110",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 3,
-  "expire": 1,
-  "items": {
-    "grape": 1,
-    "peach": 1,
-    "grapefruit": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Jacob",
-  "id": "order111",
-  "store": "Sprouts Farmers Market",
-  "earnings": 20,
-  "startingearnings": 20,
-  "city": "Oakland",
-  "amount": 8,
-  "expire": 1,
-  "items": {
-    "pineapple": 1,
-    "banana": 2,
-    "apple": 1,
-    "pear": 3,
-    "peach": 1
-  },
-  "demand": 0
-},
-{
-  "name": "Olivia",
-  "id": "order112",
+  "name": "Oliver",
+  "id": "order99",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
@@ -1960,64 +1827,1724 @@
   "amount": 16,
   "expire": 1,
   "items": {
-    "apple": 3,
-    "grapefruit": 4,
+    "apple": 2,
+    "grapefruit": 2,
+    "banana": 1,
+    "cherry": 5,
+    "peach": 2,
+    "pineapple": 2,
     "grape": 1,
-    "pear": 1,
-    "banana": 2,
-    "cherry": 2,
-    "pineapple": 1,
-    "peach": 2
+    "pear": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
-  "name": "Noah",
-  "id": "order113",
+  "name": "Park",
+  "id": "order100",
   "store": "Berkeley Bowl",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Berkeley",
-  "amount": 1,
+  "amount": 18,
   "expire": 1,
   "items": {
-    "orange": 1
+    "pineapple": 4,
+    "grape": 6,
+    "watermelon": 3,
+    "apple": 2,
+    "orange": 3
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_earnings"
 },
 {
-  "name": "Amelia",
-  "id": "order114",
+  "name": "Mia",
+  "id": "order101",
+  "store": "Berkeley Bowl",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Berkeley",
+  "amount": 19,
+  "expire": 1,
+  "items": {
+    "pineapple": 5,
+    "watermelon": 4,
+    "grape": 3,
+    "apple": 5,
+    "orange": 2
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Marcus",
+  "id": "order102",
   "store": "Target",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Emeryville",
-  "amount": 1,
+  "amount": 12,
   "expire": 1,
   "items": {
+    "grape": 4,
+    "apple": 1,
+    "banana": 4,
+    "watermelon": 2,
     "pineapple": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_earnings"
 },
 {
-  "name": "Noah",
-  "id": "order115",
-  "store": "Berkeley Bowl",
+  "name": "Aiden",
+  "id": "order103",
+  "store": "Safeway",
   "earnings": 20,
   "startingearnings": 20,
+  "city": "Piedmont",
+  "amount": 13,
+  "expire": 1,
+  "items": {
+    "watermelon": 3,
+    "orange": 6,
+    "apple": 4
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Ethan",
+  "id": "order104",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "banana": 3,
+    "grape": 2
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Sophia",
+  "id": "order105",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "peach": 3,
+    "grapefruit": 1,
+    "apple": 4,
+    "pineapple": 7
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Oliver",
+  "id": "order106",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "grapefruit": 4,
+    "banana": 4,
+    "pear": 2,
+    "cherry": 2,
+    "grape": 3
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Marcus",
+  "id": "order107",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "peach": 3,
+    "cherry": 4,
+    "banana": 2,
+    "grapefruit": 2,
+    "grape": 4
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Lucas",
+  "id": "order108",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 3,
+  "expire": 1,
+  "items": {
+    "apple": 1,
+    "pear": 1,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Matthew",
+  "id": "order109",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "peach": 4,
+    "banana": 3,
+    "apple": 1,
+    "pineapple": 2,
+    "grapefruit": 1,
+    "cherry": 2,
+    "grape": 1,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Michael",
+  "id": "order110",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 7,
+  "expire": 1,
+  "items": {
+    "apple": 1,
+    "pear": 2,
+    "peach": 1,
+    "cherry": 2,
+    "grapefruit": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Ethan",
+  "id": "order111",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 16,
+  "expire": 1,
+  "items": {
+    "grapefruit": 2,
+    "grape": 3,
+    "pineapple": 3,
+    "cherry": 3,
+    "apple": 1,
+    "pear": 2,
+    "banana": 1,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Benjamin",
+  "id": "order112",
+  "store": "Safeway",
+  "earnings": 1,
+  "startingearnings": 1,
+  "city": "Piedmont",
+  "amount": 9,
+  "expire": 1,
+  "items": {
+    "orange": 4,
+    "apple": 5
+  },
+  "demand": 0,
+  "generator": "pure_randomness"
+},
+{
+  "name": "Jacob",
+  "id": "order113",
+  "store": "Sprouts Farmers Market",
+  "earnings": 15,
+  "startingearnings": 15,
+  "city": "Oakland",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "pear": 2,
+    "grape": 1,
+    "banana": 2,
+    "grapefruit": 1,
+    "peach": 2
+  },
+  "demand": 0,
+  "generator": "pure_randomness"
+},
+{
+  "name": "Logan",
+  "id": "order114",
+  "store": "Berkeley Bowl",
+  "earnings": 1,
+  "startingearnings": 1,
   "city": "Berkeley",
+  "amount": 16,
+  "expire": 1,
+  "items": {
+    "grape": 3,
+    "pineapple": 2,
+    "orange": 6,
+    "apple": 3,
+    "watermelon": 2
+  },
+  "demand": 0,
+  "generator": "pure_randomness"
+},
+{
+  "name": "Matthew",
+  "id": "order115",
+  "store": "Sprouts Farmers Market",
+  "earnings": 18,
+  "startingearnings": 18,
+  "city": "Oakland",
+  "amount": 16,
+  "expire": 1,
+  "items": {
+    "pear": 1,
+    "cherry": 3,
+    "apple": 2,
+    "grapefruit": 1,
+    "banana": 5,
+    "pineapple": 3,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "pure_randomness"
+},
+{
+  "name": "Amelia",
+  "id": "order116",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "grape": 2,
+    "cherry": 2,
+    "pineapple": 3,
+    "apple": 2,
+    "pear": 2,
+    "grapefruit": 2,
+    "peach": 1,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Olivia",
+  "id": "order117",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 12,
+  "expire": 1,
+  "items": {
+    "grape": 2,
+    "banana": 2,
+    "pineapple": 3,
+    "apple": 3,
+    "peach": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Emma",
+  "id": "order118",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 3,
+  "expire": 1,
+  "items": {
+    "grapefruit": 1,
+    "pineapple": 1,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Isabella",
+  "id": "order119",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 2,
+  "expire": 1,
+  "items": {
+    "cherry": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Ethan",
+  "id": "order120",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 14,
+  "expire": 1,
+  "items": {
+    "pineapple": 5,
+    "apple": 4,
+    "cherry": 3,
+    "pear": 1,
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Alexander",
+  "id": "order121",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "peach": 3,
+    "apple": 2,
+    "cherry": 2,
+    "grape": 2,
+    "grapefruit": 2,
+    "pear": 2,
+    "pineapple": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "William",
+  "id": "order122",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 10,
+  "expire": 1,
+  "items": {
+    "grape": 2,
+    "banana": 2,
+    "apple": 1,
+    "peach": 3,
+    "cherry": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Evelyn",
+  "id": "order123",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 3,
+  "expire": 1,
+  "items": {
+    "peach": 3
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Charlotte",
+  "id": "order124",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "apple": 3,
+    "grape": 3
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Sophia",
+  "id": "order125",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "apple": 4,
+    "pineapple": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Lucas",
+  "id": "order126",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "pineapple": 2,
+    "cherry": 2,
+    "apple": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Mia",
+  "id": "order127",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "pear": 2,
+    "peach": 3,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Benjamin",
+  "id": "order128",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 13,
+  "expire": 1,
+  "items": {
+    "banana": 3,
+    "pear": 4,
+    "cherry": 1,
+    "apple": 2,
+    "grape": 1,
+    "peach": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Matthew",
+  "id": "order129",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 10,
+  "expire": 1,
+  "items": {
+    "grape": 1,
+    "pear": 2,
+    "banana": 2,
+    "pineapple": 3,
+    "apple": 1,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Isabella",
+  "id": "order130",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 14,
+  "expire": 1,
+  "items": {
+    "apple": 4,
+    "grape": 4,
+    "grapefruit": 3,
+    "pineapple": 1,
+    "pear": 1,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Daniel",
+  "id": "order131",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 19,
+  "expire": 1,
+  "items": {
+    "cherry": 3,
+    "pear": 4,
+    "peach": 1,
+    "pineapple": 3,
+    "grape": 2,
+    "grapefruit": 2,
+    "apple": 3,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Mia",
+  "id": "order132",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 16,
+  "expire": 1,
+  "items": {
+    "banana": 4,
+    "cherry": 4,
+    "apple": 3,
+    "peach": 2,
+    "grapefruit": 1,
+    "pear": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Aiden",
+  "id": "order133",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grapefruit": 1,
+    "pineapple": 2,
+    "pear": 2,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Joseph",
+  "id": "order134",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 18,
+  "expire": 1,
+  "items": {
+    "grapefruit": 2,
+    "banana": 1,
+    "pineapple": 6,
+    "grape": 3,
+    "cherry": 1,
+    "peach": 1,
+    "pear": 2,
+    "apple": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "William",
+  "id": "order135",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grape": 1,
+    "pear": 3,
+    "peach": 1,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Matthew",
+  "id": "order136",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "pear": 4,
+    "grape": 6,
+    "cherry": 2,
+    "grapefruit": 2,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Ethan",
+  "id": "order137",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "banana": 6,
+    "pineapple": 3,
+    "grapefruit": 3,
+    "cherry": 3
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Isabella",
+  "id": "order138",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "apple": 1,
+    "grape": 7,
+    "cherry": 3,
+    "pineapple": 4
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Michael",
+  "id": "order139",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "pineapple": 3,
+    "apple": 2
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Evelyn",
+  "id": "order140",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "cherry": 4,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Park",
+  "id": "order141",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "peach": 5,
+    "grapefruit": 3,
+    "cherry": 3,
+    "banana": 3,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Logan",
+  "id": "order142",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "apple": 5,
+    "peach": 2,
+    "grape": 3,
+    "grapefruit": 3,
+    "pear": 2
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Michael",
+  "id": "order143",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "banana": 4,
+    "cherry": 6,
+    "apple": 2,
+    "grapefruit": 2,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Jacob",
+  "id": "order144",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 7,
+  "expire": 1,
+  "items": {
+    "grapefruit": 2,
+    "cherry": 1,
+    "pear": 1,
+    "banana": 1,
+    "apple": 1,
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Benjamin",
+  "id": "order145",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 11,
+  "expire": 1,
+  "items": {
+    "apple": 2,
+    "cherry": 2,
+    "banana": 2,
+    "grapefruit": 2,
+    "pear": 1,
+    "grape": 1,
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Ava",
+  "id": "order146",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 3,
+  "expire": 1,
+  "items": {
+    "grapefruit": 2,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Matthew",
+  "id": "order147",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 17,
+  "expire": 1,
+  "items": {
+    "pineapple": 6,
+    "peach": 1,
+    "cherry": 3,
+    "apple": 2,
+    "grape": 2,
+    "banana": 2,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Jacob",
+  "id": "order148",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grapefruit": 4,
+    "banana": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Christopher",
+  "id": "order149",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grapefruit": 2,
+    "banana": 3,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Ethan",
+  "id": "order150",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
   "amount": 6,
   "expire": 1,
   "items": {
     "grape": 2,
-    "watermelon": 3,
-    "apple": 1
+    "cherry": 2,
+    "banana": 2
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_everything"
 },
 {
-  "name": "Lucas",
-  "id": "order116",
+  "name": "James",
+  "id": "order151",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grape": 3,
+    "pear": 2,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Aiden",
+  "id": "order152",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "banana": 2,
+    "apple": 2,
+    "peach": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Isabella",
+  "id": "order153",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "apple": 1,
+    "pineapple": 1,
+    "grape": 4
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Matthew",
+  "id": "order154",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grape": 1,
+    "apple": 1,
+    "peach": 4
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Aiden",
+  "id": "order155",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "pear": 2,
+    "apple": 2,
+    "cherry": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Oliver",
+  "id": "order156",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "apple": 1,
+    "cherry": 4,
+    "pear": 1,
+    "peach": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Ethan",
+  "id": "order157",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "grape": 2,
+    "apple": 2,
+    "grapefruit": 1,
+    "pineapple": 2,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Emma",
+  "id": "order158",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "pineapple": 2,
+    "grapefruit": 1,
+    "grape": 1,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Emma",
+  "id": "order159",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Charlotte",
+  "id": "order160",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "grapefruit": 5
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Matthew",
+  "id": "order161",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "peach": 4,
+    "pineapple": 3,
+    "banana": 2,
+    "cherry": 3,
+    "grapefruit": 3
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Aiden",
+  "id": "order162",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "apple": 5,
+    "grapefruit": 2,
+    "grape": 3,
+    "pear": 2,
+    "banana": 3
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Christopher",
+  "id": "order163",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "pineapple": 2,
+    "grape": 6,
+    "peach": 2,
+    "cherry": 4,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Oliver",
+  "id": "order164",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grapefruit": 3,
+    "pineapple": 1,
+    "cherry": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Matthew",
+  "id": "order165",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "cherry": 4,
+    "peach": 1,
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Alexander",
+  "id": "order166",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grape": 4,
+    "pear": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Amelia",
+  "id": "order167",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grape": 3,
+    "pineapple": 1,
+    "banana": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Daniel",
+  "id": "order168",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 9,
+  "expire": 1,
+  "items": {
+    "cherry": 5,
+    "apple": 2,
+    "grapefruit": 1,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Ava",
+  "id": "order169",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 18,
+  "expire": 1,
+  "items": {
+    "pear": 6,
+    "grape": 2,
+    "pineapple": 4,
+    "banana": 2,
+    "peach": 2,
+    "cherry": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Mason",
+  "id": "order170",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 13,
+  "expire": 1,
+  "items": {
+    "pineapple": 2,
+    "apple": 5,
+    "peach": 1,
+    "grapefruit": 1,
+    "grape": 1,
+    "banana": 3
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Oliver",
+  "id": "order171",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "grapefruit": 4,
+    "grape": 4,
+    "pineapple": 1,
+    "pear": 4,
+    "apple": 1,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "James",
+  "id": "order172",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grapefruit": 3,
+    "pear": 2,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Olivia",
+  "id": "order173",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "pear": 3,
+    "cherry": 3
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Benjamin",
+  "id": "order174",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grape": 3,
+    "pear": 2,
+    "grapefruit": 1
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Noah",
+  "id": "order175",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "pear": 3,
+    "grapefruit": 3
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Marcus",
+  "id": "order176",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "pear": 6,
+    "apple": 2,
+    "pineapple": 4,
+    "grapefruit": 1,
+    "grape": 2
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Marcus",
+  "id": "order177",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "grape": 3,
+    "pineapple": 2
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Ava",
+  "id": "order178",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "cherry": 5,
+    "banana": 1,
+    "apple": 2,
+    "grapefruit": 6,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Elijah",
+  "id": "order179",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "cherry": 5,
+    "pineapple": 3,
+    "grapefruit": 4,
+    "pear": 1,
+    "banana": 2
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Daniel",
+  "id": "order180",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grape": 1,
+    "pear": 3,
+    "peach": 1,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Benjamin",
+  "id": "order181",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 11,
+  "expire": 1,
+  "items": {
+    "pear": 1,
+    "pineapple": 3,
+    "apple": 1,
+    "banana": 1,
+    "cherry": 2,
+    "grape": 2,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Charlotte",
+  "id": "order182",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 10,
+  "expire": 1,
+  "items": {
+    "pineapple": 3,
+    "cherry": 1,
+    "apple": 2,
+    "peach": 1,
+    "grapefruit": 2,
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Benjamin",
+  "id": "order183",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 3,
+  "expire": 1,
+  "items": {
+    "banana": 1,
+    "pineapple": 1,
+    "grapefruit": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Logan",
+  "id": "order184",
+  "store": "Sprouts Farmers Market",
+  "earnings": 15,
+  "startingearnings": 15,
+  "city": "Oakland",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "pineapple": 1,
+    "grapefruit": 1,
+    "banana": 3,
+    "apple": 1,
+    "peach": 2
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Benjamin",
+  "id": "order185",
+  "store": "Sprouts Farmers Market",
+  "earnings": 17,
+  "startingearnings": 17,
+  "city": "Oakland",
+  "amount": 14,
+  "expire": 1,
+  "items": {
+    "grape": 3,
+    "banana": 5,
+    "grapefruit": 1,
+    "apple": 2,
+    "pear": 1,
+    "pineapple": 1,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Oliver",
+  "id": "order186",
+  "store": "Sprouts Farmers Market",
+  "earnings": 18,
+  "startingearnings": 18,
+  "city": "Oakland",
+  "amount": 11,
+  "expire": 1,
+  "items": {
+    "banana": 3,
+    "grapefruit": 1,
+    "pear": 2,
+    "pineapple": 2,
+    "grape": 1,
+    "apple": 2
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Abigail",
+  "id": "order187",
+  "store": "Sprouts Farmers Market",
+  "earnings": 29,
+  "startingearnings": 29,
+  "city": "Oakland",
+  "amount": 3,
+  "expire": 1,
+  "items": {
+    "apple": 1,
+    "grapefruit": 1,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Evelyn",
+  "id": "order188",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "peach": 4,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Jacob",
+  "id": "order189",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "pineapple": 4,
+    "peach": 6,
+    "banana": 2,
+    "pear": 2,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Emma",
+  "id": "order190",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "pineapple": 1,
+    "cherry": 2,
+    "grapefruit": 3,
+    "banana": 4,
+    "apple": 5
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Michael",
+  "id": "order191",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "banana": 5,
+    "cherry": 2,
+    "peach": 3,
+    "grapefruit": 4,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "David",
+  "id": "order192",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 10,
+  "expire": 1,
+  "items": {
+    "pineapple": 1,
+    "grape": 2,
+    "apple": 4,
+    "banana": 1,
+    "grapefruit": 1,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Ava",
+  "id": "order193",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
@@ -2026,48 +3553,243 @@
   "expire": 1,
   "items": {
     "banana": 1,
-    "cherry": 1
+    "grapefruit": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
-  "name": "Benjamin",
-  "id": "order117",
+  "name": "Emma",
+  "id": "order194",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 11,
+  "amount": 18,
+  "expire": 1,
+  "items": {
+    "grapefruit": 4,
+    "grape": 2,
+    "banana": 2,
+    "pineapple": 3,
+    "apple": 2,
+    "pear": 3,
+    "cherry": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Charlotte",
+  "id": "order195",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "grapefruit": 1,
+    "grape": 4,
+    "pineapple": 1,
+    "banana": 1,
+    "peach": 4,
+    "apple": 2,
+    "pear": 1,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Lucas",
+  "id": "order196",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 12,
+  "expire": 1,
+  "items": {
+    "apple": 3,
+    "pineapple": 3,
+    "cherry": 1,
+    "peach": 2,
+    "pear": 1,
+    "banana": 1,
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Amelia",
+  "id": "order197",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 13,
   "expire": 1,
   "items": {
     "banana": 3,
-    "grapefruit": 3,
+    "pear": 4,
+    "cherry": 1,
+    "peach": 2,
+    "grapefruit": 1,
     "grape": 1,
-    "pineapple": 1,
-    "cherry": 2,
-    "pear": 1
+    "pineapple": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
-  "name": "Liam",
-  "id": "order118",
+  "name": "Isabella",
+  "id": "order198",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
   "city": "Oakland",
-  "amount": 7,
+  "amount": 4,
   "expire": 1,
   "items": {
-    "grape": 4,
-    "peach": 1,
-    "pear": 2
+    "cherry": 2,
+    "apple": 1,
+    "pear": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
 },
 {
-  "name": "Olivia",
-  "id": "order119",
+  "name": "Aiden",
+  "id": "order199",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "pear": 2,
+    "grape": 1,
+    "apple": 1,
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Alexander",
+  "id": "order200",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "cherry": 4,
+    "pear": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Sophia",
+  "id": "order201",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "banana": 2,
+    "peach": 2,
+    "pineapple": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Joseph",
+  "id": "order202",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grapefruit": 3,
+    "apple": 1,
+    "grape": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Matthew",
+  "id": "order203",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grapefruit": 2,
+    "peach": 3,
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Oliver",
+  "id": "order204",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 9,
+  "expire": 1,
+  "items": {
+    "apple": 2,
+    "banana": 1,
+    "pear": 1,
+    "cherry": 1,
+    "pineapple": 2,
+    "grapefruit": 1,
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Isabella",
+  "id": "order205",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 19,
+  "expire": 1,
+  "items": {
+    "grapefruit": 6,
+    "banana": 3,
+    "peach": 3,
+    "pineapple": 2,
+    "apple": 2,
+    "cherry": 1,
+    "grape": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Park",
+  "id": "order206",
   "store": "Sprouts Farmers Market",
   "earnings": 20,
   "startingearnings": 20,
@@ -2075,14 +3797,2152 @@
   "amount": 16,
   "expire": 1,
   "items": {
-    "grape": 3,
-    "banana": 3,
-    "cherry": 4,
-    "peach": 3,
+    "pineapple": 5,
+    "pear": 3,
+    "grapefruit": 1,
+    "cherry": 1,
+    "grape": 2,
+    "banana": 2,
+    "apple": 1,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Isabella",
+  "id": "order207",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 17,
+  "expire": 1,
+  "items": {
+    "cherry": 3,
+    "grape": 2,
+    "banana": 2,
+    "pear": 3,
+    "pineapple": 4,
+    "grapefruit": 1,
+    "peach": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Elijah",
+  "id": "order208",
+  "store": "Berkeley Bowl",
+  "earnings": 18,
+  "startingearnings": 18,
+  "city": "Berkeley",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "pure_randomness"
+},
+{
+  "name": "Jacob",
+  "id": "order209",
+  "store": "Target",
+  "earnings": 2,
+  "startingearnings": 2,
+  "city": "Emeryville",
+  "amount": 7,
+  "expire": 1,
+  "items": {
+    "watermelon": 2,
+    "grape": 2,
+    "pineapple": 2,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "pure_randomness"
+},
+{
+  "name": "Ethan",
+  "id": "order210",
+  "store": "Target",
+  "earnings": 31,
+  "startingearnings": 31,
+  "city": "Emeryville",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "watermelon": 7,
+    "banana": 2,
+    "pineapple": 4,
+    "apple": 2
+  },
+  "demand": 0,
+  "generator": "pure_randomness"
+},
+{
+  "name": "Marcus",
+  "id": "order211",
+  "store": "Target",
+  "earnings": 1,
+  "startingearnings": 1,
+  "city": "Emeryville",
+  "amount": 9,
+  "expire": 1,
+  "items": {
+    "pineapple": 2,
+    "grape": 5,
+    "banana": 2
+  },
+  "demand": 0,
+  "generator": "pure_randomness"
+},
+{
+  "name": "Jacob",
+  "id": "order212",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "apple": 3,
+    "grapefruit": 3
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Charlotte",
+  "id": "order213",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grape": 2,
+    "pear": 4
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Aiden",
+  "id": "order214",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "apple": 3,
+    "pineapple": 3
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Michael",
+  "id": "order215",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "banana": 1,
+    "apple": 3,
+    "pineapple": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Benjamin",
+  "id": "order216",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 11,
+  "expire": 1,
+  "items": {
+    "cherry": 1,
+    "banana": 1,
+    "peach": 4,
+    "grapefruit": 1,
+    "apple": 3,
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Jacob",
+  "id": "order217",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Oliver",
+  "id": "order218",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 2,
+  "expire": 1,
+  "items": {
+    "cherry": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Park",
+  "id": "order219",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "apple": 3,
+    "pineapple": 1,
+    "grapefruit": 1,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Mason",
+  "id": "order220",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "pineapple": 1,
+    "apple": 1,
     "pear": 1,
+    "cherry": 1,
+    "banana": 2
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Amelia",
+  "id": "order221",
+  "store": "Target",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Emeryville",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Evelyn",
+  "id": "order222",
+  "store": "Berkeley Bowl",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Berkeley",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Park",
+  "id": "order223",
+  "store": "Berkeley Bowl",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Berkeley",
+  "amount": 14,
+  "expire": 1,
+  "items": {
+    "grape": 3,
+    "pineapple": 3,
+    "watermelon": 7,
+    "orange": 1
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Benjamin",
+  "id": "order224",
+  "store": "Target",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Emeryville",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "pineapple": 3,
+    "apple": 5
+  },
+  "demand": 0,
+  "generator": "vary_location"
+},
+{
+  "name": "Emma",
+  "id": "order225",
+  "store": "Berkeley Bowl",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Berkeley",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "orange": 4,
+    "watermelon": 4
+  },
+  "demand": 0,
+  "generator": "vary_location"
+},
+{
+  "name": "Evelyn",
+  "id": "order226",
+  "store": "Berkeley Bowl",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Berkeley",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "pineapple": 5,
+    "grape": 3
+  },
+  "demand": 0,
+  "generator": "vary_location"
+},
+{
+  "name": "Ava",
+  "id": "order227",
+  "store": "Target",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Emeryville",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "banana": 6,
+    "apple": 2
+  },
+  "demand": 0,
+  "generator": "vary_location"
+},
+{
+  "name": "Christopher",
+  "id": "order228",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 14,
+  "expire": 1,
+  "items": {
+    "pineapple": 3,
+    "peach": 3,
+    "cherry": 3,
+    "grape": 2,
+    "grapefruit": 2,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Benjamin",
+  "id": "order229",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 7,
+  "expire": 1,
+  "items": {
+    "cherry": 3,
+    "pear": 2,
+    "banana": 1,
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Charlotte",
+  "id": "order230",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 12,
+  "expire": 1,
+  "items": {
+    "pineapple": 2,
+    "pear": 2,
+    "apple": 1,
+    "grapefruit": 2,
+    "banana": 1,
+    "cherry": 1,
+    "grape": 3
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Liam",
+  "id": "order231",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 18,
+  "expire": 1,
+  "items": {
+    "pear": 4,
+    "cherry": 1,
+    "pineapple": 1,
+    "grapefruit": 1,
+    "peach": 3,
+    "banana": 2,
+    "apple": 2,
+    "grape": 4
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Daniel",
+  "id": "order232",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 17,
+  "expire": 1,
+  "items": {
+    "cherry": 5,
+    "banana": 3,
+    "grapefruit": 1,
+    "pear": 4,
+    "peach": 1,
+    "grape": 2,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Benjamin",
+  "id": "order233",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 17,
+  "expire": 1,
+  "items": {
+    "pineapple": 1,
+    "pear": 2,
+    "apple": 3,
+    "peach": 3,
+    "grapefruit": 1,
+    "banana": 6,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Abigail",
+  "id": "order234",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 9,
+  "expire": 1,
+  "items": {
+    "pineapple": 3,
+    "peach": 1,
+    "grape": 2,
+    "grapefruit": 1,
+    "cherry": 1,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Alexander",
+  "id": "order235",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 13,
+  "expire": 1,
+  "items": {
+    "peach": 4,
+    "cherry": 2,
+    "grape": 2,
+    "grapefruit": 3,
+    "banana": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Mason",
+  "id": "order236",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "cherry": 4,
+    "pineapple": 3,
+    "grapefruit": 5,
+    "grape": 2,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Jacob",
+  "id": "order237",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "pineapple": 3,
+    "cherry": 2
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Joseph",
+  "id": "order238",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "grapefruit": 1,
+    "peach": 2,
+    "banana": 3,
+    "pineapple": 3,
+    "cherry": 6
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Aiden",
+  "id": "order239",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "banana": 2,
+    "apple": 6,
+    "grape": 3,
+    "peach": 2,
+    "grapefruit": 2
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Benjamin",
+  "id": "order240",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 4,
+  "expire": 1,
+  "items": {
+    "pineapple": 1,
+    "cherry": 1,
+    "grape": 1,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Marcus",
+  "id": "order241",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 16,
+  "expire": 1,
+  "items": {
+    "grapefruit": 4,
+    "peach": 1,
+    "pineapple": 2,
+    "pear": 3,
+    "cherry": 1,
+    "banana": 2,
+    "grape": 1,
+    "apple": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Michael",
+  "id": "order242",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 4,
+  "expire": 1,
+  "items": {
+    "peach": 1,
+    "pear": 1,
+    "apple": 1,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Jacob",
+  "id": "order243",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 18,
+  "expire": 1,
+  "items": {
+    "banana": 2,
+    "pineapple": 3,
+    "grape": 3,
+    "grapefruit": 2,
+    "cherry": 2,
+    "peach": 1,
+    "apple": 2,
+    "pear": 3
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Mia",
+  "id": "order244",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "cherry": 2,
+    "apple": 3,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Benjamin",
+  "id": "order245",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grape": 3,
+    "grapefruit": 3
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Mia",
+  "id": "order246",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "banana": 3,
+    "peach": 2,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "James",
+  "id": "order247",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grape": 2,
+    "pineapple": 2,
+    "apple": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Matthew",
+  "id": "order248",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "banana": 2,
+    "apple": 2,
+    "pear": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Noah",
+  "id": "order249",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "grape": 2,
+    "banana": 3,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Abigail",
+  "id": "order250",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "banana": 1,
+    "apple": 3,
+    "grape": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Olivia",
+  "id": "order251",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "peach": 4,
+    "apple": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Noah",
+  "id": "order252",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 2,
+  "expire": 1,
+  "items": {
+    "cherry": 1,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Christopher",
+  "id": "order253",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 9,
+  "expire": 1,
+  "items": {
+    "peach": 2,
+    "grapefruit": 2,
+    "apple": 2,
+    "pear": 1,
+    "pineapple": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Park",
+  "id": "order254",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 2,
+  "expire": 1,
+  "items": {
+    "pear": 1,
+    "grapefruit": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Joseph",
+  "id": "order255",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "apple": 1,
+    "banana": 1,
+    "pineapple": 2,
+    "grapefruit": 3,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Benjamin",
+  "id": "order256",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "apple": 2,
+    "grape": 2,
+    "pineapple": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Michael",
+  "id": "order257",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "peach": 3,
+    "banana": 2,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Isabella",
+  "id": "order258",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "peach": 3,
+    "banana": 2,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Logan",
+  "id": "order259",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 6,
+  "expire": 1,
+  "items": {
+    "pineapple": 2,
+    "peach": 2,
+    "banana": 2
+  },
+  "demand": 0,
+  "generator": "equal_everything"
+},
+{
+  "name": "Charlotte",
+  "id": "order260",
+  "store": "Berkeley Bowl",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Berkeley",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "watermelon": 6,
+    "grape": 2
+  },
+  "demand": 0,
+  "generator": "vary_location"
+},
+{
+  "name": "Ava",
+  "id": "order261",
+  "store": "Berkeley Bowl",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Berkeley",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "pineapple": 4,
+    "watermelon": 4
+  },
+  "demand": 0,
+  "generator": "vary_location"
+},
+{
+  "name": "Jacob",
+  "id": "order262",
+  "store": "Target",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Emeryville",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "grape": 6,
+    "watermelon": 2
+  },
+  "demand": 0,
+  "generator": "vary_location"
+},
+{
+  "name": "Amelia",
+  "id": "order263",
+  "store": "Target",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Emeryville",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "grape": 3,
+    "watermelon": 5
+  },
+  "demand": 0,
+  "generator": "vary_location"
+},
+{
+  "name": "Noah",
+  "id": "order264",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 13,
+  "expire": 1,
+  "items": {
+    "grape": 1,
+    "grapefruit": 3,
+    "peach": 2,
+    "pineapple": 2,
+    "banana": 4,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Ethan",
+  "id": "order265",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 19,
+  "expire": 1,
+  "items": {
+    "pineapple": 5,
+    "pear": 2,
+    "grape": 2,
+    "grapefruit": 3,
+    "peach": 1,
+    "apple": 2,
+    "cherry": 3,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Matthew",
+  "id": "order266",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Logan",
+  "id": "order267",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Aiden",
+  "id": "order268",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "cherry": 3,
+    "peach": 5,
+    "banana": 3,
+    "grapefruit": 2,
+    "pear": 2
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Elijah",
+  "id": "order269",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "grapefruit": 4,
+    "cherry": 2,
+    "pear": 3,
+    "grape": 3,
+    "peach": 3
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Joseph",
+  "id": "order270",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "grapefruit": 3,
+    "banana": 2
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Christopher",
+  "id": "order271",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "grapefruit": 4,
+    "cherry": 4,
+    "banana": 5,
+    "apple": 2
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Christopher",
+  "id": "order272",
+  "store": "Sprouts Farmers Market",
+  "earnings": 8,
+  "startingearnings": 8,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "cherry": 2,
+    "pear": 4,
+    "grape": 2,
+    "pineapple": 2,
+    "grapefruit": 5
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Liam",
+  "id": "order273",
+  "store": "Sprouts Farmers Market",
+  "earnings": 27,
+  "startingearnings": 27,
+  "city": "Oakland",
+  "amount": 19,
+  "expire": 1,
+  "items": {
+    "pear": 3,
+    "peach": 3,
+    "banana": 3,
+    "grape": 1,
+    "apple": 3,
+    "grapefruit": 4,
+    "pineapple": 2
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Ethan",
+  "id": "order274",
+  "store": "Sprouts Farmers Market",
+  "earnings": 34,
+  "startingearnings": 34,
+  "city": "Oakland",
+  "amount": 9,
+  "expire": 1,
+  "items": {
+    "banana": 2,
+    "cherry": 1,
+    "grapefruit": 3,
+    "peach": 1,
+    "grape": 1,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Michael",
+  "id": "order275",
+  "store": "Sprouts Farmers Market",
+  "earnings": 35,
+  "startingearnings": 35,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "cherry": 1,
+    "grapefruit": 2,
+    "peach": 1,
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Marcus",
+  "id": "order276",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 16,
+  "expire": 1,
+  "items": {
+    "grape": 2,
+    "cherry": 2,
+    "pear": 4,
+    "banana": 4,
+    "apple": 1,
+    "pineapple": 2,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Park",
+  "id": "order277",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 13,
+  "expire": 1,
+  "items": {
+    "grape": 3,
+    "cherry": 3,
+    "banana": 1,
+    "pineapple": 3,
+    "pear": 2,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Emma",
+  "id": "order278",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 19,
+  "expire": 1,
+  "items": {
+    "pear": 3,
+    "grape": 4,
+    "pineapple": 3,
+    "cherry": 2,
+    "peach": 1,
+    "apple": 2,
+    "banana": 3,
+    "grapefruit": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Isabella",
+  "id": "order279",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 17,
+  "expire": 1,
+  "items": {
+    "banana": 3,
+    "apple": 2,
+    "grape": 4,
+    "pear": 1,
+    "peach": 1,
+    "pineapple": 3,
+    "cherry": 2,
+    "grapefruit": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "David",
+  "id": "order280",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 2,
+  "expire": 1,
+  "items": {
+    "grapefruit": 1,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Logan",
+  "id": "order281",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 13,
+  "expire": 1,
+  "items": {
+    "grapefruit": 4,
+    "apple": 2,
+    "cherry": 2,
+    "peach": 1,
+    "banana": 2,
+    "pineapple": 1,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Mia",
+  "id": "order282",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 19,
+  "expire": 1,
+  "items": {
+    "grapefruit": 2,
+    "peach": 3,
+    "cherry": 3,
+    "pear": 3,
+    "apple": 3,
+    "grape": 2,
+    "banana": 2,
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Elijah",
+  "id": "order283",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "pineapple": 1,
+    "peach": 1,
+    "cherry": 1,
+    "grape": 1,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Elijah",
+  "id": "order284",
+  "store": "Safeway",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Piedmont",
+  "amount": 7,
+  "expire": 1,
+  "items": {
+    "apple": 4,
+    "orange": 2,
+    "watermelon": 1
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Christopher",
+  "id": "order285",
+  "store": "Berkeley Bowl",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Berkeley",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Oliver",
+  "id": "order286",
+  "store": "Safeway",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Piedmont",
+  "amount": 9,
+  "expire": 1,
+  "items": {
+    "watermelon": 6,
+    "apple": 1,
+    "orange": 2
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Isabella",
+  "id": "order287",
+  "store": "Target",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Emeryville",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Mia",
+  "id": "order288",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 7,
+  "expire": 1,
+  "items": {
+    "peach": 2,
+    "grapefruit": 1,
+    "cherry": 2,
+    "grape": 1,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Marcus",
+  "id": "order289",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "pineapple": 4,
+    "apple": 4,
+    "banana": 3,
+    "peach": 2,
+    "pear": 1,
+    "grapefruit": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Liam",
+  "id": "order290",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 3,
+  "expire": 1,
+  "items": {
+    "grapefruit": 1,
+    "cherry": 1,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Jacob",
+  "id": "order291",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 13,
+  "expire": 1,
+  "items": {
+    "peach": 3,
+    "pineapple": 3,
+    "banana": 1,
+    "grape": 1,
+    "grapefruit": 2,
+    "cherry": 1,
+    "pear": 1,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Jacob",
+  "id": "order292",
+  "store": "Berkeley Bowl",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Berkeley",
+  "amount": 18,
+  "expire": 1,
+  "items": {
+    "pineapple": 2,
+    "apple": 5,
+    "grape": 5,
+    "watermelon": 3,
+    "orange": 3
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Amelia",
+  "id": "order293",
+  "store": "Target",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Emeryville",
+  "amount": 9,
+  "expire": 1,
+  "items": {
+    "banana": 1,
+    "apple": 3,
+    "watermelon": 2,
+    "pineapple": 2,
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Isabella",
+  "id": "order294",
+  "store": "Target",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Emeryville",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "apple": 2,
+    "grape": 2,
+    "watermelon": 1,
+    "pineapple": 2,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Oliver",
+  "id": "order295",
+  "store": "Target",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Emeryville",
+  "amount": 2,
+  "expire": 1,
+  "items": {
+    "grape": 2
+  },
+  "demand": 0,
+  "generator": "equal_earnings"
+},
+{
+  "name": "Michael",
+  "id": "order296",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 19,
+  "expire": 1,
+  "items": {
+    "pineapple": 2,
+    "peach": 5,
+    "grape": 1,
+    "pear": 2,
+    "grapefruit": 4,
+    "apple": 2,
+    "cherry": 2,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Abigail",
+  "id": "order297",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 9,
+  "expire": 1,
+  "items": {
+    "peach": 2,
+    "pear": 2,
+    "banana": 1,
+    "grape": 3,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Mia",
+  "id": "order298",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 12,
+  "expire": 1,
+  "items": {
+    "banana": 2,
+    "cherry": 2,
+    "pear": 4,
+    "apple": 1,
+    "grapefruit": 1,
+    "peach": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Benjamin",
+  "id": "order299",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 14,
+  "expire": 1,
+  "items": {
+    "grapefruit": 1,
+    "peach": 1,
+    "apple": 2,
+    "banana": 3,
+    "cherry": 3,
+    "grape": 2,
+    "pear": 1,
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Matthew",
+  "id": "order300",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 18,
+  "expire": 1,
+  "items": {
+    "pineapple": 3,
+    "cherry": 2,
+    "banana": 3,
+    "pear": 4,
+    "peach": 4,
     "grapefruit": 1,
     "apple": 1
   },
-  "demand": 0
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Amelia",
+  "id": "order301",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Elijah",
+  "id": "order302",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Ava",
+  "id": "order303",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 4,
+  "expire": 1,
+  "items": {
+    "apple": 1,
+    "banana": 1,
+    "grapefruit": 1,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Oliver",
+  "id": "order304",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "cherry": 2,
+    "grape": 6,
+    "banana": 3,
+    "grapefruit": 1,
+    "peach": 3
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "William",
+  "id": "order305",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "grape": 4,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Matthew",
+  "id": "order306",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "grapefruit": 6,
+    "banana": 2,
+    "cherry": 3,
+    "peach": 4
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Evelyn",
+  "id": "order307",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "grape": 5,
+    "banana": 3,
+    "cherry": 5,
+    "peach": 2
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Olivia",
+  "id": "order308",
+  "store": "Sprouts Farmers Market",
+  "earnings": 28,
+  "startingearnings": 28,
+  "city": "Oakland",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "cherry": 1,
+    "grape": 2,
+    "pineapple": 1,
+    "pear": 1,
+    "grapefruit": 2,
+    "peach": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Marcus",
+  "id": "order309",
+  "store": "Sprouts Farmers Market",
+  "earnings": 35,
+  "startingearnings": 35,
+  "city": "Oakland",
+  "amount": 8,
+  "expire": 1,
+  "items": {
+    "banana": 2,
+    "pear": 1,
+    "cherry": 3,
+    "apple": 1,
+    "grapefruit": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Isabella",
+  "id": "order310",
+  "store": "Sprouts Farmers Market",
+  "earnings": 17,
+  "startingearnings": 17,
+  "city": "Oakland",
+  "amount": 18,
+  "expire": 1,
+  "items": {
+    "grape": 2,
+    "pineapple": 3,
+    "apple": 3,
+    "banana": 4,
+    "grapefruit": 1,
+    "cherry": 2,
+    "peach": 2,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Amelia",
+  "id": "order311",
+  "store": "Sprouts Farmers Market",
+  "earnings": 13,
+  "startingearnings": 13,
+  "city": "Oakland",
+  "amount": 3,
+  "expire": 1,
+  "items": {
+    "pineapple": 1,
+    "grapefruit": 1,
+    "cherry": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Elijah",
+  "id": "order312",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 12,
+  "expire": 1,
+  "items": {
+    "cherry": 1,
+    "peach": 2,
+    "pineapple": 4,
+    "apple": 2,
+    "grapefruit": 1,
+    "banana": 1,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Christopher",
+  "id": "order313",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 13,
+  "expire": 1,
+  "items": {
+    "grape": 3,
+    "cherry": 1,
+    "apple": 3,
+    "banana": 2,
+    "pear": 1,
+    "grapefruit": 1,
+    "pineapple": 2
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Christopher",
+  "id": "order314",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 17,
+  "expire": 1,
+  "items": {
+    "peach": 3,
+    "grape": 4,
+    "banana": 2,
+    "apple": 1,
+    "grapefruit": 3,
+    "cherry": 2,
+    "pear": 1,
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Jacob",
+  "id": "order315",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 19,
+  "expire": 1,
+  "items": {
+    "pineapple": 4,
+    "grape": 7,
+    "peach": 2,
+    "cherry": 1,
+    "banana": 1,
+    "grapefruit": 1,
+    "apple": 2,
+    "pear": 1
+  },
+  "demand": 0,
+  "generator": "equal_location_earnings"
+},
+{
+  "name": "Emma",
+  "id": "order316",
+  "store": "Sprouts Farmers Market",
+  "earnings": 28,
+  "startingearnings": 28,
+  "city": "Oakland",
+  "amount": 16,
+  "expire": 1,
+  "items": {
+    "apple": 5,
+    "cherry": 2,
+    "grapefruit": 2,
+    "peach": 2,
+    "pear": 2,
+    "banana": 1,
+    "pineapple": 1,
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Daniel",
+  "id": "order317",
+  "store": "Sprouts Farmers Market",
+  "earnings": 18,
+  "startingearnings": 18,
+  "city": "Oakland",
+  "amount": 12,
+  "expire": 1,
+  "items": {
+    "grapefruit": 2,
+    "pear": 1,
+    "peach": 3,
+    "grape": 2,
+    "cherry": 2,
+    "apple": 1,
+    "banana": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Christopher",
+  "id": "order318",
+  "store": "Sprouts Farmers Market",
+  "earnings": 18,
+  "startingearnings": 18,
+  "city": "Oakland",
+  "amount": 1,
+  "expire": 1,
+  "items": {
+    "pineapple": 1
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "David",
+  "id": "order319",
+  "store": "Sprouts Farmers Market",
+  "earnings": 28,
+  "startingearnings": 28,
+  "city": "Oakland",
+  "amount": 2,
+  "expire": 1,
+  "items": {
+    "peach": 2
+  },
+  "demand": 0,
+  "generator": "vary_earnings_item_amount"
+},
+{
+  "name": "Isabella",
+  "id": "order320",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "peach": 3,
+    "grapefruit": 3,
+    "apple": 4,
+    "cherry": 3,
+    "grape": 2
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Isabella",
+  "id": "order321",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "banana": 3,
+    "peach": 3,
+    "apple": 4,
+    "pear": 4,
+    "grape": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Evelyn",
+  "id": "order322",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 15,
+  "expire": 1,
+  "items": {
+    "grapefruit": 2,
+    "banana": 1,
+    "pineapple": 5,
+    "cherry": 2,
+    "apple": 5
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
+},
+{
+  "name": "Benjamin",
+  "id": "order323",
+  "store": "Sprouts Farmers Market",
+  "earnings": 20,
+  "startingearnings": 20,
+  "city": "Oakland",
+  "amount": 5,
+  "expire": 1,
+  "items": {
+    "grapefruit": 4,
+    "apple": 1
+  },
+  "demand": 0,
+  "generator": "commonsense_item_amount"
 }
 ]

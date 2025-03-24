@@ -48,6 +48,61 @@ def equal_earnings(default_job, start_id, loc):
         })
     return generate_group(default_job, start_id, varies, loc)
 
+def vary_location(default_job, start_id, loc):
+    varies = []
+    for _ in range(4):
+        varies.append({
+            "location": "none",
+            "earnings": 20,
+            "amount": 8,
+            "unique": 2
+        })
+    return generate_group(default_job, start_id, varies, loc)
+
+def commonsense_item_amount(default_job, start_id, loc):
+    varies = []
+    #random index is the "easy" or obvious choice
+    random_index = int(random.random()*4)
+    for x in range(4):
+        if x == random_index:
+            varies.append({
+                "location": "Sprouts Farmers Market",
+                "earnings": 20,
+                "amount": 5,
+                "unique": 2
+            })
+        else:
+            varies.append({
+                "location": "Sprouts Farmers Market",
+                "earnings": 20,
+                "amount": 15,
+                "unique": 5
+            })
+    return generate_group(default_job, start_id, varies, loc)
+
+def vary_earnings_item_amount(default_job, start_id, loc):
+    varies = []
+    for x in range(4):
+        varies.append({
+            "location": "Sprouts Farmers Market",
+            "earnings": 0,
+            "amount": 0,
+            "unique": 0
+        })
+    return generate_group(default_job, start_id, varies, loc)
+
+def equal_everything(default_job, start_id, loc):
+    #only thing that varies is the types of foods
+    varies = []
+    for x in range(4):
+        varies.append({
+            "location": "Sprouts Farmers Market",
+            "earnings": 20,
+            "amount": 6,
+            "unique": 3
+        })
+    return generate_group(default_job, start_id, varies, loc)
+
 #end generator functions here
 
 def generate_group(default_job, start_id, varies, loc):
@@ -326,11 +381,11 @@ def determine_optimal(orders, possibilities, loc, threshold=[0.2, 0.2, 0.2, 0.2]
         unoptimal = []
         #create an array with the less optimal combos
         for key, value in possibilities.items():
+            if not value:
+                continue
             if "," in key:
                 bundles_exist = True
             if key == max_expected_key:
-                continue
-            if not value:
                 continue
             possible_locs.add(value["city"])
             unoptimal.append(value)
@@ -434,6 +489,24 @@ def determine_optimal(orders, possibilities, loc, threshold=[0.2, 0.2, 0.2, 0.2]
             optimal[l]["tags"].append("typing:s")
     return optimal
         
+def createSet(func, default_job, n, next_orders, next_possibilities, next_optimal, previous_locs={"Emeryville"}):
+    orders, possibilities = func(default_job, n, previous_locs)
+    optimal = determine_optimal(orders, possibilities, previous_locs, [0.1, 0.1, 0.1, 0.1])
+    optimal["generator"] = func.__name__
+    next_optimal.append(optimal)
+    l = set()
+    for o in orders:
+        o["generator"] = func.__name__
+        l.add(o["city"])
+    for key in possibilities.keys():
+        if not possibilities[key]:
+            continue
+        possibilities[key]["generator"] = func.__name__
+    next_orders.extend(orders)
+    next_possibilities.append(possibilities)
+    return l
+    
+
 
 if __name__ == "__main__":
     default_job_data_path = "./src/lib/scripts/game_modes/phase1Stores.json"  # Replace with your path
@@ -442,19 +515,16 @@ if __name__ == "__main__":
     next_possibilities = []
     next_optimal = []
     previous_locs = {"Emeryville"}
-    for x in range(30):
-        if x % 2 == 0:
-            orders, possibilities = equal_earnings(default_job, x*4, previous_locs)
+    count = 0
+    generators = [vary_earnings_item_amount,vary_location, equal_earnings, equal_everything, equal_location_earnings, commonsense_item_amount, pure_randomness]
+    previous_locs = createSet(commonsense_item_amount, default_job, count, next_orders, next_possibilities, next_optimal, previous_locs)
+    count += 4
+    for x in range(80):
+        if x % 3 <= 1:
+            previous_locs = createSet(random.choice(generators), default_job, count, next_orders, next_possibilities, next_optimal, previous_locs)
         else:
-            orders, possibilities = equal_location_earnings(default_job, x*4, previous_locs)
-        next_optimal.append(determine_optimal(orders, possibilities, previous_locs, [0.1, 0.1, 0.1, 0.1]))
-        # TODO: Add more info to optimal json or just combine json
-        l = set()
-        for o in orders:
-            l.add(o["city"])
-        next_orders.extend(orders)
-        next_possibilities.append(possibilities)
-        previous_locs = l
+            previous_locs = createSet(equal_location_earnings, default_job, count, next_orders, next_possibilities, next_optimal, previous_locs)
+        count += 4
 
     with open("phase1_orders.json", "w") as f:
         custom_json_dump(next_orders, f, max_indent=3)  # Write orders to JSON with indentation
