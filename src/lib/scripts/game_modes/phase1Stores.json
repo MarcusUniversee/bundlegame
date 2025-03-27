@@ -31,7 +31,7 @@
         {
             "store": "Sprouts Farmers Market",
             "city": "Oakland",
-            "items": ["apple", "grape", "banana", "cherry", "pineapple", "peach", "pear", "grapefruit"],
+            "items": ["apple", "watermelon", "pear", "kiwi", "pineapple", "grape", "orange"],
             "locations": [
                 ["Apple", "Watermelon", "Pear"],
                 ["Entrance", "Pineapple", "Kiwi"],
