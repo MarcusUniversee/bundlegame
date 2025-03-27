@@ -37,6 +37,7 @@
         }
         totalEarnings = startEarnings
         config = storeConfig($orders[0].store)
+        curLocation = config["Entrance"]
         if ($game.phase == 2) {
             intervalId = setInterval(updateTip, 1000); // Run updateTimer every 1000ms (1 second)
         }

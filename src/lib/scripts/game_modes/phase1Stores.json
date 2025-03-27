@@ -15,7 +15,8 @@
                 ["Apple", "Pineapple", ""],
                 ["Grape", "Banana", ""]
             ],
-            "cellDistance": 3000
+            "cellDistance": 3000,
+            "Entrance": [0, 0]
         },
         {
             "store": "Berkeley Bowl",
@@ -26,7 +27,8 @@
                 ["Orange", "Apple", "Grape"],
                 ["", "", ""]
             ],
-            "cellDistance": 1000
+            "cellDistance": 1000,
+            "Entrance": [0, 0]
         },
         {
             "store": "Sprouts Farmers Market",
@@ -37,7 +39,8 @@
                 ["Entrance", "Pineapple", "Kiwi"],
                 ["Grape", "Orange", "Apple"]
             ],
-            "cellDistance": 2000
+            "cellDistance": 2000,
+            "Entrance": [1, 0]
         },
         {
             "store": "Safeway",
@@ -48,7 +51,8 @@
                 ["Apple", "Orange", ""],
                 ["", "", ""]
             ],
-            "cellDistance": 2000
+            "cellDistance": 2000,
+            "Entrance": [0, 0]
         }
     ],
     "distances": {
