@@ -397,6 +397,8 @@ def determine_optimal(orders, possibilities, loc, threshold=[0.2, 0.2, 0.2, 0.2]
                 bundles_exist = True
             if key in max_keys:
                 continue
+            if l != value["starting_location"]:
+                continue
             possible_locs.add(value["city"])
             unoptimal.append(value)
         
