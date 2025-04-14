@@ -40,8 +40,13 @@
                 buttonContent: event.target.textContent.trim()
             }
             logAction(action)
+        } else if (event.target.classList.contains("order-content")) {
+            let action = {
+                buttonID: event.target.id,
+                buttonContent: event.target.textContent.trim()
+            }
+            logAction(action)
         }
-        console.log(event.target.classList.contains("order-content"))
     }
 
     onMount(() => {

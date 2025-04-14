@@ -149,7 +149,7 @@
     {:else}
         
      
-    <div class="order-content" class:selected={selected} class:unselected={!selected} on:click={select}>
+    <div class="order-content" id={index + "Selected" + selected} class:selected={selected} class:unselected={!selected} on:click={select}>
         <p class="header">{orderData.store} for {orderData.name}</p>
         <div style="display: inline;">
             <div style="float:left">
