@@ -41,6 +41,7 @@
             }
             logAction(action)
         }
+        console.log(event.target.classList.contains("order-content"))
     }
 
     onMount(() => {

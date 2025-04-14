@@ -534,6 +534,7 @@ if __name__ == "__main__":
     for x in range(80):
         if x % 5 == 3:
             previous_locs = createSet(pure_randomness, default_job, count, next_orders, next_possibilities, next_optimal, previous_locs)
+            count += 4
             continue
         if x % 3 <= 1:
             previous_locs = createSet(random.choice(generators), default_job, count, next_orders, next_possibilities, next_optimal, previous_locs)

@@ -108,7 +108,6 @@ export const currLocation = writable('Berkeley');
 
 export const elapsed = derived(timeStamp, ($timeStamp, set) => {
 	const elapsedSeconds = Math.round($timeStamp / 1000);
-	console.log(elapsedSeconds)
 	if (elapsedSeconds >= FullTimeLimit && elapsedSeconds <= FullTimeLimit + 2) {
 		updateFields(get(id), {
 			earnings: get(earned),

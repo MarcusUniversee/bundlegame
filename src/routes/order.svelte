@@ -87,7 +87,7 @@
                 $gameText.selector = "Travel to " + $orders[0].city + ". Then go to store"
             }
         } else {
-            $gameText.selector = "Select a store"
+            $gameText.selector = "None selected"
         }
         console.log($orders)
     }

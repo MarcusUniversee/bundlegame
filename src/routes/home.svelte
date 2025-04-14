@@ -58,6 +58,10 @@
             currLocation.set(city)
             if (visitStore) {
                 gameWindow()
+            } else {
+                $orders.splice(0, 2)
+                distances = getDistances(city)
+                $gameText.selector = "None selected"
             }
         }, duration * 1000)
     }

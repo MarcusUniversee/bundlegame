@@ -120,9 +120,12 @@
         }
         if (Object.keys(bag1).includes(item)) {
             bag1[item] += bag1InputInt
-            bag2[item] += bag2InputInt
         } else {
             bag1[item] = bag1InputInt
+        }
+        if (Object.keys(bag2).includes(item)) {
+            bag2[item] += bag2InputInt
+        } else {
             bag2[item] = bag2InputInt
         }
         if (bag1[item] <= 0) {
