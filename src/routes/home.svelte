@@ -1,6 +1,6 @@
 <script>
     import { get } from 'svelte/store';
-    import { game, orders, gameText, currLocation, logOrder, logBundledOrder, orderList, ordersShown } from "$lib/bundle.js";
+    import { game, orders, gameText, currLocation, logOrder, logBundledOrder, orderList, ordersShown, thinkTime, toggleTime } from "$lib/bundle.js";
     import { queueNRandomOrders, queueNFixedOrders, getDistances } from "$lib/config.js";
     import Order from "./order.svelte";
     import { onMount } from "svelte";
@@ -9,6 +9,7 @@
     let distances = getDistances($currLocation)
     let duration = 0;
     let travelingTo = ""
+    let thinking = false;
 
     function start() {
         const selOrders = get(orders)
@@ -83,6 +84,15 @@
             return list;
         });
     }
+
+    onMount(() => {
+        thinking = true
+        toggleTime()
+        setTimeout(() => {
+            thinking = false
+            toggleTime()
+        }, thinkTime*1000) //ten second wait time
+    });
 </script>
 
 <style>
@@ -93,16 +103,23 @@
 {#if waiting}
     <p>Traveling to {travelingTo}. Travel duration: {duration}</p>
 {:else}
+    {#if thinking}
+    <p>Game timer stopped! Take 10 free seconds to look through the available orders</p>
+    {/if}
     <div class="home">
         {#each $orderList as order, i (order.id)}
             <Order orderData={order} index={i} updateEarnings={updateEarnings}/>
         {/each}
+        {#if !thinking}
         <button id="startorder" on:click={start}>{$gameText.selector}</button>
+        {/if}
     </div>
+    {#if !thinking}
     <div>
         {#each distances["destinations"] as dest}
             <button id="travel" on:click={() => travel(dest, false)}>Travel to {dest}</button>
         {/each}
     </div>
+    {/if}
 {/if}
 {/if}

@@ -6,6 +6,7 @@ export const createUser = async (id) => {
     const data = {
         earnings: 0,
         ordersComplete: 0,
+        uniqueSetsComplete: 0,
         createdAt: Timestamp.fromDate(new Date()),
         updatedAt: Timestamp.fromDate(new Date())
     }
@@ -23,6 +24,7 @@ export const createUser = async (id) => {
         updatedAt: Timestamp.fromDate(new Date()),
         earnings: 0,
         ordersComplete: 0,
+        uniqueSetsComplete: 0,
         gametime: 0
     }
 
@@ -225,17 +227,23 @@ export const retrieveData = async () => {
         const docData = docSnapshot.data();
         const docId = docSnapshot.id;
         console.log(docId)
-        // Fetch subcollections for each document
-        const orders = await getSubcollections(docId, '/Orders');
-        const actions = await getSubcollections(docId, '/Actions');
+        if (docId.includes("boba")) {
+            
+            // Fetch subcollections for each document
+            const orders = await getSubcollections(docId, '/Orders');
+            const actions = await getSubcollections(docId, '/Actions');
+            
+            
+            data.push({
+            id: docId,  // Include document ID
+            ...docData,
+            orders,
+            actions  // Attach subcollections
+            });
+        } else {
+            console.log("not adding to data")
+        }
         
-        
-        data.push({
-        id: docId,  // Include document ID
-        ...docData,
-        orders,
-        actions  // Attach subcollections
-        });
     }
 
     return data;

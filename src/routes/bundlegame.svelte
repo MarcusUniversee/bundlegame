@@ -1,7 +1,7 @@
 <script>
     import { get } from 'svelte/store';
     import { onMount, onDestroy } from 'svelte';
-    import { game, orders, finishedOrders, failedOrders, earned, currLocation, elapsed, completeOrder, logAction } from "$lib/bundle.js"
+    import { game, orders, finishedOrders, failedOrders, earned, currLocation, elapsed, uniqueSets, completeOrder, logAction } from "$lib/bundle.js"
     import { storeConfig } from "$lib/config.js";
     let config = storeConfig($orders[0].store)
 
@@ -169,6 +169,7 @@
         bag1 = {}
         if (correct) {
             $earned += totalEarnings;
+            $uniqueSets += 1
             completeOrder(selOrders[0].id)
             $finishedOrders.push(selOrders[0]);
             $orders.splice(0, 1)
@@ -226,6 +227,7 @@
         bag2 = {}
         if (correct) {
             $earned += totalEarnings;
+            $uniqueSets += 1
             completeOrder(selOrders[0].id)
             completeOrder(selOrders[1].id)
             $finishedOrders.push(selOrders[0]);

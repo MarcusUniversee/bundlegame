@@ -3,7 +3,7 @@ import json
 import random
 import math
 from itertools import permutations
-def load_default_job(filename):
+def load(filename):
     """
     Loads the default job data from a JSON file.
     """
@@ -199,18 +199,18 @@ def calculation_single_helper(default_job, order, loc):
     movement, selection['optimalmovement'] = brute_force_tsp(find_positions(grid, items), start)
     selection["movementtime"] = movement*(store["cellDistance"]/1000 + 0.3)
     #add a little bit to account for mouse movement/click
-    min_time += movement*(store["cellDistance"]/1000 + 0.3)
-    max_time += movement*(store["cellDistance"]/1000 + 0.3)
+    min_time += movement*(store["cellDistance"]/1000 + 0.6)
+    max_time += movement*(store["cellDistance"]/1000 + 0.6)
 
-    #next find time for typing.
+    #next find time for bagging.
     #Lets say a typing speed of 20 - 80 WPM. with an average of 5 characters per word
     # this is 1/1.67 sec - 1/6.67 
     for item in items:
         #add a little bit for mouse movement/clicking and to type quantity
-        min_time += ((len(item) + 1)/6.67) + 0.5
-        max_time += ((len(item) + 1)/1.67) + 0.5
-    selection["mintypingtime"] = min_time - selection["movementtime"]
-    selection["maxtypingtime"] = max_time - selection["movementtime"]
+        min_time += ((len(item) + 1)/6.67) + 1.25
+        max_time += ((len(item) + 1)/1.67) + 2
+    selection["minbagging"] = min_time - selection["movementtime"]
+    selection["maxbagging"] = max_time - selection["movementtime"]
 
     #traveling to a city time. no time added if it is the same location
     if store["city"] != loc:
@@ -250,9 +250,9 @@ def calculation_bundle_helper(default_job, order1, order2, loc):
     #first find time for movement   
     movement, selection['optimalmovement'] = brute_force_tsp(find_positions(grid, items), start)
     #add a little bit to account for mouse movement/click
-    selection["movementtime"] = movement*(store["cellDistance"]/1000 + 0.3)
-    min_time += movement*(store["cellDistance"]/1000 + 0.3)
-    max_time += movement*(store["cellDistance"]/1000 + 0.3)
+    selection["movementtime"] = movement*(store["cellDistance"]/1000 + 0.6)
+    min_time += movement*(store["cellDistance"]/1000 + 0.6)
+    max_time += movement*(store["cellDistance"]/1000 + 0.6)
 
     #next find time for typing.
     #Lets say a typing speed of 30 - 100 WPM. with an average of 5 characters per word
@@ -260,10 +260,10 @@ def calculation_bundle_helper(default_job, order1, order2, loc):
     for item in items:
         #add a little bit for mouse movement/clicking and to type quantity
         #this extra addition is a little bit more for this versus non-bundled
-        min_time += ((len(item) + 2)/8.33) + 0.8
-        max_time += ((len(item) + 2)/2.5) + 0.8
-    selection["mintypingtime"] = min_time - selection["movementtime"]
-    selection["maxtypingtime"] = max_time - selection["movementtime"]
+        min_time += ((len(item) + 2)/8.33) + 2.5
+        max_time += ((len(item) + 2)/2.5) + 4.5
+    selection["minbagging"] = min_time - selection["movementtime"]
+    selection["maxbagging"] = max_time - selection["movementtime"]
 
     #traveling to a city time. no time added if it is the same location
     if store["city"] != loc:
@@ -350,7 +350,7 @@ def custom_json_dump(data, file, max_indent=2, current_level=0):
 
 
 #gives the best option, along with a reason why the criteria it fulfills. loc is the starting location
-def determine_optimal(orders, possibilities, loc, threshold=[0.2, 0.2, 0.2, 0.2]):
+def determine_optimal(orders, possibilities, loc, threshold=[0.1, 0.1, 0.1, 0.1]):
     optimal = {
         "order_ids": []
     }
@@ -421,6 +421,7 @@ def determine_optimal(orders, possibilities, loc, threshold=[0.2, 0.2, 0.2, 0.2]
         
 
         total_high_time = possibilities[max_expected_key]["earnings"]/possibilities[max_expected_key]["high_expected_value"]
+        total_low_time = possibilities[max_expected_key]["earnings"]/possibilities[max_expected_key]["low_expected_value"]
         # earnings. this label appears only if the increase in earnings caused the value to be greater
 
         earning = True
@@ -444,7 +445,7 @@ def determine_optimal(orders, possibilities, loc, threshold=[0.2, 0.2, 0.2, 0.2]
         travel = True
         if optimal_loc == l:
             for u in unoptimal:
-                if u["earnings"]/u["high_expected_value"] < total_high_time:
+                if u["earnings"]/u["high_expected_value"] <= total_high_time:
                     travel = False
                     break
                 #change in travel times / change in total times
@@ -462,7 +463,7 @@ def determine_optimal(orders, possibilities, loc, threshold=[0.2, 0.2, 0.2, 0.2]
         movement_time = possibilities[max_expected_key]["movementtime"]
         movement = True
         for u in unoptimal:
-            if u["earnings"]/u["high_expected_value"] < total_high_time:
+            if u["earnings"]/u["high_expected_value"] <= total_high_time:
                 movement = False
                 break
             unopt_value = (u["movementtime"]-movement_time)/(u["earnings"]/u["high_expected_value"] - total_high_time)
@@ -472,38 +473,38 @@ def determine_optimal(orders, possibilities, loc, threshold=[0.2, 0.2, 0.2, 0.2]
         if movement:
             optimal[l]["tags"].append("movement")
 
-        #food typing for FAST typers. same as no travel except for typing. do not expect to see this very much
-        mintyping_time = possibilities[max_expected_key]["mintypingtime"]
+        #food typing for FAST baggers. same as no travel except for typing. do not expect to see this very much
+        mintyping_time = possibilities[max_expected_key]["minbagging"]
         mintyping = True
         for u in unoptimal:
-            if u["earnings"]/u["high_expected_value"] < total_high_time:
+            if u["earnings"]/u["high_expected_value"] <= total_high_time:
                 mintyping = False
                 break
-            unopt_value = (u["mintypingtime"]-mintyping_time)/(u["earnings"]/u["high_expected_value"] - total_high_time)
+            unopt_value = (u["minbagging"]-mintyping_time)/(u["earnings"]/u["high_expected_value"] - total_high_time)
             if unopt_value < threshold[2]:
                 mintyping = False
                 break
         if mintyping:
-            optimal[l]["tags"].append("typing:fast")
+            optimal[l]["tags"].append("bagging:fast")
 
-        #food typing for SLOW typers. same as no travel except for typing. do not expect to see this very much, but more than previous
-        maxtyping_time = possibilities[max_expected_key]["maxtypingtime"]
+        #food typing for SLOW baggers. same as no travel except for typing. do not expect to see this very much, but more than previous
+        maxtyping_time = possibilities[max_expected_key]["maxbagging"]
         maxtyping = True
         for u in unoptimal:
-            if u["earnings"]/u["high_expected_value"] < total_high_time:
+            if u["earnings"]/u["low_expected_value"] <= total_low_time:
                 maxtyping = False
                 break
-            unopt_value = (u["maxtypingtime"]-maxtyping_time)/(u["earnings"]/u["high_expected_value"] - total_high_time)
+            unopt_value = (u["maxbagging"]-maxtyping_time)/(u["earnings"]/u["low_expected_value"] - total_low_time)
             if unopt_value < threshold[3]:
                 maxtyping = False
                 break
         if maxtyping:
-            optimal[l]["tags"].append("typing:s")
+            optimal[l]["tags"].append("bagging:slow")
     return optimal
         
 def createSet(func, default_job, n, next_orders, next_possibilities, next_optimal, previous_locs={"Emeryville"}):
     orders, possibilities = func(default_job, n, previous_locs)
-    optimal = determine_optimal(orders, possibilities, previous_locs, [0.1, 0.1, 0.1, 0.1])
+    optimal = determine_optimal(orders, possibilities, previous_locs)
     optimal["generator"] = func.__name__
     next_optimal.append(optimal)
     l = set()
@@ -517,12 +518,25 @@ def createSet(func, default_job, n, next_orders, next_possibilities, next_optima
     next_orders.extend(orders)
     next_possibilities.append(possibilities)
     return l
+
+def createSetFromOrders(orders, default_job, next_possibilities, next_optimal, previous_locs={"Emeryville"}):
+    possibilities = get_optimality(default_job, orders[0], orders[1], orders[2], orders[3], previous_locs)
+    optimal = determine_optimal(orders, possibilities, previous_locs)
+    optimal["generator"] = orders[0]["generator"]
+    next_optimal.append(optimal)
+    l = set()
+    for o in orders:
+        l.add(o["city"])
+    for key in possibilities.keys():
+        if not possibilities[key]:
+            continue
+        possibilities[key]["generator"] = orders[0]["generator"]
+    next_possibilities.append(possibilities)
+    return l
     
-
-
-if __name__ == "__main__":
+def createNew():
     default_job_data_path = "./src/lib/scripts/game_modes/phase1Stores.json"  # Replace with your path
-    default_job = load_default_job(default_job_data_path)
+    default_job = load(default_job_data_path)
     next_orders = []
     next_possibilities = []
     next_optimal = []
@@ -548,3 +562,23 @@ if __name__ == "__main__":
         custom_json_dump(next_possibilities, f, max_indent=3)  # Write orders to JSON with indentation
     with open("phase1_optimal.json", "w") as f:
         custom_json_dump(next_optimal, f, max_indent=3)  # Write orders to JSON with indentation
+
+
+def createPossibilities():
+    default_job_data_path = "./src/lib/scripts/game_modes/phase1Stores.json"  # Replace with your path
+    default_job = load(default_job_data_path)
+    next_possibilities = []
+    next_optimal = []
+    previous_locs = {"Emeryville"}
+    all_orders = load("./src/lib/scripts/game_modes/phase1_orders.json")
+    for i in range(0, len(all_orders), 4):
+        orders = all_orders[i:i+4]
+        previous_locs = createSetFromOrders(orders, default_job, next_possibilities, next_optimal, previous_locs)
+
+    with open("phase1_possibilities.json", "w") as f:
+        custom_json_dump(next_possibilities, f, max_indent=3)  # Write orders to JSON with indentation
+    with open("phase1_optimal.json", "w") as f:
+        custom_json_dump(next_optimal, f, max_indent=3)  # Write orders to JSON with indentation
+
+if __name__ == "__main__":
+    createPossibilities()

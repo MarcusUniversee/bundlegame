@@ -4,12 +4,15 @@ import { addAction, addOrder, updateFields, updateOrder, authenticateUser } from
 let start;
 let stopTimeInterval;
 let actionCounter = 0;
+export const uniqueSets = writable(0);
 export const orderList = writable([])
-export const FullTimeLimit = 1500;
+export const FullTimeLimit = 1200;
 export const GameOver = writable(false);
 export const gameText = writable({
 	selector: "None selected",
 })
+
+export const thinkTime = 10;
 export const ordersShown = 4;
 export const game = writable({
 	inSelect: false,
@@ -73,9 +76,13 @@ export function resetTimer() {
 	start = new Date();
 }
 
-const time = readable(new Date(), function start(set) {
-	const interval = setInterval(() => {
-		set(new Date());
+let interval
+
+const time = writable(new Date()) 
+
+export const startTimer = () => {
+	interval = setInterval(() => {
+		time.set(new Date());
 	}, 10);
 
 	stopTimeInterval = () => clearInterval(interval);
@@ -83,9 +90,16 @@ const time = readable(new Date(), function start(set) {
 	return function stop() {
 		clearInterval(interval);
 	};
-});
+};
 
-export const timeStamp = derived(time, ($time) => $time - start);
+let pausedAt = null;
+let pauseDuration = 0;
+
+export const timeStamp = derived(time, ($time) => {
+	const now = $time.getTime();
+	if (pausedAt) return pausedAt - start - pauseDuration;
+	return now - start - pauseDuration;
+});
 export const history = writable([]);
 
 // Send history to qualtircs
@@ -112,6 +126,7 @@ export const elapsed = derived(timeStamp, ($timeStamp, set) => {
 		updateFields(get(id), {
 			earnings: get(earned),
         	ordersComplete: get(finishedOrders).length,
+			uniqueSetsComplete: get(uniqueSets),
         	gametime: FullTimeLimit
 		})
 		GameOver.set(true);
@@ -122,10 +137,29 @@ export const elapsed = derived(timeStamp, ($timeStamp, set) => {
 	set(elapsedSeconds);
 });
 
+export const toggleTime = () => {
+	if (pausedAt) {
+		const resumeTime = new Date();
+		pauseDuration += resumeTime - pausedAt; // add pause time
+		pausedAt = null;
+
+		// resume the interval
+		interval = setInterval(() => {
+			time.set(new Date());
+		}, 10);
+	} else {
+		pausedAt = new Date();
+		clearInterval(interval);
+	}
+}
+
+
+
 export const logAction = (action) => {
 	action.earnings = get(earned)
 	action.ordersComplete = get(finishedOrders).length
 	action.gametime = get(elapsed)
+	action.uniqueSetsComplete = get(uniqueSets)
 	console.log(action)
 	addAction(get(id), action, actionCounter + "_" + action.buttonID)
 	actionCounter += 1;
@@ -170,6 +204,12 @@ export const completeOrder = (orderID) => {
 		endgametime: get(elapsed)
 	}
 	updateOrder(get(id), state, orderID)
+	updateFields(get(id), {
+		earnings: get(earned),
+		ordersComplete: get(finishedOrders).length,
+		uniqueSetsComplete: get(uniqueSets),
+		gametime: FullTimeLimit
+	})
 }
 
 export const authUser = (id, pass) => {

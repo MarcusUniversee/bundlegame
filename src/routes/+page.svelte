@@ -1,6 +1,6 @@
 <script>
     import Bundlegame from "./bundlegame.svelte";
-    import { game, elapsed, resetTimer, earned, currLocation, id, logAction, GameOver, authUser, orderList, ordersShown } from "$lib/bundle.js";
+    import { game, elapsed, resetTimer, earned, currLocation, id, logAction, GameOver, authUser, orderList, ordersShown, startTimer, finishedOrders } from "$lib/bundle.js";
     import { createUser, generateCompleteId } from "$lib/firebaseDB.js";
 	import Home from "./home.svelte";
 	import { onMount } from "svelte";
@@ -17,13 +17,14 @@
     async function start() {
         const auth = await authUser(userInput, userPass)
         if (auth === 1) {
-        resetTimer();
-        createUser(userInput)
-        $game.inSelect = true;
-        $id = userInput
-        started = true;
-        $orderList = queueNFixedOrders(ordersShown)
-        completed = generateCompleteId(userInput)
+            startTimer();
+            resetTimer();
+            createUser(userInput)
+            $game.inSelect = true;
+            $id = userInput
+            started = true;
+            $orderList = queueNFixedOrders(ordersShown)
+            completed = generateCompleteId(userInput)
         } else {
             alert("id and token do not match")
         }
@@ -59,13 +60,22 @@
 </script>
 {#if $GameOver}
     <h3>Game Over!</h3>
+    <h4>Your Stats:</h4>
+    <ul>
+        <li>Earnings: {$earned}</li>
+        <li>Finished Orders: {$finishedOrders.length}</li>
+    </ul>
     <p>Please copy the following code back into Qualtrics survey: <b>{completed}</b></p>
 
     <h5>You may close this page once you have succesfully continued to the next step in the survey</h5>
 {:else}
     <h4>Please do not refresh or close the page!</h4>
     {#if started}
+        {#if $elapsed}
         <p><b>Time</b>: {$elapsed}s</p>
+        {:else}
+        <p><b>Time</b>: 0s</p>
+        {/if}
         <p><b>Earned</b>: ${$earned}</p>
         <p><b>Location</b>: {$currLocation}</p>
     {/if}
