@@ -12,7 +12,12 @@ data = {
                 ["", "", ""]
             ],
             "cellDistance": 0,
-            "Entrance": [0, 0]
+            "Entrance": [0, 0],
+            "waiting": [0, 0, 0, 0, 0, 0],
+            "waitinginterval": 0,
+            "refresh": 0,
+            "tip": [0, 0, 0, 0, 0],
+            "tipinterval": 0
         },
         {
             "store": "",
@@ -24,7 +29,12 @@ data = {
                 ["", "", ""]
             ],
             "cellDistance": 0,
-            "Entrance": [0, 0]
+            "Entrance": [0, 0],
+            "waiting": [0, 0, 0, 0, 0, 0],
+            "waitinginterval": 0,
+            "refresh": 0,
+            "tip": [0, 0, 0, 0, 0],
+            "tipinterval": 0
         },
         {
             "store": "",
@@ -36,7 +46,12 @@ data = {
                 ["", "", ""]
             ],
             "cellDistance": 0,
-            "Entrance": [0, 0]
+            "Entrance": [0, 0],
+            "waiting": [0, 0, 0, 0, 0, 0],
+            "waitinginterval": 0,
+            "refresh": 0,
+            "tip": [0, 0, 0, 0, 0],
+            "tipinterval": 0
         },
         {
             "store": "",
@@ -48,7 +63,12 @@ data = {
                 ["", "", ""]
             ],
             "cellDistance": 0,
-            "Entrance": [0, 0]
+            "Entrance": [0, 0],
+            "waiting": [0, 0, 0, 0, 0, 0],
+            "waitinginterval": 0,
+            "refresh": 0,
+            "tip": [0, 0, 0, 0, 0],
+            "tipinterval": 0
         }
     ],
     "distances": {
