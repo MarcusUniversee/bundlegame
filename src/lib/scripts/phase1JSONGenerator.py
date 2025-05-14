@@ -213,7 +213,7 @@ def createSet(func, default_job, n, next_orders, previous_locs={"Emeryville"}):
 def createNew(default_job_data_path):
     default_job = load(default_job_data_path)
     next_orders = []
-    previous_locs = {"Emeryville"}
+    previous_locs = {default_job["startinglocation"]}
     count = 0
     generators = [vary_earnings_item_amount,vary_location, equal_earnings, equal_everything, equal_location_earnings, commonsense_item_amount, pure_randomness]
     previous_locs = createSet(commonsense_item_amount, default_job, count, next_orders, previous_locs)

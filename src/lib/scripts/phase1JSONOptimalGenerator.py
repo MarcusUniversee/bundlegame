@@ -377,7 +377,7 @@ def createPossibilities(default_job_data_path, orders_data_path):
     default_job = load(default_job_data_path)
     next_possibilities = []
     next_optimal = []
-    previous_locs = {"Emeryville"}
+    previous_locs = {default_job["startinglocation"]}
     all_orders = load(orders_data_path)
     for i in range(0, len(all_orders), 4):
         orders = all_orders[i:i+4]
