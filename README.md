@@ -22,12 +22,12 @@ You will need the following data inside your `config.json` file:
     - `waiting`: An array of percentages
     - `waitinginterval`: Time interval for changes in price during the wait period
 
-- `refresh`: true/false. Whether orders can temporarily disappear and then reappear.  
+- `refresh`: true/false. Whether orders can disappear (get taken) and then reappear as a new order.  
   - Requires:
     - `demand` in the order config: Probability (per second) that an order disappears
     - `refresh` in the store config: Time (in seconds) before a disappeared order is refreshed
 
-- `expire`: true/false. Whether unselected orders can disappear permanently and be replaced by new ones
+- `expire`: true/false. Whether unselected order(s) can appear after a game round. They stop showing (expire) after x amount of rounds. If false, this is essentially the same as x = 1.
 
 - `conditions`:
   - An array of condition objects that define setups
