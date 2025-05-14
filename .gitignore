@@ -8,6 +8,11 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
-phase1_optimal.json
+
 phase1_orders.json
+
+storesTemplate.json
+
+phase1_optimal.json
+
 phase1_possibilities.json
