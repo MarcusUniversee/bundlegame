@@ -1,7 +1,7 @@
 <script>
     import { orders, currLocation, gameText, orderList, game } from "$lib/bundle.js"
     import { onMount, onDestroy } from 'svelte';
-    import { queueNRandomOrders, queueNFixedOrders, storeConfig } from "$lib/config.js";
+    import { queueNFixedOrders, storeConfig } from "$lib/config.js";
    
     export let orderData;
     export let index;
@@ -15,11 +15,13 @@
     function updateTimer() {
         timer += 1; // Increment timer by 1 second (or any other logic)
         //percent increase based on waiting
-        let waitingIndex = Math.floor(timer / config["waitinginterval"])
-        let percentIncrease = waitingIndex < config["waiting"].length ? (1 + (config["waiting"][waitingIndex]/100)) : (config["waiting"][config["waiting"].length - 1]/100)
-        orderData.earnings = Math.round(orderData.startingearnings*percentIncrease*100)/100
-        updateEarnings(index, orderData.earnings);
-        if (orderData.demand > Math.random()*100) {
+        if ($game.waiting) {
+            let waitingIndex = Math.floor(timer / config["waitinginterval"])
+            let percentIncrease = waitingIndex < config["waiting"].length ? (1 + (config["waiting"][waitingIndex]/100)) : (config["waiting"][config["waiting"].length - 1]/100)
+            orderData.earnings = Math.round(orderData.startingearnings*percentIncrease*100)/100
+            updateEarnings(index, orderData.earnings);
+        }
+        if ($game.refresh && orderData.demand > Math.random()*100) {
             //order taken!
 
             //unselect if selected
@@ -46,7 +48,7 @@
     }
 
     onMount(() => {
-        if ($game.phase == 2) {
+        if ($game.waiting || $game.refresh) {
             timer = 0
             config = storeConfig(orderData.store)
         
@@ -55,7 +57,7 @@
     });
 
     onDestroy(() => {
-        if ($game.phase == 2) {
+        if ($game.waiting || $game.refresh) {
             clearInterval(intervalId);
             timer = 0
         }
@@ -149,15 +151,17 @@
     {:else}
         
      
-    <div class="order-content" id={index + "Selected" + selected} class:selected={selected} class:unselected={!selected} on:click={select}>
-        <p class="header">{orderData.store} for {orderData.name}</p>
-        <div style="display: inline;">
-            <div style="float:left">
-                <p class="innerText">$ {orderData.earnings}</p>
-                <p class="innerText">{orderData.city}</p>
+    <div id={index + "Selected" + selected} 
+    class="w-full max-w-sm mx-auto p-4 rounded-md shadow-md cursor-pointer select-none transition-all border border-gray-400" class:bg-gray-400={selected}
+    class:bg-gray-300={!selected} on:click={select}>
+        <p class="text-lg font-semibold text-center mb-2">{orderData.store} for {orderData.name}</p>
+        <div class="flex justify-between text-sm text-gray-800">
+            <div>
+                <p class="mb-1 font-medium">$ {orderData.earnings}</p>
+                <p>{orderData.city}</p>
             </div>
-            <div style="float:right">
-                <p class="innerText">
+            <div class="text-right">
+                <p>
                 {#each Object.keys(orderData.items) as item}
                     {orderData.items[item]} - {item}<br>
                 {/each}

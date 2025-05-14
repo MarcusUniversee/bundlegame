@@ -1,14 +1,40 @@
 import { timeStamp } from './bundle';
 import {app, firestore} from './firebaseConfig';
-import { collection, collectionGroup, doc, setDoc, getDoc, getDocs, addDoc, arrayUnion, updateDoc, Timestamp } from "firebase/firestore";
+import { collection, collectionGroup, doc, setDoc, getDoc, getDocs, addDoc, arrayUnion, updateDoc, Timestamp, increment } from "firebase/firestore";
 
-export const createUser = async (id) => {
+export const incrementCounter = async () => {
+    const docRef = doc(collection(firestore, 'Global'), "totalusers");
+    try {
+        await updateDoc(docRef, {
+            count: increment(1)
+        });
+        console.log("Count incremented");
+    } catch (error) {
+        console.error("Error adding document: ", error);
+    }
+}
+
+export const getCounter = async () => {
+    const docRef = doc(collection(firestore, 'Global'), "totalusers");
+    try {
+        const docSnap = await getDoc(docRef);
+        let count = docSnap.data().count
+        console.log("Count retrieved");
+        return count
+    } catch (error) {
+        console.error("Error adding document: ", error);
+    }
+    return 0
+}
+
+export const createUser = async (id, n) => {
     const data = {
         earnings: 0,
         ordersComplete: 0,
         uniqueSetsComplete: 0,
         createdAt: Timestamp.fromDate(new Date()),
-        updatedAt: Timestamp.fromDate(new Date())
+        updatedAt: Timestamp.fromDate(new Date()),
+        configuration: n
     }
     const userDocRef = doc(collection(firestore, 'Users'), id);
 

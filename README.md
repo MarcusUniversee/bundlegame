@@ -1,41 +1,69 @@
-## Notes
-I built this game off of Jared's original future of work uber eats game, due to plans of updating his game with bundling. However, we decided to create a new game entirely, so this exists in the bundlegame folder
+# Configuring the Game
 
-# create-svelte
+You will need the following data inside your `config.json` file:
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+- `name`: string. Name of the configuration (e.g., "Phase 1 Lab Configuration")
 
-## Creating a project
+- `timeLimit`: integer. How long the game should run in seconds
 
-If you're seeing this, you've probably already done this step. Congrats!
+- `thinkTime`: integer. How many seconds the user gets to think before being able to select orders (timer is paused during this time)
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- `gridSize`: integer. Dimensions of the game grid.  
+  - For example, `3` means a 3x3 grid.
+  - Maximum value is 9
 
-# create a new project in my-app
-npm create svelte@latest my-app
+- `tips`: true/false. Whether tips are active during gameplay (i.e., prices change dynamically).  
+  - Requires the `store` config to contain:
+    - `tip`: An array of percentages to increase the price (e.g., `[0.1, 0.2, 0.15]`)
+    - `tipinterval`: The interval (in seconds) between tip changes
+
+- `waiting`: true/false. Whether prices fluctuate while players are selecting orders (before the game starts).  
+  - Requires the `store` config to contain:
+    - `waiting`: An array of percentages
+    - `waitinginterval`: Time interval for changes in price during the wait period
+
+- `refresh`: true/false. Whether orders can temporarily disappear and then reappear.  
+  - Requires:
+    - `demand` in the order config: Probability (per second) that an order disappears
+    - `refresh` in the store config: Time (in seconds) before a disappeared order is refreshed
+
+- `expire`: true/false. Whether unselected orders can disappear permanently and be replaced by new ones
+
+- `conditions`:
+  - An array of condition objects that define setups
+  - Each object needs `name`, `order_file`, and `store_file`
+  - Each condition will use a different `order_file` and `store_file` combination when assigned during game start
+  - If you are not testing conditions, this should be length 1
+  - The conditions will always alternate between users
+
+- `auth`: true if it requires login. (should always be true unless tutorial)
+
+## Example
+
+```json
+{
+    "name": "Phase 1 Lab Configuration",
+    "timeLimit": 1200,
+    "thinkTime": 10,
+    "gridSize": 3,
+    "tips": false,
+    "waiting": false,
+    "refresh": false,
+    "expire": false,
+    "conditions": [
+        {
+            "name": "Shorter cell distances",
+            "order_file": "order.json",
+            "store_file": "stores1.json"
+        },
+        {
+            "name": "Longer cell distances",
+            "order_file": "order.json",
+            "store_file": "stores2.json"
+        }
+    ]
+}
+
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+For data analysis, the first condition is denoted configuration "0" and the second condition is denoted configuration "2"

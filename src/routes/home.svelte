@@ -1,12 +1,12 @@
 <script>
     import { get } from 'svelte/store';
     import { game, orders, gameText, currLocation, logOrder, logBundledOrder, orderList, ordersShown, thinkTime, toggleTime } from "$lib/bundle.js";
-    import { queueNRandomOrders, queueNFixedOrders, getDistances } from "$lib/config.js";
+    import { queueNFixedOrders, getDistances } from "$lib/config.js";
     import Order from "./order.svelte";
     import { onMount } from "svelte";
 
     let waiting = false;
-    let distances = getDistances($currLocation)
+    $: distances = getDistances($currLocation);
     let duration = 0;
     let travelingTo = ""
     let thinking = false;
@@ -101,25 +101,29 @@
 {#if $game.inSelect}
 
 {#if waiting}
-    <p>Traveling to {travelingTo}. Travel duration: {duration}</p>
+    <p class="text-lg font-medium text-gray-700 my-4">Traveling to {travelingTo}. Travel duration: {duration}</p>
 {:else}
     {#if thinking}
-    <p>Game timer stopped! Take 10 free seconds to look through the available orders</p>
+    <p class="text-blue-600 font-semibold my-4">Game timer stopped! Take {thinkTime} free seconds to look through the available orders</p>
     {/if}
-    <div class="home">
+    <div class="grid grid-cols-2 gap-4 mb-6">
         {#each $orderList as order, i (order.id)}
             <Order orderData={order} index={i} updateEarnings={updateEarnings}/>
         {/each}
+    </div>
+    <div class="flex flex-row justify-center items-center">
         {#if !thinking}
-        <button id="startorder" on:click={start}>{$gameText.selector}</button>
+        <button class="px-6 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md transition" id="startorder" on:click={start}>{$gameText.selector}</button>
         {/if}
     </div>
     {#if !thinking}
-    <div>
+    {#if distances}
+    <div class="flex flex-row justify-center items-center">
         {#each distances["destinations"] as dest}
-            <button id="travel" on:click={() => travel(dest, false)}>Travel to {dest}</button>
+            <button class="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-sm font-medium rounded-md shadow-sm transition" id="travel" on:click={() => travel(dest, false)}>Travel to {dest}</button>
         {/each}
     </div>
+    {/if}
     {/if}
 {/if}
 {/if}

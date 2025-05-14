@@ -1,10 +1,10 @@
 import { writable, readable, derived, get} from 'svelte/store';
 import { addAction, addOrder, updateFields, updateOrder, authenticateUser, createUser, getCounter, incrementCounter } from './firebaseDB';
 
-import config from "../config.json"
+import config from "../tutorialconfig.json"
 import { switchJob } from './config';
 
-const configModules = import.meta.glob("./configs/*.json");
+const configModules = import.meta.glob("./tutorialconfigs/*.json");
 
 // Get filenames (cleaned for display)
 export const configOptions = Object.keys(configModules).map(path => {

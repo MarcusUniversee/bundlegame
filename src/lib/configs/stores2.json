@@ -1,10 +1,4 @@
 {
-    "names": [
-        "Noah", "Liam", "Jacob", "Mason", "William", "Ethan", "Michael", "Oliver", "Elijah", "James",
-        "Lucas", "Benjamin", "Alexander", "Aiden", "Daniel", "Logan", "David", "Matthew", "Christopher", "Joseph",
-        "Olivia", "Emma", "Ava", "Sophia", "Isabella", "Charlotte", "Mia", "Amelia", "Evelyn", "Abigail", "Park",
-        "Marcus"
-    ],
     "stores": [
         {
             "store": "Target",
@@ -15,7 +9,7 @@
                 ["Apple", "Pineapple", ""],
                 ["Grape", "Banana", ""]
             ],
-            "cellDistance": 3000,
+            "cellDistance": 5000,
             "Entrance": [0, 0]
         },
         {
@@ -27,7 +21,7 @@
                 ["Orange", "Apple", "Grape"],
                 ["", "", ""]
             ],
-            "cellDistance": 1000,
+            "cellDistance": 2000,
             "Entrance": [0, 0]
         },
         {
@@ -39,7 +33,7 @@
                 ["Entrance", "Pineapple", "Kiwi"],
                 ["Grape", "Orange", "Apple"]
             ],
-            "cellDistance": 2000,
+            "cellDistance": 3000,
             "Entrance": [1, 0]
         },
         {
@@ -51,7 +45,7 @@
                 ["Apple", "Orange", ""],
                 ["", "", ""]
             ],
-            "cellDistance": 2000,
+            "cellDistance": 3000,
             "Entrance": [0, 0]
         }
     ],
@@ -72,6 +66,7 @@
             "destinations": ["Emeryville", "Berkeley", "Oakland"],
             "distances": [7, 4, 4]
         }
-    }
+    },
+    "startinglocation": "Berkeley"
 
 }

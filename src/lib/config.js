@@ -1,5 +1,5 @@
-import default_job from "./scripts/game_modes/phase1Stores.json" with { type: "json" };
-import order_list from "./scripts/game_modes/phase1_orders.json" with { type: "json" };
+let default_job = {}
+let order_list = []
 
 let id = 0;
 let orderid = 0;
@@ -19,41 +19,9 @@ function gaussianRandom(mean, stdDev) {
     return randomInt;
 }
 
-/* Queues N orders */
-export function queueNRandomOrders(n) {
-    const next_orders = [];
-    for (let i = 0; i < n; i++) {
-        //randomly generate
-        let order = {
-            name: default_job["names"][Math.floor(Math.random() * default_job["names"].length)]
-        }
-        let store = default_job["stores"][Math.floor(Math.random() * default_job["stores"].length)];
-        order.store = store["store"]
-        order.earnings = gaussianRandom(store["earnings"][0], store["earnings"][1])
-        if (order.earnings < 1) {
-            order.earnings = 1;
-        }
-        order.city = store["city"]
-        let count = gaussianRandom(store["amount"][0], store["amount"][1])
-        if (count < 1) {
-            count = 1;
-        }
-        order.amount = count
-        order.items = {}
-        order.id = "generated" + id
-        for (let i=0; i<count; i++) {
-            //pick an item
-            let item = store["items"][Math.floor(Math.random() * store["items"].length)]
-            if (Object.keys(order["items"]).includes(item)) {
-                order.items[item] += 1
-            } else {
-                order.items[item] = 1
-            }
-        }
-        next_orders.push(order);
-        id += 1;
-    }
-    return next_orders;
+export function switchJob(orders, stores) {
+    order_list = orders
+    default_job = stores
 }
 
 // TODO add way to pull from different JSON here
