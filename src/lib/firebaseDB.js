@@ -253,7 +253,7 @@ export const retrieveData = async () => {
         const docData = docSnapshot.data();
         const docId = docSnapshot.id;
         console.log(docId)
-        if (docId.includes("boba")) {
+        if (true) {
             
             // Fetch subcollections for each document
             const orders = await getSubcollections(docId, '/Orders');
